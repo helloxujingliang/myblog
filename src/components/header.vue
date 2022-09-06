@@ -5,7 +5,7 @@
         <img src="@/assets/images/logo.png" alt="">
       </div>
       <div class="logo-name">
-       FrontCangKu
+       HopetryCodebase
       </div>
       <div class="menu">
          <el-dropdown style="margin:0px 12px;" size="small">

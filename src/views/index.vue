@@ -1,4 +1,6 @@
 <template>
+<div>
+
   <div class="body-container">
     <div class="article-list-container">
       <div class="box" v-for="(item,index) in 15" :key="index" >
@@ -16,7 +18,16 @@
             </span>
           </p>
       </div>
+         <!-- 分页 -->
+    <div class="pagenation">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </div>
+    </div>
+
     <div class="record-list-container">
       <div class="user-container">
         <div class="user-info">
@@ -71,9 +82,11 @@
         </div>
       </div>
     </div>
-
-    
+   
   </div>
+
+      
+</div>
 </template>
 <script>
 export default {
@@ -96,6 +109,13 @@ export default {
 .body-container{
   width:1050px;
   margin:20px auto;
+}
+.body-container::after{
+  content:"";
+  display:block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .article-list-container{
   width:720px;
@@ -151,9 +171,9 @@ export default {
   color:#999;
 }
 .pagenation{
-  width:760px;
+  width:720px;
   height:50px;
-  background:#fff;
+  margin-top:12px;
 }
 
 .user-container{
