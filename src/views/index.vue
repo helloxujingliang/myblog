@@ -1,6 +1,4 @@
 <template>
-<div>
-
   <div class="body-container">
     <div class="article-list-container">
       <div class="box" v-for="(item,index) in 15" :key="index" >
@@ -62,12 +60,12 @@
       </div>
       <div class="record-container">
         <div class="cate-title">
-          浏览排行
+          <i class="el-icon-s-data"></i> 浏览排行
         </div>
         <div class="record-list">
           <p v-for="(item,index) in 10" style="font-size:13px;height:22px;" :key="index">
             <i style="color:#409eff;">{{index+1}}、</i>
-            <el-link style="font-size:12px;">MapBox GL加载GeoJson点线面图标图 ……</el-link>
+            <el-link style="font-size:12px;">MapBox GL加载GeoJson点线面图标图……</el-link>
           </p>
           
         </div>
@@ -75,7 +73,7 @@
 
         <div class="record-container">
         <div class="cate-title">
-          常用链接
+          <i class="el-icon-link"></i> 常用链接
         </div>
         <div class="record-list">
           <el-link type="primary" v-for="(item,index) in link" :key="index" style="margin:4px 8px;font-size:13px;">{{item}}</el-link>
@@ -84,9 +82,6 @@
     </div>
    
   </div>
-
-      
-</div>
 </template>
 <script>
 export default {
@@ -108,7 +103,7 @@ export default {
 <style lang="scss" scoped>
 .body-container{
   width:1050px;
-  margin:20px auto;
+  margin:0px auto;
 }
 .body-container::after{
   content:"";
@@ -252,5 +247,15 @@ export default {
   margin-top:40px;
   width:266px;
 }
+
+.record-list p{
+  width:100%;
+  height:30px;
+
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
 </style>>
 

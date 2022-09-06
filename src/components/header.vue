@@ -64,7 +64,7 @@
      
       <div class="register-and-login">
         <el-button type="primary" size="mini" icon="el-icon-edit">申请创作者</el-button>
-        <el-button type="primary" size="mini" plain>登 录</el-button>
+        <!-- <el-button type="primary" size="mini" plain>登 录</el-button> -->
         <!-- <el-link :underline="false" style="margin-left:16px;" type="primary"></el-link> -->
       </div>
 
@@ -99,7 +99,7 @@ export default {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 .site-header .inner{
-  width:1024px;
+  width:1050px;
   height:60px;
   margin:0px auto;
 }
