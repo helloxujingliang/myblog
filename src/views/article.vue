@@ -94,7 +94,10 @@ export default {
         dealPreCode(){
             let el = document.getElementById("article");
             let blocks = el.querySelectorAll('pre code'); // querySelectorAll可以根据自己的富文本生成的代码做调整 我这里默认刚好
-            blocks.forEach((block) => { // 在forEach中做一些操作
+            blocks.forEach((block,index) => { // 在forEach中做一些操作
+                // blocks[index].style.fontSize="14px"
+                blocks[index].style.fontFamily="Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace"
+                blocks[index].style.borderRadius="3px"
                 // 1.创建ul节点
                 // let ul = document.createElement("ul");
                 // 2.根据换行符获取行数，根据获取的行数生成行号
@@ -141,4 +144,12 @@ export default {
     color:#666;
     position:relative;
 }
+
+
+
+::v-deep pre{
+    font-size:14px;
+}
+
+
 </style>

@@ -49,4 +49,23 @@ html,body{
   margin:0px auto;
 }
 
+/* 滑道样式 */
+*::-webkit-scrollbar{
+  width:5px;
+  background:rgba(0,0,0,0.1);
+  border-radius: 6px;
+}
+/* 定义滑块的样式 */
+*::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.1);
+  background-color:rgba(0,0,0,0.1);
+}
+/* 定义滑块鼠标移入时的样式 */
+*::-webkit-scrollbar-thumb:hover{
+  border-radius: 10px;
+  -webkit-box-shadow:inset 0 0 6px rgba(255,255,255,0.3);
+  background-color:rgba(255,255,255,0.3);
+}
+
 </style>
