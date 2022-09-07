@@ -64,7 +64,7 @@
       </div>
      
       <div class="register-and-login">
-        <el-button type="primary" size="mini" icon="el-icon-edit">申请创作者</el-button>
+        <el-button type="primary" size="mini" icon="el-icon-edit" @click="$router.push({path:'/write'})">申请创作者</el-button>
         <!-- <el-button type="primary" size="mini" plain>登 录</el-button> -->
         <!-- <el-link :underline="false" style="margin-left:16px;" type="primary"></el-link> -->
       </div>
@@ -97,6 +97,7 @@ export default {
   width:100%;
   height:60px;
   background:#ffffff;
+  margin-bottom:15px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 .site-header .inner{

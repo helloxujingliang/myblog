@@ -2,7 +2,7 @@
   <div id="app">
     <div class="main-container">
       <Header></Header>
-      <BreadNav></BreadNav> 
+      <BreadNav v-if="breadNavShow"></BreadNav> 
       <router-view/>
       <el-backtop ></el-backtop>
     </div>
@@ -19,7 +19,16 @@ export default {
   },
   data(){
     return {
-
+      breadNavShow:false,
+    }
+  },
+  watch:{
+    $route:function(e){
+      if(e.meta.name == "index" || e.meta.name == "my" || e.meta.name == "write"){
+        this.breadNavShow = false;
+      }else{
+         this.breadNavShow = true;
+      }
     }
   }
 }

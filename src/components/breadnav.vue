@@ -25,7 +25,7 @@ export default {
 .nav-container{
   text-indent:6px;
   font-size:12px;
-  padding:16px 0px;
+  padding-bottom:15px;
   width:1050px;
   height:15px;
   margin:0px auto;

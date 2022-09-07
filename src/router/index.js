@@ -14,11 +14,17 @@ const routes = [
       {
         path:"list",
         name:"List",
-        component: ()=>import('../views/list.vue')
+        component: ()=>import('../views/list.vue'),
+        meta:{
+          name:'index'
+        }
       },{
         path:"article",
         name:"article",
-        component: ()=>import('../views/article.vue')
+        component: ()=>import('../views/article.vue'),
+        meta:{
+          name:'article'
+        }
       }
     ]
   },
@@ -26,11 +32,17 @@ const routes = [
     path: '/my',
     name: 'My',
     component: ()=>import('../views/my.vue'),
+    meta:{
+      name:'my'
+    }
   },
   {
     path: '/write',
     name: 'Write',
     component: ()=>import('../views/write.vue'),
+    meta:{
+      name:'write'
+    }
   },
   {
     path: '/about',
