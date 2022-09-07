@@ -7,6 +7,33 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
     <title>代码仓库</title>
+    <style>
+      pre {
+            position: relative;
+            margin-bottom: 24px;
+            background: #FFF;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .pre-numbering {
+            position: absolute;
+            left: -32px;
+            width: 32px;
+            padding: 8px 2px 8px 2px;
+            border-right: 1px solid #C3CCD0;
+            background-color: #002b36;
+            text-align: center;
+           
+        }
+        .pre-numbering li{
+            text-align:center;
+            height:24px;
+            line-height: 24px;
+            list-style:none;
+            font-family: Menlo, monospace;
+            color: #839496;
+        }
+    </style>
   </head>
   <body>
     <noscript>

@@ -8,7 +8,24 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    redirect:"list",
+    children:[
+      {
+        path:"list",
+        name:"List",
+        component: ()=>import('../views/list.vue')
+      },{
+        path:"article",
+        name:"article",
+        component: ()=>import('../views/article.vue')
+      }
+    ]
+  },
+  {
+    path: '/my',
+    name: 'My',
+    component: ()=>import('../views/my.vue'),
   },
   {
     path: '/about',

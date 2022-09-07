@@ -4,7 +4,6 @@
       <Header></Header>
       <BreadNav></BreadNav> 
       <router-view/>
-      <Footer></Footer>
       <el-backtop ></el-backtop>
     </div>
   </div>
@@ -12,13 +11,11 @@
 <script>
 import Header from '@/components/header.vue';
 import BreadNav from '@/components/breadnav.vue';
-import Footer from '@/components/footer.vue'
 export default {
   name:"App",
   components:{
     Header,
-    BreadNav,
-    Footer
+    BreadNav
   },
   data(){
     return {

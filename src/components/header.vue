@@ -15,6 +15,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <!-- <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
+            <el-dropdown-item >JavaScript</el-dropdown-item>
             <el-dropdown-item >Vue 2</el-dropdown-item>
             <el-dropdown-item >Vue 3</el-dropdown-item>
             <el-dropdown-item >MapBox GL</el-dropdown-item>
