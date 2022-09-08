@@ -26,6 +26,17 @@ export default {
     data(){
         return {
             content:`
+            <pre class="language-javascript"><code>     // {select id,title,createtime,createuser,createid,desc, cateId,cateName,parentCateid,parentCateNmae,tags:[{},{}]}
+      // article : id,title,desc,content,state,visibility,createtime,createuser,createuserid,updatetime,cateId,delete
+      // add update delete list(querylist:cateid,tag,key,page,limit ; default:state == 1,visibility == 1)
+      // link : id,title,desc,url,state,sort,             
+      // tag : id,name,desc,
+      // cate id,name,desc,parentId(default 0),
+      // user id,username,password,email,login_time,login_ip,object,
+      // 关联表 ： good(点赞) 
+      // 关联表 ： collect(收藏)
+      // 关联表 ： tag(标签)
+      // 用户注册 登录 写作 浏览 点赞 收藏 找回密码  </code></pre>
 <h2><strong>（一）图层加载</strong></h2>
 <p>1、添加GeoJson 点（point）、线（line）、面（fill）、图标（symbol）数据</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 天空地监测平台： 镇边界图</p>
@@ -150,6 +161,8 @@ export default {
 ::v-deep pre{
     font-size:14px;
 }
+
+
 
 
 </style>

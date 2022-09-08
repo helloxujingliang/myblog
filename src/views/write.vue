@@ -47,9 +47,9 @@
         <div style="float:right;margin:0px 12px;color:#777;">
             <!-- <span style="font-size:12px;">文章状态</span> -->
              &nbsp;
-              <el-radio-group v-model="form.state" style="width:136px">
-                <el-radio :label="3">公开</el-radio>
-                <el-radio :label="6">私密</el-radio>
+              <el-radio-group v-model="form.state" style="margin-top:6px;">
+                <el-radio :label="3">全部可见</el-radio>
+                <el-radio :label="6">仅自己可见</el-radio>
               </el-radio-group>
             &nbsp;&nbsp;&nbsp;&nbsp;
           <el-button type="default" size="small" round>保存文章</el-button>
@@ -210,5 +210,14 @@ export default Vue.extend({
   border-radius:12px;
   /* border:0px;
   border-bottom:1px solid #f1f1f1; */
+}
+
+::v-deep .el-radio{
+    margin-right:8px;
+    font-size:12px;
+}
+
+::v-deep .el-radio__label{
+  font-size:12px;
 }
 </style>
