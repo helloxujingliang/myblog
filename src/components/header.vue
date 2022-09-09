@@ -146,10 +146,10 @@ export default {
 
 ::v-deep .el-input__inner{
   border:1px solid #409eff;
-  border-radius: 1px;
+  border-radius: 3px;
 }
 
 ::v-deep .el-button{
-  border-radius: 1px;
+  border-radius: 3px;
 }
 </style>

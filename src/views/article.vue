@@ -136,7 +136,7 @@ export default {
 <style scoped>
 .article-container{
     min-height:500px;
-    padding:30px 15px;
+    padding:30px 10px;
 }
 .article-title{
     height:50px;

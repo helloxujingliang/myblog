@@ -1,6 +1,6 @@
 <template>
   <div class="nav-container">
-    <el-breadcrumb separator-class="el-icon-arrow-right">
+    <el-breadcrumb  separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>前端开发</el-breadcrumb-item>
       <el-breadcrumb-item>MapBox GL</el-breadcrumb-item>
@@ -30,5 +30,8 @@ export default {
   height:15px;
   margin:0px auto;
   line-height:30px;
+}
+::v-deep .el-breadcrumb__inner{
+  font-size:12px;
 }
 </style>

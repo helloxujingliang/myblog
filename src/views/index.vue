@@ -49,6 +49,25 @@
           
         </div>
       </div>
+
+      <div class="record-container">
+        <div class="cate-title">
+          <i class="el-icon-link"></i> 创作者排行
+        </div>
+        <div class="record-list">
+          <div style="width:266px;height:40px;line-height:30px;" v-for="(item,index) in 5" :key="index">
+              <div style="float:left;width:30px;height:40px;color:orange;"><i>{{index+1}}、</i></div>
+              <div class="author-photo" style="float:left;">
+                  <img src="@/assets/images/head-photo.jpg" alt="" width="30px;">
+              </div>
+              <div style="float:left;width:180px;">
+                <span style="color:#333;margin-left:16px;font-size:12px;font-weight:400;">XuJingLiang</span>
+                <span style="color:#333;font-size:12px;font-weight:400;float:right;color:orange;">10{{index}}篇</span>
+              </div>
+          </div>
+        </div>
+      </div>
+
       <div class="record-container">
         <div class="cate-title">
           <i class="el-icon-link"></i> 常用链接
@@ -72,7 +91,7 @@ export default {
   data(){
     return {
       tags:['Vue 2','MapBox GL','Vue 3','GeoServer','Git','Vue Router','Axios','Element UI','Leaflet',],
-      link:["Vue2","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium"],
+      link:["Vue2","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium"],
     }
   },
   created(){
@@ -98,7 +117,7 @@ export default {
 .article-list-container{
   width:720px;
   padding:10px;
-
+  border-radius: 5px;
   float:left;
   background:#fff;
 
@@ -174,6 +193,7 @@ export default {
   background:#fff;
   margin-bottom:20px;
   position: relative;
+  border-radius: 5px;
 }
 .cate-title{
   width:266px;
@@ -199,5 +219,14 @@ export default {
   white-space:nowrap;
 }
 
+.author-photo{
+  width:28px;
+  height:28px;
+  border:1px solid #bbb;
+  border-radius:50%;
+  float:left;
+  margin-right:6px;
+  overflow: hidden;
+}
 </style>>
 
