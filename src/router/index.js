@@ -9,39 +9,56 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect:"list",
+    redirect:"home",
     children:[
       {
-        path:"list",
-        name:"List",
-        component: ()=>import('../views/list.vue'),
+        path:"home",
+        name:"Home",
+        component: ()=>import('../views/home.vue'),
+        redirect:"/home/list",
         meta:{
           name:'index'
+        },
+        children:[
+          {
+            path:"list",
+            name:"List",
+            component: ()=>import('../views/list.vue'),
+            meta:{
+              name:'article'
+            }
+          },
+          {
+            path:"article",
+            name:"article",
+            component: ()=>import('../views/article.vue'),
+            meta:{
+              name:'article'
+            }
+          },
+        ]
+      },{
+        path: '/my',
+        name: 'My',
+        component: ()=>import('../views/my.vue'),
+        meta:{
+          name:'my'
         }
       },{
-        path:"article",
-        name:"article",
-        component: ()=>import('../views/article.vue'),
+        path: '/write',
+        name: 'Write',
+        component: ()=>import('../views/write.vue'),
         meta:{
-          name:'article'
+          name:'write'
         }
-      }
+      },
     ]
-  },
-  {
-    path: '/my',
-    name: 'My',
-    component: ()=>import('../views/my.vue'),
+  },{
+    path: '/login',
+    name: 'Login',
+    component: ()=>import('../views/login.vue'),
     meta:{
-      name:'my'
-    }
-  },
-  {
-    path: '/write',
-    name: 'Write',
-    component: ()=>import('../views/write.vue'),
-    meta:{
-      name:'write'
+      name:'login'
     }
   },
   {

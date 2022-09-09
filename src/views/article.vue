@@ -1,6 +1,8 @@
 <template>
     <div class="article-container">
+        <!-- 文章标题 -->
         <div class="article-title">【MapBox GL】加载GeoJson点线面数据</div>
+        <!-- 文章内容 -->
         <div class="article-info">
             <span style="margin-right:12px;"><i class="el-icon-collection-tag"></i>&nbsp;前端开发·MapBox GL</span>
             <span><i class="el-icon-time"></i>&nbsp;2022-009-10 12:33</span>
@@ -12,7 +14,7 @@
               <el-link style="font-size:12px;margin-right:6px;"  type="default" :underline="false"> <strong style="color:#666;">#</strong>MapBox GL </el-link>
             </span>
         </div>
-
+        <!-- 文章内容 -->
         <div class="article-content" id="article" v-html="content">
 
         </div>
@@ -135,13 +137,17 @@ export default {
 </script>
 <style scoped>
 .article-container{
-    min-height:500px;
+    /* min-height:500px;
     padding:30px 10px;
+     background:#fff;
+        background:linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent); */
+  
 }
 .article-title{
     height:50px;
     font-size:19px;
     font-weight:bold;
+
 }
 .article-info{
     font-size:13px;
@@ -154,6 +160,18 @@ export default {
     line-height:22px;
     color:#666;
     position:relative;
+
+    color: #383838;
+    font-size: 13px;
+    line-height: 20px;
+    /* letter-spacing: 2px; */
+    word-break: break-word;
+    /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif; */
+    scroll-behavior: smooth;
+    background-image: linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent);
+    background-color: #fff;
+    background-size: 50px 50px;
+    padding-bottom: 60px;
 }
 
 

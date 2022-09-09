@@ -2,7 +2,7 @@
     <div>
         <div class="box" v-for="(item,index) in 15" :key="index" >
           <p class="article-title">
-            <span class="title"  @click="$router.push({path:'/article'})">【MapBox GL】加载加载GeoJson图层</span>
+            <span class="title"  @click="$router.push({path:'/home/article'})">【MapBox GL】加载加载GeoJson图层</span>
             
           </p>
           <p class="article-desc">使用MapBox GL加载GeoJson点(circle)、线(line)、面(fill)、图标(symbol)、3D白膜(fill-excetion)图层……</p>

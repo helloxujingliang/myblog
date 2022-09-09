@@ -1,36 +1,22 @@
 <template>
   <div id="app">
     <div class="main-container">
-      <Header></Header>
-      <BreadNav v-if="breadNavShow"></BreadNav> 
       <router-view/>
       <el-backtop ></el-backtop>
     </div>
   </div>
 </template>
 <script>
-import Header from '@/components/header.vue';
-import BreadNav from '@/components/breadnav.vue';
 export default {
   name:"App",
   components:{
-    Header,
-    BreadNav
+    
   },
   data(){
     return {
       breadNavShow:false,
     }
   },
-  watch:{
-    $route:function(e){
-      if(e.meta.name == "index" || e.meta.name == "my" || e.meta.name == "write"){
-        this.breadNavShow = false;
-      }else{
-         this.breadNavShow = true;
-      }
-    }
-  }
 }
 </script>
 <style lang="scss">
@@ -38,7 +24,7 @@ export default {
 html,body{
   padding:0px;
   margin:0px;
-  background:#f4f5f5;
+  background:#f1f3f5;
 }
 
 #nav {
