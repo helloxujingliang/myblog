@@ -61,6 +61,14 @@ const routes = [
       name:'login'
     }
   },
+  ,{
+    path: '/register',
+    name: 'Register',
+    component: ()=>import('../views/register.vue'),
+    meta:{
+      name:'register'
+    }
+  },
   {
     path: '/about',
     name: 'About',

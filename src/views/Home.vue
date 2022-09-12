@@ -6,7 +6,7 @@
       <router-view/>
     </div>
     <!-- 首页右侧 -->
-    <div class="record-list-container">
+    <div  class="record-list-container" v-if="isShowLeft">
       <!-- 账户信息 -->
       <div class="user-container">
         <div class="user-info">
@@ -70,13 +70,71 @@
           </div>
         </div>
       </div>
+       <!-- 标签 -->
+      <div class="record-container">
+        <div class="cate-title">
+          <i class="el-icon-link"></i> 文章标签
+        </div>
+        <div class="record-list">
+          <el-link type="primary" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">#{{item.name}}</el-link>
+        </div>
+      </div>
       <!-- 常用链接 -->
       <div class="record-container">
         <div class="cate-title">
           <i class="el-icon-link"></i> 常用链接
         </div>
         <div class="record-list">
-          <el-link type="primary" v-for="(item,index) in link" :key="index" style="margin:4px 8px;font-size:13px;">{{item}}</el-link>
+          <el-link type="primary" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-link>
+        </div>
+      </div>
+      <Footer></Footer>
+    </div>
+
+    <div  class="record-list-container-active" v-if="!isShowLeft">
+        <!-- 账户信息 -->
+      <div class="user-container">
+        <div class="user-info">
+          <div class="photo">
+            <img src="@/assets/images/head-photo.jpg" width="50px" alt="">
+          </div>
+          <div class="username">
+            <p>XuJingLiang</p>
+            <p style="font-size:12px;color:#999;">Web前端开发工程师</p>
+          </div>
+        </div>
+        <div class="user-count">
+          <div class="row">
+            <div class="count-btn">
+              <i class="el-icon-tickets"></i>
+            </div>
+            <div class="float:left">发表文章数量 32</div>
+          </div>
+          <div class="row">
+            <div class="count-btn">
+              <i class="el-icon-thumb"></i>
+            </div>
+            <div class="float:left">获得点赞数量 823</div>
+          </div>
+          <div class="row">
+            <div class="count-btn">
+              <i class="el-icon-view"></i>
+            </div>
+            <div class="float:left">文章浏览次数 12,102</div>
+          </div>
+        </div>
+      </div>
+      <!-- 浏览排行 -->
+      <div class="record-container">
+        <div class="cate-title">
+          <i class="el-icon-s-data"></i> 浏览排行
+        </div>
+        <div class="record-list">
+          <p v-for="(item,index) in 10" style="font-size:13px;height:22px;" :key="index">
+            <i style="color:#409eff;">{{index+1}}、</i>
+            <el-link style="font-size:12px;">MapBox GL加载GeoJson点线面图标图……</el-link>
+          </p>
+          
         </div>
       </div>
       <Footer></Footer>
@@ -94,14 +152,37 @@ export default {
     return {
       breadNavShow:false,
       tags:['Vue 2','MapBox GL','Vue 3','GeoServer','Git','Vue Router','Axios','Element UI','Leaflet',],
-      link:["Vue2","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium"],
+      links:[],
+      scrollHeight:0,
+      isShowLeft:true,
     }
   },
   created(){
-
+    this.getLink();
   },
   mounted(){
+    window.addEventListener("scroll",this.handlerScroll);
+  },
+  methods:{
+    handlerScroll(){
+      this.scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+      if(this.scrollHeight>1203){
+        this.isShowLeft = false;
+      }else{
+        this.isShowLeft = true;
+      }
+    },
+    getLink(){
+      this.$axios({
+        url:"http://localhost:8081/linklist",
+        method:"get",
 
+      }).then(res=>{
+        this.links = res.data;
+      }).catch(error=>{
+
+      })
+    },
   }
 }
 </script>
@@ -131,6 +212,17 @@ export default {
   height:800px;
 }
 
+.record-list-container-active{
+  width:290px;
+  height:800px;
+  position: fixed;
+  top: 75px;
+  // margin-left:50%;
+  left:50%;
+  margin-left:235px;
+  // transform: translate(-50%, -50%);
+}
+
 
 
 .user-container{
@@ -139,6 +231,7 @@ export default {
   min-height:200px;
   background:#fff;
   margin-bottom:20px;
+    border-radius:5px;
 }
 .user-info{
   width:266px;

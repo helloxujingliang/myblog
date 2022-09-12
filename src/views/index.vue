@@ -1,7 +1,8 @@
 <template>
 <div>
   <!-- 页面顶部导航搜索栏 -->
-  <Header></Header>
+  <Header style="position:fixed;top:0px;left:0px;z-index:999;"></Header>
+  <div style="width:100%;height:60px;margin-bottom:15px;"></div>
   <!-- 面包屑导航栏 -->
    <BreadNav v-if="breadNavShow"></BreadNav> 
   <!-- 首页主题内容 -->
@@ -41,7 +42,9 @@ export default {
 
   },
   mounted(){
-
+  },
+  methods:{
+    
   }
 }
 </script>
@@ -79,6 +82,7 @@ export default {
   min-height:200px;
   background:#fff;
   margin-bottom:20px;
+
 }
 .user-info{
   width:266px;

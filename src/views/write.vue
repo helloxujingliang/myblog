@@ -1,7 +1,7 @@
 <template>
   <div class="wirte-container">
     <div style="witdh:1050px;height:30px;padding:10px;">
-      <el-select  size="mini" v-model="form.cateId" placeholder="文章分类" style="float:left;width:160px;margin-left:4px;">
+          <el-select  size="mini" v-model="form.cateId" placeholder="文章分类" style="float:left;width:160px;margin-left:4px;">
             <el-option-group
               v-for="group in options"
               :key="group.label"

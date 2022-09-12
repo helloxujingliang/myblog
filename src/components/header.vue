@@ -8,57 +8,13 @@
        HopetryCodebase
       </div>
       <div class="menu">
-         <el-dropdown style="margin:0px 12px;" size="small">
+         <el-dropdown style="margin:0px 12px;" size="small" v-for="(item,index) in cateTree" :key="index">
           <span class="el-dropdown-link">
-            <el-link type="default" :underline="false">前端开发</el-link>
+            <el-link type="default" :underline="false">{{item.name}}</el-link>
             <!-- <i class="el-icon-arrow-down el-icon--right" style="position:relative;top:2px;"></i> -->
           </span>
           <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
-            <el-dropdown-item >JavaScript</el-dropdown-item>
-            <el-dropdown-item >Vue 2</el-dropdown-item>
-            <el-dropdown-item >Vue 3</el-dropdown-item>
-            <el-dropdown-item >MapBox GL</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <el-dropdown size="small">
-          <span class="el-dropdown-link" style="margin:0px 12px;" >
-            <el-link type="default" :underline="false">后端开发</el-link>
-            <!-- <i class="el-icon-arrow-down el-icon--right" style="position:relative;top:2px;"></i> -->
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
-            <el-dropdown-item >Vue 2</el-dropdown-item>
-            <el-dropdown-item >Vue 3</el-dropdown-item>
-            <el-dropdown-item >MapBox GL</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <el-dropdown size="small">
-          <span class="el-dropdown-link" style="margin:0px 12px;">
-            <el-link type="default" :underline="false">数据库</el-link>
-            <!-- <i class="el-icon-arrow-down el-icon--right" style="position:relative;top:2px;"></i> -->
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
-            <el-dropdown-item >Vue 2</el-dropdown-item>
-            <el-dropdown-item >Vue 3</el-dropdown-item>
-            <el-dropdown-item >MapBox GL</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-
-        <el-dropdown size="small">
-          <span class="el-dropdown-link" style="margin:0px 12px;">
-            <el-link type="default" :underline="false">GIS知识</el-link>
-            <!-- <i class="el-icon-arrow-down el-icon--right" style="position:relative;top:2px;"></i> -->
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
-            <el-dropdown-item >Vue 2</el-dropdown-item>
-            <el-dropdown-item >Vue 3</el-dropdown-item>
-            <el-dropdown-item >MapBox GL</el-dropdown-item>
+            <el-dropdown-item v-for="(it,idx) in item.children" :key="idx">{{it.name}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -81,14 +37,27 @@ export default {
   name:"Header",
   data(){
     return {
-
+      cateTree:null,
     }
   },
   created(){
-
+    
   },
   mounted(){
+    this.getCateTree();
+  },
+  methods:{
+    getCateTree(){
+      this.$axios({
+        url:"http://localhost:8081/catelist",
+        method:"get",
 
+      }).then(res=>{
+        this.cateTree = res.data;
+      }).catch(error=>{
+
+      })
+    }
   }
 }
 </script>

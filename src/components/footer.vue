@@ -13,7 +13,8 @@
   margin:0px auto;
   text-align: left;
   font-size:12px;
-  color:#999;
+  /* color:#999; */
+  color:#fafafa;
   line-height:22px;
 }
 .site-footer p{

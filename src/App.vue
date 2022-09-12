@@ -4,6 +4,9 @@
       <router-view/>
       <el-backtop ></el-backtop>
     </div>
+    <div class="bg-container">
+
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +30,9 @@ html,body{
   background:#f1f3f5;
 }
 
+html{
+  
+}
 #nav {
   padding: 30px;
 
@@ -42,11 +48,23 @@ html,body{
 
 .main-container{
   margin:0px auto;
+  position: relative;
+  z-index:2;
 }
 
+.bg-container{
+  width:100vw;
+  height:100vh;
+  background:url(./assets/images/app-bg-3.png);
+  background-repeat:no-repeat;
+  background-size:100vw 110vh;
+  position:fixed;
+  top:0px;
+  left:0px;
+}
 /* 滑道样式 */
 *::-webkit-scrollbar{
-  width:5px;
+  width:8px;
   background:rgba(0,0,0,0.1);
   border-radius: 6px;
 }
