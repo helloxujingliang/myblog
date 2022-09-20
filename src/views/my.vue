@@ -26,11 +26,15 @@
                   <div>文章浏览</div>
               </div>
               </div>
-            </div>http://123.132.248.154:9093/#/login
+            </div>
             <div class="menu-box">
               <div class="menu"><i class="el-icon-tickets"></i>&nbsp;我的文章</div>
               <div class="menu"><i class="el-icon-thumb"></i>&nbsp;我的点赞</div>
               <div class="menu"><i class="el-icon-star-off"></i>&nbsp;我的收藏</div>
+              <div class="menu"><i class="el-icon-thumb"></i>&nbsp;我的评论</div>
+              <div class="menu"><i class="el-icon-tickets"></i>&nbsp;作品数据</div>
+              <div class="menu"><i class="el-icon-tickets"></i>&nbsp;我的关注</div>
+              <div class="menu"><i class="el-icon-tickets"></i>&nbsp;我的粉丝</div>
               <div class="menu"><i class="el-icon-lock"></i>&nbsp;账号安全</div>
             </div>
         </div>
@@ -146,13 +150,13 @@ export default {
     margin-top:12px auto;
 }
 .filter{
-    width:750px;
+    width:760px;
     height:46px;
     border-bottom:1px solid #f1f3f5;
 }
 
 .box{
- width:720px;
+ width:730px;
  height:100px;
  padding:15px;
  background:#fff;

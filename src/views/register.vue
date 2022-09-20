@@ -19,19 +19,46 @@
 
       </div>
       <div class="rihgt-box">
-        <p style="margin-bottom:16px;">
-          <span style="font-size:20px;font-weight:bold;color:#777;">注&nbsp;册</span>
-          <span style="float:right;font-size:12px;">已有账号？<el-link type="primary" :underline="false" @click="$router.push({path:'/login'})">去登陆</el-link></span>
+        <p style="margin-bottom:20px;">
+          <span style="font-size:20px;font-weight:560;color:#777;">注&nbsp;册</span>
+          <span style="float:right;font-size:12px;margin-top:8px;">已有账号？<el-link type="primary" :underline="false" @click="$router.push({path:'/login'})">去登陆</el-link></span>
         </p>
-        <el-input type="text" v-model="formData.email" style="width:300px;margin:8px 0px;" size="small" placeholder="邮箱"><i slot="prefix" class="el-input__icon el-icon-date"></i></el-input>
-        <el-input type="password" v-model="formData.password" size="small" style="width:300px;margin:8px 0px;" placeholder="请输入验证码"><i slot="prefix" class="el-input__icon el-icon-lock"></i></el-input>
-        <el-input type="password" v-model="formData.password" size="small" style="width:300px;margin:8px 0px;" placeholder="请输入密码"><i slot="prefix" class="el-input__icon el-icon-lock"></i></el-input>
-        <el-input type="password" v-model="formData.password" size="small" style="width:300px;margin:8px 0px;" placeholder="再次输入密码"><i slot="prefix" class="el-input__icon el-icon-lock"></i></el-input>
-        <p style="margin:12px 0px"> <el-checkbox v-model="checked">我已阅读并同
-          <el-link type="primary" :underline="false">《意隐私条款》</el-link> 和
-          <el-link type="primary" :underline="false">《 使用条例》</el-link>
-        </el-checkbox></p>
-        <el-button type="primary" size="small" style="width:300px;margin:-top:12px;">立&nbsp;即&nbsp;注&nbsp;册</el-button>
+
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm" size="small">
+          <el-form-item  prop="email">
+            <el-input v-model="ruleForm.email" type="text" placeholder="请输入邮箱" prefix-icon="el-icon-date">
+            </el-input>
+          </el-form-item>
+
+          <el-form-item  prop="code" >
+            <el-input v-model="ruleForm.code" type="text" placeholder="请输入验证码" prefix-icon="el-icon-lock" style="width:180px"></el-input>
+            <el-button type="primary" size="small" style="float:right;width:110px;" :disabled="canSendMail" @click="sendMail">{{sendMailTitle}}</el-button>
+          </el-form-item>
+
+          <el-form-item  prop="password">
+            <el-input v-model="ruleForm.password" type="password" placeholder="请输入密码" prefix-icon="el-icon-lock"></el-input>
+          </el-form-item>
+
+          <el-form-item  prop="repassword">
+            <el-input v-model="ruleForm.repassword"  type="password" placeholder="请再次输入密码" prefix-icon="el-icon-lock"></el-input>
+          </el-form-item>
+          
+          <el-form-item  prop="agree">
+              <el-checkbox-group v-model="ruleForm.agree">
+                <el-checkbox label="我已阅读并同意" name="agree"></el-checkbox>
+                 <span style="position:relative;top:-5px;">
+                   <el-link type="primary" :underline="false">《隐私条款》</el-link> 和
+                    <el-link type="primary" :underline="false">《 使用条例》</el-link>
+                  </span>
+               
+              </el-checkbox-group>
+          </el-form-item>
+
+          <el-form-item>
+            <el-button type="primary" size="small" style="width:300px;margin:-top:12px;"  @click="submitForm('ruleForm')">立&nbsp;即&nbsp;注&nbsp;册</el-button> 
+          </el-form-item>
+        </el-form>
+       
         <div class="other-login">
           <div class="other-login-title">其他方式登录</div>
           <div class="box">
@@ -59,12 +86,49 @@
 export default {
   name:"",
   data(){
-    return {
-      formData:{
-        email:"3225043@qq.com",
-        password:"19980116@Xjl",
-
+    var validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.ruleForm.password) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback()
       }
+    }
+    return {
+        ruleForm: {
+         email:"",
+         code:"",
+         password:"",
+         repassword:"",
+         agree:[],
+        },
+        rules: {
+          email: [
+              {required: true, message: '请输入邮箱号', trigger: 'blur'},
+              {pattern: /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '邮箱格式错误',trigger: 'blur'},
+              // {validator:,trigger: 'blur'}
+            ],
+          code: [
+            { required: true, message: '请输入验证码', trigger: 'blur' },
+            { min: 6, max:6,message: '验证码错误', trigger: 'blur' }
+          ],
+          password: [
+            {required: true, message: '请输入密码', trigger: 'blur' },
+            {pattern: /^(?![a-zA-Z]+$)(?![A-Z0-9]+$)(?![A-Z\W_]+$)(?![a-z0-9]+$)(?![a-z\W_]+$)(?![0-9\W_]+$)[a-zA-Z0-9\W_]{8,30}$/, message: '密码为数字，大小写字母，特殊符包含三种，长8-30位',trigger: 'blur'  },
+            // 密码为数字，小写字母，大写字母，特殊符号 至少包含三种，长度为8-30位，（判断的时候不区分大小写)
+          ],
+         repassword: [
+           { required: true, validator: validatePass2, trigger: 'blur' }
+          ],
+          agree: [
+            { type: 'array', required: true, message: '请先阅读并同意使用', trigger: 'change' }
+          ]
+        },
+      waitTime:60,
+      timeout:null,
+      sendMailTitle:"获取验证码",
+      canSendMail:false,
     }
   },
   created(){
@@ -74,7 +138,44 @@ export default {
 
   },
   methods:{
+    sendMail(){
+      this.$refs['ruleForm'].validateField('email', valid => {
+        console.log(valid);
+      if (valid== "请输入邮箱号" || valid== "邮箱格式错误") { 
+        return null;
+      } else { 
+          let _this = this;
+          _this.canSendMail = true;
+          _this.sendMailTitle = "重新获取( "+_this.waitTime+" )"
 
+          this.timeout = setInterval(function(){
+            if(_this.waitTime>0){
+              _this.waitTime--;
+              _this.sendMailTitle = "重新获取( "+_this.waitTime+" )"
+            }else{
+              _this.waitTime = 60;
+              clearInterval(_this.timeout);
+              _this.timeout = null;
+              _this.sendMailTitle = "发送验证码";
+              _this.canSendMail = false;
+            }
+          },1000)
+      }
+    })
+      
+
+
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
   }
 }
 </script>
@@ -126,7 +227,7 @@ export default {
 .main-box .rihgt-box{
   width:300px;
   height:400px;
-  padding:50px;
+  padding: 20px 50px;
   float:left;
 }
 
@@ -136,7 +237,7 @@ export default {
 
 .other-login{
   width:300px;
-  height:100px;
+  height:80px;
   border-top:1px solid #ddd;
   margin-top:30px;
   position:relative;
@@ -159,7 +260,7 @@ export default {
   margin-top:24px;
   width:30px;
   height:30px;
-  margin:24px 12px;
+  margin:24px 15px;
   float:left;
   border-radius:50%;
 }

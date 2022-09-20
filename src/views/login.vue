@@ -23,12 +23,12 @@
       <div class="rihgt-box">
         <p style="margin-bottom:24px;">
           <span style="font-size:20px;font-weight:bold;color:#777;">登 录</span>
-          <span style="float:right;font-size:12px;">还没有账号？<el-link type="primary" :underline="false">注册账号</el-link></span>
+          <span style="float:right;font-size:12px;margin-top:8px;">还没有账号？<el-link type="primary" :underline="false" @click="$router.push({path:'/register'})">注册账号</el-link></span>
         </p>
         <el-input type="text" v-model="formData.email" style="width:300px;margin:12px 0px;" size="small" placeholder="邮箱"><i slot="prefix" class="el-input__icon el-icon-date"></i></el-input>
         <el-input type="password" v-model="formData.password" size="small" style="width:300px;margin:12px 0px;" placeholder="登录密码"><i slot="prefix" class="el-input__icon el-icon-lock"></i></el-input>
         <el-input type="password" v-model="formData.password" size="small" style="width:300px;margin:12px 0px;" placeholder="登录密码"><i slot="prefix" class="el-input__icon el-icon-lock"></i></el-input>
-        <p style="margin:12px 0px"> <el-checkbox v-model="checked">我已阅读并同
+        <p style="margin:18px 0px"> <el-checkbox v-model="checked">我已阅读并同
           <el-link type="primary" :underline="false">《意隐私条款》</el-link> 和
           <el-link type="primary" :underline="false">《 使用条例》</el-link>
         </el-checkbox></p>
@@ -131,6 +131,7 @@ export default {
   width:300px;
   height:400px;
   padding:50px;
+  padding-top:20px;
   float:left;
 }
 

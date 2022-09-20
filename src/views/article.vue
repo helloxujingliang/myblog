@@ -40,6 +40,9 @@ export default {
       // 关联表 ： tag(标签)
       // 用户注册 登录 写作 浏览 点赞 收藏 找回密码  </code></pre>
 <h2><strong>（一）图层加载</strong></h2>
+<blockquote style="bcakground:red">
+<p>图层加载</p>
+</blockquote>
 <p>1、添加GeoJson 点（point）、线（line）、面（fill）、图标（symbol）数据</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 天空地监测平台： 镇边界图</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 费县智慧社区：社区边界、楼栋</p>
@@ -172,7 +175,17 @@ export default {
     padding-bottom: 60px;
 }
 
-
+blockquote{
+    background-color: #ccc;
+    border-left: 8px solid red;
+    display: block;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 10px;
+    width:100%;
+    height:30px;
+}
 
 ::v-deep pre{
     font-size:14px;

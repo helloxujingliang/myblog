@@ -9,7 +9,7 @@
     <div  class="record-list-container" v-if="isShowLeft">
       <!-- 账户信息 -->
       <div class="user-container">
-        <div class="user-info">
+        <div class="user-info" @click="$router.push({'path':'/my'})">
           <div class="photo">
             <img src="@/assets/images/head-photo.jpg" width="50px" alt="">
           </div>
@@ -201,7 +201,7 @@ export default {
 .article-list-container{
   width:720px;
   padding:10px;
-  border-radius: 5px;
+  border-radius: 3px;
   float:left;
   background:#fff;
 
@@ -231,12 +231,15 @@ export default {
   min-height:200px;
   background:#fff;
   margin-bottom:20px;
-    border-radius:5px;
+    border-radius:3px;
 }
 .user-info{
   width:266px;
   height:70px;
   border-bottom:1px solid #f1f3f5;
+}
+.user-info:hover{
+  cursor:pointer;
 }
 .user-container .photo{
   width:50px;
@@ -289,7 +292,7 @@ export default {
   background:#fff;
   margin-bottom:20px;
   position: relative;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .cate-title{
   width:266px;
