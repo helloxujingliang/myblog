@@ -9,12 +9,12 @@
           <img src="~@/assets/images/login-bg-2.png">
         </div>
         <div style="margin-top:100px;padding:0px 30px;height:30px;width:440px;line-height:30px;color:#fff;">
-          <img src="~@/assets/images/logo.png" width="30px">
-          <span style="position:relative;top:-8px;margin-left:12px;">HopetryCodebase 博客平台</span>
+          <img src="/images/logo.png" width="40px" style="position:relative;z-index:9999;">
+          <span style="position:relative;top:-8px;margin-left:12px;">JavaCat 博客平台</span>
         </div>
         <div style="margin-top:20px;padding:0px 30px;height:30px;width:440px;line-height:30px;color:#fff;font-size:14px;text-indent:28px;">
          
-          <span>HopetryCodebase 博客平台是一个包括 前端技术栈、后端技术栈、地理信息相关技术、产品开发的代码分享与博客记录平台，主要提供地图应用类产品的开发记录，截至目前为止已有100人注册并使用HopetryCodebase 博客平台，使用HopetryCodebase 博客平台将给您带来更加便利的体验，我们期待您的使用。</span>
+          <span>JavaCat 博客平台是一个包括 前端技术栈、后端技术栈、服务部署、地理信息相关技术、产品开发的代码分享与博客记录平台，主要提供地图应用类产品的开发记录，截至目前为止已有100人注册并使用JavaCat 博客平台，使用JavaCat 博客平台将给您带来更加便利的体验，我们期待您的使用。</span>
         </div>
 
       </div>

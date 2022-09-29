@@ -55,7 +55,7 @@ html{
 .bg-container{
   width:100vw;
   height:100vh;
-  background:url(./assets/images/app-bg-3.png);
+  // background:url(./assets/images/app-bg-3.png);
   background-repeat:no-repeat;
   background-size:100vw 110vh;
   position:fixed;

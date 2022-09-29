@@ -1,53 +1,112 @@
 <template>
   <!-- 首页主题内容 -->
   <div class="body-container">
+    <div class="cate-container">
+      <span style="background:#4093ff;color:#fff;">全部</span>
+      <span>JavaScript</span>
+      <span>HTML5</span>
+      <span>CSS3</span>
+      <span>Vue 2</span>
+      <span>Vue 3</span>
+      <span>LayUI</span>
+      <span>Element UI</span>
+      <span>MapBoxGL</span>
+      <span>Cesium</span>
+      <span>ECharts</span>
+      <span>Leaflet</span>
+      <span>BootStrap</span>
+      <span>jQuery</span>
+      <span>React</span>
+      <span>Angular</span>
+    </div>
     <!-- 首页左侧 -->
     <div class="article-list-container">
-      <router-view/>
+      <div class="artilce-filter">
+        <div class="filter-menu" style="border-color:#409eef;">
+          <el-link type="primary" style="font-size:12px;" :underline="false">推荐文章</el-link>
+        </div>
+        <div class="filter-menu">
+          <el-link type="default" style="font-size:12px;" :underline="false">最新发布</el-link>
+        </div>
+        <div class="filter-menu">
+          <el-link type="default" style="font-size:12px;" :underline="false">热门文章</el-link>
+        </div>
+        <div class="filter-menu">
+          <el-link type="default" style="font-size:12px;" :underline="false">最多点赞</el-link>
+        </div>
+      </div>
+      <List></List>
     </div>
     <!-- 首页右侧 -->
-    <div  class="record-list-container" v-if="isShowLeft">
+    <div  class="record-list-container" >
       <!-- 账户信息 -->
       <div class="user-container">
         <div class="user-info" @click="$router.push({'path':'/my'})">
           <div class="photo">
-            <img src="@/assets/images/head-photo.jpg" width="50px" alt="">
+            <img src="@/assets/images/head-photo.jpg" width="40px" alt="">
           </div>
           <div class="username">
-            <p>XuJingLiang</p>
-            <p style="font-size:12px;color:#999;">Web前端开发工程师</p>
+            <p>JavaCat技术团队
+              <img src="@/assets/images/level.png" width="36px">
+            </p>
+            <p style="font-size:12px;color:#999;">前端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：山东省</p>
           </div>
         </div>
         <div class="user-count">
           <div class="row">
             <div class="count-btn">
-              <i class="el-icon-tickets"></i>
+                32
             </div>
-            <div class="float:left">发表文章数量 32</div>
+            <div>文章数量</div>
           </div>
           <div class="row">
             <div class="count-btn">
-              <i class="el-icon-thumb"></i>
+              843
             </div>
-            <div class="float:left">获得点赞数量 823</div>
+            <div>获赞数量</div>
           </div>
           <div class="row">
             <div class="count-btn">
-              <i class="el-icon-view"></i>
+              3232
             </div>
-            <div class="float:left">文章浏览次数 12,102</div>
+            <div>浏览次数</div>
           </div>
         </div>
+        <div style="margin-top:5px;text-align:center;">
+          <el-row>
+            <el-col :span="4">
+              <img src="/images/github.png" width="20px" />
+            </el-col>
+            <el-col :span="4">
+              <img src="/images/csdn.png" width="20px" />
+            </el-col>
+            <el-col :span="4">
+              <img src="/images/baidu.png" width="20px" />
+            </el-col>
+            <el-col :span="4">
+              <img src="/images/qq.png" width="20px" />
+            </el-col>
+            <el-col :span="4">
+              <img src="/images/weibo.png" width="20px" />
+            </el-col>
+            <el-col :span="4">
+              <img src="/images/gitee.png" width="20px" />
+            </el-col>
+          </el-row>
+        </div>
+         
       </div>
       <!-- 浏览排行 -->
       <div class="record-container">
         <div class="cate-title">
-          <i class="el-icon-s-data"></i> 浏览排行
+          <div class="cate-title-text">
+            <i class="el-icon-s-data"></i>浏览排行
+          </div>
         </div>
         <div class="record-list">
-          <p v-for="(item,index) in 10" style="font-size:13px;height:22px;" :key="index">
-            <i style="color:#409eff;">{{index+1}}、</i>
-            <el-link style="font-size:12px;">MapBox GL加载GeoJson点线面图标图……</el-link>
+          <p class="hot-article" v-for="(item,index) in articleList" style="font-size:13px;height:22px;" :key="index">
+            <!-- <i style="color:#409eff;">{{index+1}}、</i> -->
+            <span>{{item.title}}</span>
           </p>
           
         </div>
@@ -55,86 +114,92 @@
       <!-- 开发者排行 -->
       <div class="record-container">
         <div class="cate-title">
-          <i class="el-icon-link"></i> 创作者排行
+          <div class="cate-title-text">
+            <i class="el-icon-user"></i> 创作者排行
+          </div>
         </div>
         <div class="record-list">
-          <div style="width:266px;height:40px;line-height:30px;" v-for="(item,index) in 5" :key="index">
-              <div style="float:left;width:30px;height:40px;color:orange;"><i>{{index+1}}、</i></div>
-              <div class="author-photo" style="float:left;">
-                  <img src="@/assets/images/head-photo.jpg" alt="" width="30px;">
-              </div>
-              <div style="float:left;width:180px;">
-                <span style="color:#333;margin-left:16px;font-size:12px;font-weight:400;">XuJingLiang</span>
-                <span style="color:#333;font-size:12px;font-weight:400;float:right;color:orange;">10{{index}}篇</span>
-              </div>
+          <div class="user-info" @click="$router.push({'path':'/my'})">
+            <div class="photo">
+              <img src="@/assets/images/head-photo.jpg" width="40px" alt="">
+            </div>
+            <div class="username">
+              <p>JavaCat技术团队
+                <img src="@/assets/images/level.png" width="36px">
+              </p>
+              <p style="font-size:12px;color:#999;">前端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：山东省</p>
+            </div>
+          </div>
+
+          <div class="user-info" @click="$router.push({'path':'/my'})">
+            <div class="photo">
+              <img src="/images/baidu.png" width="40px" alt="">
+            </div>
+            <div class="username">
+              <p>摆烂工程师
+                <img src="@/assets/images/level.png" width="36px">
+              </p>
+              <p style="font-size:12px;color:#999;">后端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：北京市</p>
+            </div>
+          </div>
+
+          <div class="user-info" @click="$router.push({'path':'/my'})">
+            <div class="photo">
+              <img src="@/assets/images/qq.png" width="40px" alt="">
+            </div>
+            <div class="username">
+              <p>百年孤独Html
+                <img src="@/assets/images/level.png" width="36px">
+              </p>
+              <p style="font-size:12px;color:#999;">前端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：山东省</p>
+            </div>
+          </div>
+
+           <div class="user-info" @click="$router.push({'path':'/my'})">
+            <div class="photo">
+              <img src="@/assets/images/weibo.png" width="40px" alt="">
+            </div>
+            <div class="username">
+              <p>前端叭叭说
+                <img src="@/assets/images/level.png" width="36px">
+              </p>
+              <p style="font-size:12px;color:#999;">前端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：北京市</p>
+            </div>
+          </div>
+
+           <div class="user-info" @click="$router.push({'path':'/my'})">
+            <div class="photo">
+              <img src="@/assets/images/csdn.png" width="40px" alt="">
+            </div>
+            <div class="username">
+              <p>MASA技术团队
+                <img src="@/assets/images/level.png" width="36px">
+              </p>
+              <p style="font-size:12px;color:#999;">后端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：北京市</p>
+            </div>
           </div>
         </div>
       </div>
        <!-- 标签 -->
       <div class="record-container">
         <div class="cate-title">
-          <i class="el-icon-link"></i> 文章标签
+         <div class="cate-title-text">
+            <i class="el-icon-price-tag"></i>文章标签
+          </div>
         </div>
         <div class="record-list">
-          <el-link type="primary" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">#{{item.name}}</el-link>
+          <el-tag type="info" size="mini"  v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-tag>
         </div>
       </div>
       <!-- 常用链接 -->
       <div class="record-container">
         <div class="cate-title">
-          <i class="el-icon-link"></i> 常用链接
+          <div class="cate-title-text">
+            <i class="el-icon-link"></i>常用链接
+          </div>
         </div>
         <div class="record-list">
-          <el-link type="primary" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-link>
-        </div>
-      </div>
-      <Footer></Footer>
-    </div>
-
-    <div  class="record-list-container-active" v-if="!isShowLeft">
-        <!-- 账户信息 -->
-      <div class="user-container">
-        <div class="user-info">
-          <div class="photo">
-            <img src="@/assets/images/head-photo.jpg" width="50px" alt="">
-          </div>
-          <div class="username">
-            <p>XuJingLiang</p>
-            <p style="font-size:12px;color:#999;">Web前端开发工程师</p>
-          </div>
-        </div>
-        <div class="user-count">
-          <div class="row">
-            <div class="count-btn">
-              <i class="el-icon-tickets"></i>
-            </div>
-            <div class="float:left">发表文章数量 32</div>
-          </div>
-          <div class="row">
-            <div class="count-btn">
-              <i class="el-icon-thumb"></i>
-            </div>
-            <div class="float:left">获得点赞数量 823</div>
-          </div>
-          <div class="row">
-            <div class="count-btn">
-              <i class="el-icon-view"></i>
-            </div>
-            <div class="float:left">文章浏览次数 12,102</div>
-          </div>
-        </div>
-      </div>
-      <!-- 浏览排行 -->
-      <div class="record-container">
-        <div class="cate-title">
-          <i class="el-icon-s-data"></i> 浏览排行
-        </div>
-        <div class="record-list">
-          <p v-for="(item,index) in 10" style="font-size:13px;height:22px;" :key="index">
-            <i style="color:#409eff;">{{index+1}}、</i>
-            <el-link style="font-size:12px;">MapBox GL加载GeoJson点线面图标图……</el-link>
-          </p>
-          
+          <el-link type="default" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-link>
         </div>
       </div>
       <Footer></Footer>
@@ -143,9 +208,11 @@
 </template>
 <script>
 import Footer from '@/components/footer.vue'
+import List from './list.vue'
 export default {
   name:"Index",
   components:{
+    List,
     Footer
   },
   data(){
@@ -155,6 +222,59 @@ export default {
       links:[],
       scrollHeight:0,
       isShowLeft:true,
+      articleList:[
+        {
+          title:"【MapBoxGL】加载GeoJSON点线面数据",
+          cate:"MapBox GL",
+          photo:"/images/csdn.png",
+          image:"/images/springboot.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
+        },{
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"/images/java.png",
+        },{
+          title:"【MapBoxGL】（零）MapBoxGL功能总结",
+          cate:"Java SE",
+          photo:"/images/baidu.png",
+          image:"/images/mysql.png",
+        },{
+          title:"【Git】创建Git项目上传代码和拉取远程代码",
+          cate:"Cesium",
+          photo:"/images/csdn.png",
+          image:"/images/mybatisplus.png",
+        },        {
+          title:"【MapBoxGL】加载GeoJSON点线面数据",
+          cate:"MapBox GL",
+          photo:"/images/csdn.png",
+          image:"/images/springboot.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
+        },{
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"/images/java.png",
+        }
+      ]
     }
   },
   created(){
@@ -190,6 +310,7 @@ export default {
 .body-container{
   width:1050px;
   margin:0px auto;
+  padding-bottom:30px;
 }
 .body-container::after{
   content:"";
@@ -198,10 +319,37 @@ export default {
   height:0;
   visibility: hidden;
 }
+.cate-container{
+  width:1050px;
+  padding-bottom:10px;
+}
+.cate-container::after{
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
+}
+
+.cate-container span{
+  display: block;
+  float:left;
+  padding:5px 10px;
+  margin-right:12px;
+  background:#fff;
+  border-radius:12px;
+  font-size:12px;
+  color:#777;
+  margin:4px 6px;
+}
+.cate-container span:hover{
+  color:#409eff;
+  cursor:pointer;
+}
 .article-list-container{
-  width:720px;
-  padding:10px;
-  border-radius: 3px;
+  width:740px;
+  padding:0px;
+  border-radius: 0px;
   float:left;
   background:#fff;
 
@@ -228,32 +376,32 @@ export default {
 .user-container{
   width:266px;
   padding:12px;
-  min-height:200px;
+  height:160px;
   background:#fff;
   margin-bottom:20px;
-    border-radius:3px;
+    border-radius:0px;
 }
 .user-info{
   width:266px;
-  height:70px;
+  height:60px;
   border-bottom:1px solid #f1f3f5;
 }
 .user-info:hover{
   cursor:pointer;
 }
 .user-container .photo{
-  width:50px;
-  height:50px;
+  width:40px;
+  height:40px;
   background:#f1f1f1;
   border-radius: 50%;
-  margin:8px auto;
+  margin:5px auto;
   float:left;
-  border:1px solid #ccc;
   overflow:hidden;
+  box-shadow: 0 0 4px rgba(0,0,0, 0.1);
 }
 .user-container .username{
-  width:160px;
-  height:50px;
+  width:200px;
+  height:40px;
   margin-left:10px;
   font-size:14px;
   color:#333;
@@ -262,61 +410,103 @@ export default {
 }
 .user-count{
   font-size:13px;
-  padding-top:12px;
+  height:70px;
+  padding-top:0px;
 }
 .user-count .row{
+  width:88px;
+  text-align: center;
+  float:left;
   height:34px;
   margin-top:6px;
   line-height: 30px;
+  font-size:12px;
 }
 .count-btn{
-  float:left;
-  width:30px;
+  width:88px;
   height:30px;
-  border-radius:50%;
-  background:rgba(123,185,255,0.3);
   text-align:center;
   line-height:30px;
-  color:#409eff;
-  font-size:18px;
-  margin-right:12px;
-  margin-left:6px;
-}
+  font-size:14px;}
 .user-container .username p{
-  margin:10px;
+  margin:6px 3px;
 }
 .record-container{
   width:266px;
   padding:12px;
-  min-height:200px;
+  min-height:280px;
   background:#fff;
   margin-bottom:20px;
   position: relative;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .cate-title{
   width:266px;
+  height:40px;
   position:absolute;
   top:0px;
   left:0px;
-  padding:12px;
   font-size:14px;
   border-bottom:1px solid #f1f3f5;
+  // color:#409eff;
+  color:#333;
+  padding:0px 12px;
 }
-
+.cate-title-text{
+  height:38px;
+  float:left;
+  padding:0px 3px;
+  // border-bottom:2px solid #409eff;
+  line-height:38px;
+}
 .record-list{
   margin-top:40px;
   width:266px;
 }
 
-.record-list p{
-  width:100%;
+.record-list .hot-article{
+  width:266px;
+  color:#666;
   height:30px;
-
-  overflow: hidden;
+  overflow:hidden;
   text-overflow:ellipsis;
-  white-space:nowrap;
+  white-space: nowrap;
 }
+.record-list .hot-article:hover{
+  color:#409eff;
+  cursor:pointer;
+}
+
+.record-list  .user-info .photo{
+  width:40px;
+  height:40px;
+  background:#f1f1f1;
+  border-radius: 50%;
+  margin:2px auto;
+  float:left;
+  overflow:hidden;
+}
+.record-list .user-info{
+  padding-top:6px;
+}
+.record-list .user-info .username{
+  margin:0px;
+  width:200px;
+  height:40px;
+  margin-left:10px;
+  font-size:14px;
+  color:#333;
+  text-align: left;
+  float:left;
+}
+.record-list .user-info .username:hover{
+  color:#409eff;
+}
+.record-list .user-info .username p{
+  margin:0px;
+  line-height:24px;
+}
+
 
 .author-photo{
   width:28px;
@@ -326,6 +516,23 @@ export default {
   float:left;
   margin-right:6px;
   overflow: hidden;
+}
+
+.artilce-filter{
+  line-height:40px;
+  width:740px;
+  height:40px;
+  background:#fff;
+  border-bottom:1px solid #f1f3f5;
+}
+.filter-menu{
+  height:38px;
+  margin:0px 12px;
+  float:left;
+  border-bottom:2px solid #fff;
+}
+.filter-menu:hover{
+  border-color:#409eff;
 }
 </style>>
 

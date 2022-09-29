@@ -2,9 +2,8 @@
 <div>
   <!-- 页面顶部导航搜索栏 -->
   <Header style="position:fixed;top:0px;left:0px;z-index:999;"></Header>
-  <div style="width:100%;height:60px;margin-bottom:15px;"></div>
-  <!-- 面包屑导航栏 -->
-   <BreadNav v-if="breadNavShow"></BreadNav> 
+  <div style="width:100%;height:106px;margin-bottom:15px;"></div>
+
   <!-- 首页主题内容 -->
   <div class="body-container">
     <router-view/>
@@ -50,7 +49,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .body-container{
-  width:1050px;
+  // width:1050px;
   margin:0px auto;
 }
 .body-container::after{

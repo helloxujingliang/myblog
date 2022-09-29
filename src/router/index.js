@@ -9,34 +9,41 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect:"home",
+    redirect:"index",
     children:[
       {
-        path:"home",
-        name:"Home",
+        path:"index",
+        name:"Index",
         component: ()=>import('../views/home.vue'),
-        redirect:"/home/list",
+       
+      },{
+        path:"article",
+        name:"article",
+        component: ()=>import('../views/article.vue'),
         meta:{
-          name:'index'
-        },
-        children:[
-          {
-            path:"list",
-            name:"List",
-            component: ()=>import('../views/list.vue'),
-            meta:{
-              name:'article'
-            }
-          },
-          {
-            path:"article",
-            name:"article",
-            component: ()=>import('../views/article.vue'),
-            meta:{
-              name:'article'
-            }
-          },
-        ]
+          name:'article'
+        }
+      },{
+        path:"club",
+        name:"club",
+        component: ()=>import('../views/club.vue'),
+        meta:{
+          name:'article'
+        }
+      },{
+        path:"cate",
+        name:"cate",
+        component: ()=>import('../views/cate.vue'),
+        meta:{
+          name:'article'
+        }
+      },{
+        path:"tag",
+        name:"tag",
+        component: ()=>import('../views/tag.vue'),
+        meta:{
+          name:'tag'
+        }
       },{
         path: '/my',
         name: 'My',

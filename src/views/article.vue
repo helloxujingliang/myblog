@@ -1,32 +1,181 @@
 <template>
-    <div class="article-container">
-        <!-- 文章标题 -->
-        <div class="article-title">【MapBox GL】加载GeoJson点线面数据</div>
-        <!-- 文章内容 -->
-        <div class="article-info">
-            <span style="margin-right:12px;"><i class="el-icon-collection-tag"></i>&nbsp;前端开发·MapBox GL</span>
-            <span><i class="el-icon-time"></i>&nbsp;2022-009-10 12:33</span>
-            <span style="margin:0px 16px;"><i class="el-icon-view"></i>&nbsp;448</span>
-            <!-- <el-tag size="mini" style="margin:0px 4px;">Vue2</el-tag>
-            <el-tag size="mini" style="margin:0px 4px;">mapbox gl</el-tag> -->
-            <span style="float:right;font-size:12px;">
-              <el-link style="font-size:12px;margin-right:6px;" type="default" :underline="false"> <strong style="color:#666;">#</strong>Vue2</el-link>
-              <el-link style="font-size:12px;margin-right:6px;"  type="default" :underline="false"> <strong style="color:#666;">#</strong>MapBox GL </el-link>
-            </span>
-        </div>
-        <!-- 文章内容 -->
-        <div class="article-content" id="article" v-html="content">
+    <div class="article-page">
+        <div class="article-container">
+            <div class="article-operate">
+                <div>
+                    <img src="/images/icon/good.png" />
+                </div>
+                <div>
+                    <img src="/images/icon/pinglun-b.png" />
+                </div>
+                <div>
+                    <img src="/images/icon/collect.png" />
+                </div>
+                <div>
+                    <img src="/images/icon/fenxiang.png" />
+                </div>
+                <div>
+                    <img src="/images/icon/jubao.png" />
+                </div>
+            </div>
+            <!-- 文章标题 -->
+            <div class="article-title">【MapBox GL】加载GeoJson点线面数据</div>
+            <!-- 文章内容 -->
+            <div class="article-info">
+                <span style="margin-right:12px;"><i class="el-icon-collection-tag"></i>&nbsp;前端开发·MapBox GL</span>
+                <span><i class="el-icon-time"></i>&nbsp;2022-009-10 12:33</span>
+                <span style="margin:0px 16px;"><i class="el-icon-view"></i>&nbsp;448</span>
+                <!-- <el-tag size="mini" style="margin:0px 4px;">Vue2</el-tag>
+                <el-tag size="mini" style="margin:0px 4px;">mapbox gl</el-tag> -->
+                <span style="float:right;font-size:12px;">
+                <el-link style="font-size:12px;margin-right:6px;" type="default" :underline="false"> <strong style="color:#666;"></strong>#Vue2</el-link>
+                <el-link style="font-size:12px;margin-right:6px;"  type="default" :underline="false"> <strong style="color:#666;"></strong>#MapBox GL </el-link>
+                </span>
+            </div>
+            <!-- 文章内容 -->
+            <div class="article-content" id="article" v-html="content">
 
+            </div>
         </div>
+        <div class="article-user-info">
+            <div class="user-container">
+                <div class="user-info" @click="$router.push({'path':'/my'})">
+                <div class="photo">
+                    <img src="@/assets/images/baidu.png" width="40px" alt="">
+                </div>
+                <div class="username">
+                    <p>MASA技术团队
+                    <img src="@/assets/images/level.png" width="36px">
+                    </p>
+                    <p style="font-size:12px;color:#999;">前端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：山东省</p>
+                </div>
+                </div>
+                <div class="user-count">
+                <div class="row">
+                    <div class="count-btn">
+                        32
+                    </div>
+                    <div>文章数量</div>
+                </div>
+                <div class="row">
+                    <div class="count-btn">
+                    843
+                    </div>
+                    <div>获赞数量</div>
+                </div>
+                <div class="row">
+                    <div class="count-btn">
+                    3232
+                    </div>
+                    <div>浏览次数</div>
+                </div>
+                </div>
+                <div style="margin-top:5px;text-align:center;">
+                <el-row>
+                    <el-col :span="4">
+                    <img src="/images/github.png" width="20px" />
+                    </el-col>
+                    <el-col :span="4">
+                    <img src="/images/csdn.png" width="20px" />
+                    </el-col>
+                    <el-col :span="4">
+                    <img src="/images/baidu.png" width="20px" />
+                    </el-col>
+                    <el-col :span="4">
+                    <img src="/images/qq.png" width="20px" />
+                    </el-col>
+                    <el-col :span="4">
+                    <img src="/images/weibo.png" width="20px" />
+                    </el-col>
+                    <el-col :span="4">
+                    <img src="/images/gitee.png" width="20px" />
+                    </el-col>
+                </el-row>
+                </div>
+            </div>
+            <!-- 相关文章 -->
+        <div class="record-container">
+            <div class="cate-title">
+            <div class="cate-title-text">
+                <i class="el-icon-s-data"></i>相关文章
+            </div>
+            </div>
+            <div class="record-list">
+            <p class="hot-article" v-for="(item,index) in articleList" style="font-size:13px;height:22px;" :key="index">
+                <!-- <i style="color:#409eff;">{{index+1}}、</i> -->
+                <span>{{item.title}}</span>
+            </p>
+            
+            </div>
+        </div>
+        </div>
+        
     </div>
 </template>
 <script>
 import Hljs from 'highlight.js'
 import 'highlight.js/styles/solarized-dark.css'
+
 export default {
     name:"Article",
+    components:{
+
+    },
     data(){
         return {
+                  articleList:[
+        {
+          title:"【MapBoxGL】加载GeoJSON点线面数据",
+          cate:"MapBox GL",
+          photo:"/images/csdn.png",
+          image:"/images/springboot.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
+        },{
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"/images/java.png",
+        },{
+          title:"【MapBoxGL】（零）MapBoxGL功能总结",
+          cate:"Java SE",
+          photo:"/images/baidu.png",
+          image:"/images/mysql.png",
+        },{
+          title:"【Git】创建Git项目上传代码和拉取远程代码",
+          cate:"Cesium",
+          photo:"/images/csdn.png",
+          image:"/images/mybatisplus.png",
+        },        {
+          title:"【MapBoxGL】加载GeoJSON点线面数据",
+          cate:"MapBox GL",
+          photo:"/images/csdn.png",
+          image:"/images/springboot.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
+        },{
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"/images/java.png",
+        }
+      ],
             content:`
             <pre class="language-javascript"><code>     // {select id,title,createtime,createuser,createid,desc, cateId,cateName,parentCateid,parentCateNmae,tags:[{},{}]}
       // article : id,title,desc,content,state,visibility,createtime,createuser,createuserid,updatetime,cateId,delete
@@ -139,19 +288,60 @@ export default {
 
 </script>
 <style scoped>
+.article-page{
+    width:1200px;
+    margin:0px auto;
+}
+.article-page .article-user-info{
+    width:275px;
+    float:right;
+    min-height:800px;
+}
 .article-container{
+    float:left;
+    background:#fff;
+    width:835px;
     min-height:500px;
     padding:30px 0px;
+    position: relative;
+    margin-left:70px;
         /* background:linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent); */
   
+}
+.article-operate{
+    width:50px;
+    height:400px;
+    position:fixed;
+    margin-top:60px;
+    left:50%;
+    z-index:999;
+    margin-left:-600px;   
+}
+.article-operate div{
+    font-size:22px;
+    color:#999;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    background: #fff;
+    margin-bottom:18px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
+    text-align: center;
+    line-height:50px;
+}
+.article-operate div img{
+    width:23px;
+    margin-top:12px;
 }
 .article-title{
     height:50px;
     font-size:19px;
     font-weight:bold;
+    padding:0px 15px;
 }
 .article-info{
     font-size:13px;
+    padding:0px 15px;
     color:#777;
 }
 .article-content{
@@ -161,7 +351,6 @@ export default {
     line-height:22px;
     color:#666;
     position:relative;
-
     color: #383838;
     font-size: 13px;
     line-height: 20px;
@@ -172,6 +361,7 @@ export default {
     background-image: linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent);
     background-color: #fff;
     background-size: 50px 50px;
+    padding:0px 15px;
     padding-bottom: 60px;
 }
 
@@ -191,7 +381,108 @@ blockquote{
     font-size:14px;
 }
 
+.user-container{
+  width:251px;
+  padding:12px;
+  height:160px;
+  background:#fff;
+  margin-bottom:20px;
+  border-radius:0px;
+}
+.user-info{
+  width:266px;
+  height:60px;
+  border-bottom:1px solid #f1f3f5;
+}
+.user-info:hover{
+  cursor:pointer;
+}
+.user-container .photo{
+  width:40px;
+  height:40px;
+  background:#f1f1f1;
+  border-radius: 50%;
+  margin:5px auto;
+  float:left;
+  overflow:hidden;
+  box-shadow: 0 0 4px rgba(0,0,0, 0.1);
+}
+.user-container .username{
+  width:200px;
+  height:40px;
+  margin-left:10px;
+  font-size:14px;
+  color:#333;
+  text-align: left;
+  float:left;
+}
+.user-count{
+  font-size:13px;
+  height:70px;
+  padding-top:0px;
+}
+.user-count .row{
+  width:83px;
+  text-align: center;
+  float:left;
+  height:34px;
+  margin-top:6px;
+  line-height: 30px;
+  font-size:12px;
+}
+.count-btn{
+  width:88px;
+  height:30px;
+  text-align:center;
+  line-height:30px;
+  font-size:14px;}
+.user-container .username p{
+  margin:6px 3px;
+}
 
+.record-container{
+  width:251px;
+  padding:12px;
+  min-height:280px;
+  background:#fff;
+  margin-bottom:20px;
+  border-radius: 0px;
+  position:relative;
+}
+.cate-title{
+  width:251px;
+  height:40px;
+  position:absolute;
+  top:0px;
+  left:0px;
+  font-size:14px;
+  border-bottom:1px solid #f1f3f5;
+  color:#333;
+  padding:0px 12px;
+}
+.cate-title-text{
+  height:38px;
+  float:left;
+  padding:0px 3px;
+  line-height:38px;
+}
+.record-list{
+  margin-top:40px;
+  width:266px;
+}
+
+.record-list .hot-article{
+  width:251px;
+  color:#666;
+  height:30px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.record-list .hot-article:hover{
+  color:#409eff;
+  cursor:pointer;
+}
 
 
 </style>
