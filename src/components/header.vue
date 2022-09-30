@@ -40,7 +40,7 @@
         </div>
         <div class="menu-children">
           <span style="padding:2px 2px;line-height:8px;background:#ee502f;color:#fff;font-size:8px;position:absolute;right:-20px;top:8px;border-radius:7px;">new</span>
-          <el-link type="default" :underline="false">课程</el-link>
+          <el-link type="default" :underline="false" @click="$router.push({path:'/study'})">课程</el-link>
         </div>
       </div>
      <!-- 用户中心 -->

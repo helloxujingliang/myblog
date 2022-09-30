@@ -45,6 +45,13 @@ const routes = [
           name:'tag'
         }
       },{
+        path:"study",
+        name:"study",
+        component: ()=>import('../views/study.vue'),
+        meta:{
+          name:'study'
+        }
+      },{
         path: '/my',
         name: 'My',
         component: ()=>import('../views/my.vue'),
