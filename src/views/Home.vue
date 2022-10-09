@@ -17,7 +17,6 @@
       <span>BootStrap</span>
       <span>jQuery</span>
       <span>React</span>
-      <span>Angular</span>
     </div>
     <!-- 首页左侧 -->
     <div class="article-list-container">
@@ -308,7 +307,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .body-container{
-  width:1050px;
+  width:1140px;
   margin:0px auto;
   padding-bottom:30px;
 }
@@ -320,7 +319,7 @@ export default {
   visibility: hidden;
 }
 .cate-container{
-  width:1050px;
+  width:1140px;
   padding-bottom:10px;
 }
 .cate-container::after{
@@ -347,7 +346,7 @@ export default {
   cursor:pointer;
 }
 .article-list-container{
-  width:740px;
+  width:830px;
   padding:0px;
   border-radius: 0px;
   float:left;
@@ -520,13 +519,13 @@ export default {
 
 .artilce-filter{
   line-height:40px;
-  width:740px;
-  height:40px;
+  width:830px;
+  height:42px;
   background:#fff;
   border-bottom:1px solid #f1f3f5;
 }
 .filter-menu{
-  height:38px;
+  height:40px;
   margin:0px 12px;
   float:left;
   border-bottom:2px solid #fff;

@@ -9,13 +9,15 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect:"index",
     children:[
       {
-        path:"index",
+        path:"/",
         name:"Index",
         component: ()=>import('../views/home.vue'),
-       
+        meta:{
+          name:'index',
+          title:"首页"
+        }
       },{
         path:"article",
         name:"article",
@@ -24,32 +26,60 @@ const routes = [
           name:'article'
         }
       },{
-        path:"club",
-        name:"club",
-        component: ()=>import('../views/club.vue'),
+        path:"feelfish",          //上班摸鱼
+        name:"feelfish",
+        component: ()=>import('../views/feelfish.vue'),
         meta:{
-          name:'article'
+          name:'feelfish',
+          title:"上班摸鱼"
         }
       },{
         path:"cate",
         name:"cate",
         component: ()=>import('../views/cate.vue'),
         meta:{
-          name:'article'
+          name:'cate',
+          title:"文章分类"
+        }
+      },{
+        path:"link",
+        name:"link",
+        component: ()=>import('../views/link.vue'),
+        meta:{
+          name:'link',
+          title:"常用链接",
         }
       },{
         path:"tag",
         name:"tag",
         component: ()=>import('../views/tag.vue'),
         meta:{
-          name:'tag'
+          name:'tag',
+          title:"热门标签",
         }
       },{
         path:"study",
         name:"study",
         component: ()=>import('../views/study.vue'),
         meta:{
-          name:'study'
+          name:'study',
+          title:"课程"
+        }
+      },{
+        path: '/activity',
+        name: 'Activity',
+        component: ()=>import('../views/activity.vue'),
+        meta:{
+          name:'activity',
+          title:"活动中心"
+        }
+      },{
+        path: '/job',
+        name: 'Job',
+        component: ()=>import('../views/job.vue'),
+        meta:{
+          name:'job',
+          title:"工作招聘"
         }
       },{
         path: '/my',
@@ -93,7 +123,14 @@ const routes = [
   }
 ]
 
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}
+
+
 const router = new VueRouter({
+  mode:"history",
   routes
 })
 

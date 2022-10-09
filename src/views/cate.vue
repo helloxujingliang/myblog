@@ -61,12 +61,12 @@ export default {
 </script>
 <style scoped>
 .cate-container{
-    width:1050px;
+    width:1140px;
     margin:0px auto;
 }
 .cate-box{
-    width:1000px;
-    padding:10px 25px;
+    width:1116px;
+    padding:12px;
 
 }
 .cate-box::after{

@@ -1,10 +1,72 @@
 <template>
+<div class="study-page">
+    <div class="silder-container">
+        <div class="cate">
+            <ul>
+                <li>
+                    <p>
+                        <span class="parent-cate-name">前端开发</span>
+                    </p>
+                    <p>
+                        <span class="child-cate-name">JavaScript</span>
+                        <span class="child-cate-name">Vue</span>
+                        <span class="child-cate-name">HTML5</span>
+                        <span class="child-cate-name">CSS3</span>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="parent-cate-name">后端开发</span>
+                    </p>
+                    <p>
+                        <span class="child-cate-name">Java SE</span>
+                        <span class="child-cate-name">SpringBoot</span>
+                        <span class="child-cate-name">MyBatis</span>
+                        <span class="child-cate-name">Servlet</span>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="parent-cate-name">数据库</span>
+                    </p>
+                    <p>
+                        <span class="child-cate-name">MySQL</span>
+                        <span class="child-cate-name">Redis</span>
+                        <span class="child-cate-name">MongoDB</span>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="parent-cate-name">服务部署</span>
+                    </p>
+                    <p>
+                        <span class="child-cate-name">Linux</span>
+                        <span class="child-cate-name">Tomcat</span>
+                        <span class="child-cate-name">Nginx</span>
+                        <span class="child-cate-name">IIS</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="silder">
+            <el-carousel :interval="4000" type="" height="360px">
+                <el-carousel-item v-for="item in 6" :key="item">
+                <h3 class="medium">{{ item }}</h3>
+                </el-carousel-item>
+            </el-carousel>
+        </div>
+    </div>
     <div class="study-container">
+        <div class="page-title">
+            课程列表
+        </div>
         <div class="filter-container">
             <div class="cate-container">
-                <div class="cate-title">方 向：</div>
+                <div class="cate-title">课程方向：</div>
                 <div class="cates" style="float:left;">
-                   
                     <span>前端开发</span>
                     <span>后端开发</span>
                     <span>服务部署</span>
@@ -14,7 +76,7 @@
             </div>
 
             <div class="cate-container">
-                <div class="cate-title">分 类：</div>
+                <div class="cate-title">技术分类：</div>
                 <div class="cates" style="float:left;">
                      <span>全部课程</span>
                     <span>JavaScript</span>
@@ -50,7 +112,7 @@
         <div class="course-container">
             <div class="course-box" v-for="(item,index) in cursorList" :key="index">
                 <div class="image">
-                    <img :src="item.image" width="200px" /> 
+                    <img :src="item.image" width="211px" /> 
                 </div>
                 <div class="course-info">
                     <p style="font-size:14px;">
@@ -75,6 +137,8 @@
       </div>
 
     </div>
+</div>
+   
 </template>
 <script>
 export default {
@@ -149,16 +213,72 @@ export default {
 }
 </script>
 <style scoped>
-.study-container{
-    width:1050px;
+.study-page{
+    width:100%;
+}
+.silder-container{
+    width:1140px;
     margin:0px auto;
+    height:360px;
+    /* background:rgba(0,0,0,0.7); */
+    margin-bottom:15px;
+}
+.silder-container .cate{
+    width:285px;
+    height:360px;
     background:#fff;
+    float:left;
+
+}
+.silder-container .cate ul{
+    width:385px;
+    list-style: none;
+    margin:0px;
+    text-indent: 0px;
+    padding:0px;
+}
+.silder-container .cate ul li{
+    width:385px;
+    height:40px;
+    padding:12px;
+}
+.silder-container .cate ul li p{
+    margin:0px;
+}
+.parent-cate-name{
+    font-size:14px;
+    color:#333;
+    font-weight: bold;
+}
+.child-cate-name{
+    font-size:13px;
+    color:#777;
+    margin-right:12px;
+    position:relative;
+    top:5px;
+}
+.silder{
+    width:840px;
+    height:360px;
+    float:right;
+}
+.study-container{
+    width:1140px;
+    margin:0px auto;
+    /* background:#fff; */
     
 }
+.page-title{
+    width:1140px;
+    height:60px;
+    line-height:60px;
+    text-indent:25px;
+    font-weight: bold;
+}
 .filter-container{
-    width:1000px;    
-    padding:25px 25px 0px 25px;
-     background:#fff;
+    width:1090px;    
+    padding:0px 25px 0px 25px;
+     /* background:#fff; */
 }
 .filter-container p{
     margin:0px;
@@ -167,10 +287,10 @@ export default {
 }
 
 .cate-container{
-    width:1000px;
+    width:1090px;
     min-height:40px;
     font-size:13px;
-     background:#fff;
+     /* background:#fff; */
 }
 
 .cate-container::after{
@@ -181,13 +301,15 @@ export default {
   visibility: hidden;
 }
 .cate-title{
-    width:50px;
+    width:70px;
     float:left;
     line-height:30px;
+    font-size:14px;
+    color:#777;
 
 }
 .cates{
-    width:940px;
+    width:1000px;
     float:left;
 
 }
@@ -207,7 +329,7 @@ export default {
   margin-right:12px;
   background:#f9f9f9;
   border-radius:6px;
-  font-size:12px;
+  font-size:13px;
   color:#777;
   margin:4px 6px;
 }
@@ -235,7 +357,7 @@ export default {
 }
 
 .course-container{
-    width:1024px;
+    width:1116px;
     padding:12px;
      background:#fff;
 }
@@ -249,7 +371,7 @@ export default {
 }
 
 .course-box{
-    width:192.5px;
+    width:211px;
     height:200px;
     float:left;
     margin:6px;
@@ -259,7 +381,7 @@ export default {
 }
 
 .image{
-    width:200px;
+    width:211px;
     height:115px;
 }
 .course-info{
@@ -273,8 +395,24 @@ export default {
 }
 
 .pagenation{
-    width:1050px;
+    width:1140px;
     text-align: center;
     padding:24px 0px;
 }
+
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 360px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
 </style>

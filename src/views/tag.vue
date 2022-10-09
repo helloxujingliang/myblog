@@ -109,6 +109,26 @@ export default {
                     name:"java",
                     desc:"Java 是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由 Sun Microsystems 公司于 1995 年 5",
                     count:"90087"
+                },{
+                    name:"css",
+                    desc:"层叠样式表（英语：Cascading Style Sheets，简写CSS），又称串样式列表，由W3C定义和维护的标准，一种...",
+                    count:"657"
+                },{
+                    name:"java",
+                    desc:"Java 是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由 Sun Microsystems 公司于 1995 年 5",
+                    count:"90087"
+                },{
+                    name:"react.js",
+                    desc:"React (sometimes styled React.js or ReactJS) is an open-source JavaScript library for creating us..",
+                    count:"21646"
+                },{
+                    name:"css",
+                    desc:"层叠样式表（英语：Cascading Style Sheets，简写CSS），又称串样式列表，由W3C定义和维护的标准，一种...",
+                    count:"657"
+                },{
+                    name:"java",
+                    desc:"Java 是一种可以撰写跨平台应用软件的面向对象的程序设计语言，是由 Sun Microsystems 公司于 1995 年 5",
+                    count:"90087"
                 }
             ]
         }
@@ -117,13 +137,12 @@ export default {
 </script>
 <style scoped>
 .tag-container{
-    width:1050px;
+    width:1140px;
     margin:0px auto;
-
 }
 
 .tag-box-container{
-    width:1050px;
+    width:1140px;
 
 }
 .tag-box-container::after{
@@ -135,7 +154,7 @@ export default {
 }
 
 .tag-box{
-    width:220px;
+    width:198px;
     padding:0px 10px;
     margin-left:10px;
     margin-bottom:10px;
@@ -154,10 +173,10 @@ export default {
 
 .tag-article-count{
     font-size:14px;
-    color:#666;
+    color:#777;
 }
 .pagenation{
-    width:1050px;
+    width:1140px;
     text-align: center;
     padding:24px 0px;
 }

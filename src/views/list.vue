@@ -112,17 +112,18 @@ export default {
           cate:"SpringBoot",
           photo:"/images/qq.png",
           image:"/images/docker.png",
-        },{
-          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
-          cate:"MySQL",
-          photo:"/images/weibo.png",
-          image:"/images/java.png",
-        },{
-          title:"【MapBoxGL】（零）MapBoxGL功能总结",
-          cate:"Java SE",
-          photo:"/images/baidu.png",
-          image:"/images/mysql.png",
-        },
+        }
+        // ,{
+        //   title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+        //   cate:"MySQL",
+        //   photo:"/images/weibo.png",
+        //   image:"/images/java.png",
+        // },{
+        //   title:"【MapBoxGL】（零）MapBoxGL功能总结",
+        //   cate:"Java SE",
+        //   photo:"/images/baidu.png",
+        //   image:"/images/mysql.png",
+        // },
       ]
     }
   }
@@ -130,8 +131,8 @@ export default {
 </script>
 <style scoped>
 .box{
- width:720px;
- height:110px;
+ width:810px;
+ height:120px;
  padding:10px;
  background:#fff;
  border-bottom:1px solid #f1f1f1;
@@ -139,24 +140,24 @@ export default {
  position:relative;
 }
 .box .left{
-  width:600px;
-  height:78px;
+  width:650px;
+  height:88px;
   float:left;
   padding-right:10px;
 }
 
 .box .right{
-  width:110px;
-  height:78px;
-  margin-top:3px;
+  width:140px;
+  height:88px;
+  margin-top:0px;
   float:left;
   border-radius: 2px;
   box-shadow: 0px 0px 4px rgba(0,0,0,0.05);
   overflow: hidden;
 }
 .box .right img{
-  width:110px;
-  height:78px;
+  width:140px;
+  height:88px;
 
 }
 .box p{
@@ -205,7 +206,7 @@ export default {
 }
 
 .box .article-info{
-  width:600px;
+  width:630px;
   height:30px;
   font-size:14px;
   color:#777;
@@ -216,6 +217,7 @@ export default {
   width:720px;
   height:50px;
   margin-top:12px;
+  text-align: center;
 }
 .author-photo{
   width:28px;

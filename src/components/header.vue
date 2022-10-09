@@ -1,22 +1,26 @@
 <template>
   <div class="site-header">
     <div class="inner">
-      <div class="logo">
-        <img src="@/assets/images/head-photo.jpg" alt="">
+      <div class="logo-info" @click="$router.push({path:'/'})">
+        <div class="logo" >
+          <img src="@/assets/images/head-photo.jpg" alt="">
+        </div>
+        <div class="logo-name">
+        JavaCat
+        </div>
       </div>
-      <div class="logo-name">
-       JavaCat
-      </div>
+     
       <div class="menu">
         <div class="menu-children">
-          <el-link type="primary" :underline="false" @click="$router.push({path:'/'})">首页</el-link>
+          <el-link :type="pageName == 'index' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/'})">首页</el-link>
         </div>
 
         <div class="menu-children">
-          <el-link type="default" :underline="false" @click="$router.push({path:'/club'})">上班摸鱼</el-link>
+          <span style="padding:2px 2px;line-height:8px;background:#ee502f;color:#fff;font-size:8px;position:absolute;right:-18px;top:8px;border-radius:7px;">hot</span>
+          <el-link :type="pageName == 'feelfish' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/feelfish'})">上班摸鱼</el-link>
         </div>
 
-        <el-popover
+        <!-- <el-popover
             placement="bottom"
             title=""
             width="560"
@@ -26,21 +30,25 @@
             <p style="color:#409eff;font-size:13px;margin:8px 0px;border-bottom:1px solid #eee;line-height:22px;padding-bottom:3px;cursor:pointer;">{{item.name}}>></p>
             <p style="line-height:20px;margin:4px 0px;" v-for="(it,idx) in item.children" :key="idx"><el-link type="default" style="font-size:12px;" :underline="false">{{it.name}}</el-link></p>
             
-          </div>
+          </div> -->
           <div class="menu-children" slot="reference">
-              <el-link type="default" :underline="false" @click="$router.push({path:'/cate'})">文章分类</el-link>
+              <el-link :type="pageName == 'cate' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/study'})">课程学习</el-link>
           </div>
-        </el-popover>
+        <!-- </el-popover> -->
        
         <div class="menu-children">
-          <el-link type="default" :underline="false" @click="$router.push({path:'/tag'})">热门标签</el-link>
+          <el-link :type="pageName == 'tag' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/activity'})">活动中心</el-link>
         </div>
-        <div class="menu-children">
-          <el-link type="default" :underline="false">常用链接</el-link>
-        </div>
+        <!-- <div class="menu-children">
+          <el-link :type="pageName == 'link' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/link'})"></el-link>
+        </div> -->
         <div class="menu-children">
           <span style="padding:2px 2px;line-height:8px;background:#ee502f;color:#fff;font-size:8px;position:absolute;right:-20px;top:8px;border-radius:7px;">new</span>
-          <el-link type="default" :underline="false" @click="$router.push({path:'/study'})">课程</el-link>
+          <el-link :type="pageName == 'study' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">工作招聘</el-link>
+        </div>
+
+        <div class="menu-children">
+          <el-link :type="pageName == 'study' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
         </div>
       </div>
      <!-- 用户中心 -->
@@ -50,7 +58,7 @@
       <!-- 消息中心 -->
       <div class="notice-center">
         <el-badge :value="3" class="item" size="mini">
-          <i class="el-icon-message-solid"></i>
+          <i class="el-icon-message-solid" style="font-size:20px;"></i>
         </el-badge>
       </div>
       <!-- 文章写作 -->
@@ -95,15 +103,25 @@ export default {
   data(){
     return {
       cateTree:null,
+      pageName:null,
+    }
+  },
+  watch:{
+    $route:function(e){
+      this.pageName = e.meta.name;
     }
   },
   created(){
-    
+    this.setPageName();
+
   },
   mounted(){
     this.getCateTree();
   },
   methods:{
+    setPageName(){
+      this.pageName = this.$route.meta.name;
+    },
     getCateTree(){
       this.$axios({
         url:"http://localhost:8081/catelist",
@@ -132,7 +150,7 @@ export default {
   border-top:1px solid #f1f3f5;
 }
 .site-header .cate-box .cate-box-inner{
-  width:1050px;
+  width:1140px;
   margin:0px auto;
   height:45px;
   line-height: 40px;
@@ -144,6 +162,12 @@ export default {
   padding:0px 0px;
   height:60px;
   margin:0px auto;
+}
+.site-header .inner .logo-info{
+  height:60px;
+  width:120px;
+  float:left;
+  cursor:pointer;
 }
 .site-header .logo{
   width:50px;

@@ -174,6 +174,31 @@ export default {
           cate:"MySQL",
           photo:"/images/weibo.png",
           image:"/images/java.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
+        },{
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"/images/java.png",
+        },{
+          title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
+          cate:"MyBatis",
+          photo:"/images/github.png",
+          image:"/images/nginx.png",
+        },{
+          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
+          cate:"SpringBoot",
+          photo:"/images/qq.png",
+          image:"/images/docker.png",
         }
       ],
             content:`
@@ -289,13 +314,18 @@ export default {
 </script>
 <style scoped>
 .article-page{
-    width:1200px;
+    width:1140px;
     margin:0px auto;
+    background:red;
 }
 .article-page .article-user-info{
-    width:275px;
+    width:290px;
     float:right;
     min-height:800px;
+    position:fixed;
+    top:120px;
+    right:50%;
+    margin-right:-570px;
 }
 .article-container{
     float:left;
@@ -304,7 +334,7 @@ export default {
     min-height:500px;
     padding:30px 0px;
     position: relative;
-    margin-left:70px;
+    /* margin-left:70px; */
         /* background:linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent); */
   
 }
@@ -315,7 +345,10 @@ export default {
     margin-top:60px;
     left:50%;
     z-index:999;
-    margin-left:-600px;   
+    top:0px;
+    bottom:0px;
+    margin:auto -640px;
+    
 }
 .article-operate div{
     font-size:22px;
@@ -382,7 +415,7 @@ blockquote{
 }
 
 .user-container{
-  width:251px;
+  width:266px;
   padding:12px;
   height:160px;
   background:#fff;
@@ -441,7 +474,7 @@ blockquote{
 }
 
 .record-container{
-  width:251px;
+  width:266px;
   padding:12px;
   min-height:280px;
   background:#fff;
@@ -450,7 +483,7 @@ blockquote{
   position:relative;
 }
 .cate-title{
-  width:251px;
+  width:266px;
   height:40px;
   position:absolute;
   top:0px;

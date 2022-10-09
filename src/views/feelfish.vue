@@ -74,15 +74,15 @@
 
                 <div class="operate">
                     <el-row>
-                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
+                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
                             <img src="/images/icon/fenxiang.png" alt="" width="18px" style="position:relative;top:3px;">
                             分享
                         </el-col>
-                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
+                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
                             <img src="/images/icon/pinglun-b.png" alt="" width="18px" style="position:relative;top:3px;">
                             评论（{{index}}）
                         </el-col>
-                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
+                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
                             <img src="/images/icon/good.png" alt="" width="18px" style="position:relative;top:3px;">
                             点赞（1{{index}}）
                         </el-col>
@@ -127,7 +127,7 @@
                 <div style="margin-top:5px;text-align:center;">
                 </div>
                 
-                <el-button type="primary" size="small" style="width:240px"><i class="el-icon-edit"></i> 我要发贴</el-button>
+                <el-button type="primary" size="small" style="width:260px"><i class="el-icon-edit"></i> 我要发贴</el-button>
             </div>
             <!-- 热门话题 -->
             <div class="record-container">
@@ -223,7 +223,7 @@ export default {
 </script>
 <style scoped>
 .club-container{
-    width:1050px;
+    width:1140px;
     margin:0px auto;
 }
 
@@ -257,12 +257,12 @@ export default {
 }
 
 .club-container .news-container{
-    width:740px;
+    width:830px;
     float:left;
 }
 .club-container .news-container .artilce-filter{
   line-height:40px;
-  width:740px;
+  width:830px;
   height:40px;
   background:#fff;
   border-bottom:1px solid #f1f3f5;
@@ -278,18 +278,13 @@ export default {
   border-color:#409eff;
 }
 
-.club-container .right-container{
-    width:266px;
-    padding:12px;
-    float:right;
-    background:#fff;
-}
+
 
 .club-container .news{
-    width:716px;
+    width:806px;
     background:#fff;
     border-radius: 3px;
-    padding:15px 12px 10px 12px;
+    padding:12px;
     margin-bottom:10px;
 }
 
@@ -299,16 +294,17 @@ export default {
 }
 
 .club-container .news .user-info .photo{
-    width:40px;
-    height:40px;
+    width:34px;
+    height:34px;
     border-radius: 50%;
     overflow: hidden;
     float:left;
+    margin-top:3px;
 }
 
 .club-container .news .user-info .photo img{
-    width:40px;
-    height:40px;
+    width:34px;
+    height:34px;
 }
 .club-container .news .user-info .user-name{
     float:left;
@@ -329,7 +325,7 @@ export default {
 .club-container .news .content{
     font-size:14px;
     color:#333;
-    padding:5px 0px 16px 0px;
+    padding:0px 0px 6px 0px;
     padding-left:50px;
     line-height:28px;
     border-bottom:1px solid #f1f1f1
@@ -340,17 +336,26 @@ export default {
 
 .club-container .news .operate{
     width:100%;
-    height:30px;
+    height:24px;
 }
 
+.club-container .right-container{
+    position:fixed;
+    top:165px;
+    right:50%;
+    margin-right:-570px;
+    width:290px;
+    float:right;
+    /* background:#fff; */
+}
 
 .user-container{
-  width:241px;
+  width:266px;
   padding:12px;
   height:160px;
   background:#fff;
   padding-bottom:24px;
-    margin-bottom:15px;
+  margin-bottom:15px;
 }
 
 .user-container p{
@@ -358,7 +363,7 @@ export default {
     line-height:20px;
 }
 .user-info{
-  width:241px;
+  width:266px;
   height:60px;
   /* border-bottom:1px solid #f1f3f5; */
 }
@@ -390,7 +395,7 @@ export default {
   padding-top:0px;
 }
 .user-count .row{
-  width:78.5px;
+  width:88.5px;
   text-align: center;
   float:left;
   height:34px;
@@ -400,7 +405,7 @@ export default {
 }
 
 .record-container{
-  width:241px;
+  width:266px;
   padding:12px;
   min-height:280px;
   background:#fff;
