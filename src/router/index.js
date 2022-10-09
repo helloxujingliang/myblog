@@ -13,11 +13,11 @@ const routes = [
       {
         path:"/",
         name:"Index",
-        component: ()=>import('../views/home.vue'),
         meta:{
           name:'index',
           title:"首页"
-        }
+        },
+        component: ()=>import('../views/Home.vue'),
       },{
         path:"article",
         name:"article",
