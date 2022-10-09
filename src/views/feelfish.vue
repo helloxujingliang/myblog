@@ -1,6 +1,6 @@
 <template>
     <div class="club-container">
-        <div class="cate-container">
+        <!-- <div class="cate-container">
             <span style="background:#4093ff;color:#fff;">综合</span>
             <span>上班摸鱼</span>
             <span>吐槽一下</span>
@@ -8,7 +8,7 @@
             <span>招聘广场</span>
             <span>技术人生</span>
             <span>打工人日常</span>
-        </div>
+        </div> -->
 
         <!-- <div class="menu-container">
             <ul>
@@ -341,7 +341,7 @@ export default {
 
 .club-container .right-container{
     position:fixed;
-    top:165px;
+    top:122px;
     right:50%;
     margin-right:-570px;
     width:290px;

@@ -12,6 +12,7 @@
                         <span class="child-cate-name">Vue</span>
                         <span class="child-cate-name">HTML5</span>
                         <span class="child-cate-name">CSS3</span>
+                        <span class="child-cate-name">MapboxGL</span>
                     </p>
                 </li>
 
@@ -49,21 +50,35 @@
                         <span class="child-cate-name">IIS</span>
                     </p>
                 </li>
+
+                <li>
+                    <p>
+                        <span class="parent-cate-name">开发工具</span>
+                    </p>
+                    <p>
+                        <span class="child-cate-name">Git</span>
+                        <span class="child-cate-name">SVN</span>
+                        <span class="child-cate-name">Visiual Studio Code</span>
+                        <span class="child-cate-name">IIS</span>
+                    </p>
+                </li>
+
+
             </ul>
         </div>
         <div class="silder">
             <el-carousel :interval="4000" type="" height="360px">
-                <el-carousel-item v-for="item in 6" :key="item">
-                <h3 class="medium">{{ item }}</h3>
+                <el-carousel-item v-for="(item,index) in silderList" :key="index">
+                    <img :src="item.image" width="100%"/>
                 </el-carousel-item>
             </el-carousel>
         </div>
     </div>
     <div class="study-container">
         <div class="page-title">
-            课程列表
+            最新课程
         </div>
-        <div class="filter-container">
+        <!-- <div class="filter-container">
             <div class="cate-container">
                 <div class="cate-title">课程方向：</div>
                 <div class="cates" style="float:left;">
@@ -108,14 +123,36 @@
                     <el-link type="default" style="font-size:12px;" :underline="false">最多学习</el-link>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="course-container">
             <div class="course-box" v-for="(item,index) in cursorList" :key="index">
                 <div class="image">
                     <img :src="item.image" width="211px" /> 
                 </div>
                 <div class="course-info">
-                    <p style="font-size:14px;">
+                    <p style="font-size:14px;padding-top:8px;">
+                        尚硅谷 JavaScript快速入门 108节
+                    </p>
+                    <p>
+                        <span style="font-size:12px;color:#999;float:left;">{{item.count}}次学习</span>
+                        <span style="font-size:12px;color:#999;float:right;margin-right:8px;">
+                            <i class="el-icon-star-off"></i>
+                            收藏</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+         <div class="page-title">
+            热门课程
+        </div>
+         <div class="course-container">
+            <div class="course-box" v-for="(item,index) in cursorList" :key="index">
+                <div class="image">
+                    <img :src="item.image" width="211px" /> 
+                </div>
+                <div class="course-info">
+                    <p style="font-size:14px;padding-top:8px;">
                         尚硅谷 JavaScript快速入门 108节
                     </p>
                     <p>
@@ -128,13 +165,13 @@
             </div>
         </div>
          <!-- 分页 -->
-      <div class="pagenation">
+      <!-- <div class="pagenation">
         <el-pagination
           background
           layout="prev, pager, next"
           :total="1000">
         </el-pagination>
-      </div>
+      </div> -->
 
     </div>
 </div>
@@ -145,6 +182,21 @@ export default {
     name:"Study",
     data(){
         return {
+            silderList:[
+                {
+                    image:"/images/silder-1.png",
+                    url:"",
+                },{
+                    image:"/images/silder-3.png",
+                    url:"",
+                },{
+                    image:"/images/silder-4.png",
+                    url:"",
+                },{
+                    image:"/images/silder-2.png",
+                    url:"",
+                }
+            ],
             cursorList:[
                 {
                     title:"HTML开发个人博客系统",
@@ -186,27 +238,7 @@ export default {
                     title:"HTML开发个人博客系统",
                     image:"/images/js-1.png",
                     count:parseInt(Math.random()*100000)
-                },{
-                    title:"HTML开发个人博客系统",
-                    image:"/images/html5.png",
-                    count:parseInt(Math.random()*100000)
-                },{
-                    title:"HTML开发个人博客系统",
-                    image:"/images/html.png",
-                    count:parseInt(Math.random()*100000)
-                },{
-                    title:"HTML开发个人博客系统",
-                    image:"/images/angular.png",
-                    count:parseInt(Math.random()*100000)
-                },{
-                    title:"HTML开发个人博客系统",
-                    image:"/images/html.png",
-                    count:parseInt(Math.random()*100000)
-                },{
-                    title:"HTML开发个人博客系统",
-                    image:"/images/html.png",
-                    count:parseInt(Math.random()*100000)
-                },
+                }
             ]
         }
     }
@@ -231,32 +263,36 @@ export default {
 
 }
 .silder-container .cate ul{
-    width:385px;
+    width:285px;
     list-style: none;
     margin:0px;
     text-indent: 0px;
     padding:0px;
 }
 .silder-container .cate ul li{
-    width:385px;
-    height:40px;
-    padding:12px;
+    width:285px;
+    height:48px;
+    padding:12px 0px;
 }
 .silder-container .cate ul li p{
     margin:0px;
+    line-height:20px;
+    text-indent: 12px;
 }
 .parent-cate-name{
-    font-size:14px;
-    color:#333;
-    font-weight: bold;
+    font-size:12px;
+    color:#666;
+    font-weight:600;
 }
 .child-cate-name{
     font-size:13px;
     color:#777;
-    margin-right:12px;
+    margin-right:6px;
     position:relative;
     top:5px;
 }
+
+
 .silder{
     width:840px;
     height:360px;
@@ -272,12 +308,11 @@ export default {
     width:1140px;
     height:60px;
     line-height:60px;
-    text-indent:25px;
     font-weight: bold;
 }
 .filter-container{
     width:1090px;    
-    padding:0px 25px 0px 25px;
+    padding:25px 0px;
      /* background:#fff; */
 }
 .filter-container p{
@@ -287,7 +322,7 @@ export default {
 }
 
 .cate-container{
-    width:1090px;
+    width:1140px;
     min-height:40px;
     font-size:13px;
      /* background:#fff; */
@@ -340,9 +375,8 @@ export default {
 
 .artilce-filter{
   line-height:40px;
-  width:1050;
+  width:1140px;
   height:40px;
-  background:#fff;
   margin-top:12px;
   border-bottom:1px solid #f1f3f5;
 }
@@ -350,16 +384,14 @@ export default {
   height:38px;
   margin-right:16px;
   float:left;
-  border-bottom:2px solid #fff;
+  border-bottom:2px solid #f1f3f5;
 }
 .filter-menu:hover{
   /* border-color:#409eff; */
 }
 
 .course-container{
-    width:1116px;
-    padding:12px;
-     background:#fff;
+    width:1140px;
 }
 
 .course-container::after{
@@ -371,17 +403,24 @@ export default {
 }
 
 .course-box{
-    width:211px;
+    width:216px;
     height:200px;
+    margin-right:15px;
     float:left;
-    margin:6px;
-    background:#f6f6f6;
-    border-radius:4px;
+    background:#fff;
+    border-radius:2px;
     overflow: hidden;
+    margin-bottom:15px;
+}
+.course-box:nth-child(5n){
+    margin-right:0px;
+}
+.course-box img{
+    width:216px;
 }
 
 .image{
-    width:211px;
+    width:216px;
     height:115px;
 }
 .course-info{

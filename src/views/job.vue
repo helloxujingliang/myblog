@@ -1,7 +1,26 @@
 <template>
     <div class="job-container">
         <div class="top-container">
-
+            <p>
+                <span style="font-size:14px;">工作地点：</span>
+                
+                <el-link type="default" :underline="false" style="margin-left:22px;">全国</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">北京</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">上海</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">南京</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">武汉</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">成都</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">杭州</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">苏州</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">广州</el-link>
+            </p>
+            <p>
+                <span style="font-size:14px;">工作经验：</span>
+                
+                <el-link type="default" :underline="false" style="margin-left:22px;">学历要求</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">工作年限</el-link>
+                <el-link type="default" :underline="false" style="margin-left:22px;">薪资要求</el-link>
+            </p>
         </div>
         <div class="job-box-container">
             <div class="box-contaienr">
@@ -52,8 +71,13 @@ export default {
 }
 .top-container{
     width:1140px;
-    height:280px;
-    
+    height:80px;
+    background:#fafafa;
+    padding:6px;
+    border:1px solid #eee;
+}
+.top-container p{
+    margin:10px;
 }
 .job-box-container{
     width:1140px;
@@ -67,8 +91,17 @@ export default {
     width:720px;
     background:#fff;
     margin-bottom:12px;
-    padding:12px 0px 0px 0px;
-    
+    padding:15px 0px 0px 0px;
+    border-radius:4px;
+    position:relative;
+    z-index:1;
+    transition:all 0.3s;
+}
+.box:hover{
+    top:-4px;
+    z-index:2;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.05);
+    cursor:pointer;
 }
 .job-name{
    padding:6px 12px;

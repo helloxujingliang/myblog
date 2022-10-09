@@ -2,14 +2,29 @@
     <div class="activity-container">
         <div class="top-container">
             
-            <div class="rili-container">
-                <img src="/images/rili.png" width="100%" height="100%" alt="">
-                
+            <div class="calendar-container">
+                <div class="year-month">
+                    <i class="el-icon-caret-left" style="font-size:18px;float:left;margin-left:70px;margin-top:10px;"></i>
+                    2022年10月
+                    <i class="el-icon-caret-right" style="font-size:18px;float:right;margin-right:70px;margin-top:10px;"></i>
+                </div>
+                <div class="weekday-contaienr">
+                    <div>日</div>
+                    <div>一</div>
+                    <div>二</div>
+                    <div>三</div>
+                    <div>四</div>
+                    <div>五</div>
+                    <div>六</div>
+                </div>
+                <div class="day-container">
+                    <div v-for="(item,index) in 42" :key="index">{{item}}</div>
+                </div>
             </div>
 
             <div class="silder-container">
                 <el-button type="primary" round size="large" style="position:absolute;bottom:35px;right:50px;"> <i class="el-icon-suitcase-1"></i> 活动合作 > ></el-button>
-                <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dabeafad6df48ea9af0efde68d15687~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?" width="100%" alt="">
+                <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e862dc7c91c402595a6605b8b711efc~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?" width="100%" alt="">
             </div>
 
         </div>
@@ -95,7 +110,7 @@ export default {
 <style scoped>
 .activity-container{
     width:1140px;
-    margin:0px auto;
+    margin:15px auto;
 }
 .top-container{
     height:270px;
@@ -109,11 +124,54 @@ export default {
     overflow: hidden;
     position:relative;
 }
-.rili-container{
+.calendar-container{
     width:447px;
     float:left;
     height:270px;
-    
+    background:#fff;
+}
+.calendar-container .year-month{
+    width:447px;
+    height:40px;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    color:#409eff;
+    line-height:40px
+}
+.calendar-container .weekday-contaienr{
+    width:447px;
+    height:30px;
+    background:#409eff;
+}
+.calendar-container .weekday-contaienr div{
+    width:63.8px;
+    height:30px;
+    text-align: center;
+    color:#fff;
+    float:left;
+    line-height:30px;
+    font-size:12px;
+}
+.calendar-container .day-container{
+    width:447px;
+    height:180px;
+    padding:10px 0px;
+}
+.calendar-container .day-container div{
+    width:63.8px;
+    float:left;
+    height:30px;
+    font-size:12px;
+    line-height:30px;
+    color:#777;
+    text-align: center;
+    border-radius: 2px;
+}
+.calendar-container .day-container div:hover{
+    background:#409eff;
+    color:#fff;
+    cursor: pointer;
 }
 .rili-container img{
     margin:0px;

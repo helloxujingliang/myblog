@@ -32,23 +32,23 @@
             
           </div> -->
           <div class="menu-children" slot="reference">
-              <el-link :type="pageName == 'cate' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/study'})">课程学习</el-link>
+              <el-link :type="pageName == 'study' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/study'})">课程学习</el-link>
           </div>
         <!-- </el-popover> -->
        
         <div class="menu-children">
-          <el-link :type="pageName == 'tag' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/activity'})">活动中心</el-link>
+          <el-link :type="pageName == 'activity' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/activity'})">活动中心</el-link>
         </div>
         <!-- <div class="menu-children">
           <el-link :type="pageName == 'link' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/link'})"></el-link>
         </div> -->
         <div class="menu-children">
           <span style="padding:2px 2px;line-height:8px;background:#ee502f;color:#fff;font-size:8px;position:absolute;right:-20px;top:8px;border-radius:7px;">new</span>
-          <el-link :type="pageName == 'study' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">工作招聘</el-link>
+          <el-link :type="pageName == 'job' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">工作招聘</el-link>
         </div>
 
         <div class="menu-children">
-          <el-link :type="pageName == 'study' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
+          <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
         </div>
       </div>
      <!-- 用户中心 -->
@@ -84,15 +84,64 @@
       </el-popover>
     </div>
     <!-- 文章大分类 -->
-    <div class="cate-box">
+    <div class="cate-box" v-if="pageName == 'index' || pageName == 'study'">
+      <div class="cate-box-inner" >
+        <el-link type="default" :underline="false" style="margin-right:12px;">综合</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">我的关注</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">前端开发</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">后端开发</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">服务部署</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">开发工具</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">地理信息</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">
+          全部分类<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
+        </el-link>
+      </div>
+    </div>
+    <div class="cate-box" v-if="pageName == 'feelfish'">
+      <div class="cate-box-inner" >
+        <el-link type="default" :underline="false" style="margin-right:12px;">综合</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">上班摸鱼</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">吐槽一下</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">今日问答</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">技术人生</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">打工人日常</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">搬砖日常</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">
+          全部圈子<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
+        </el-link>
+      </div>
+    </div>
+    <!-- 城市 -->
+    <div class="cate-box" v-if="pageName == 'activity'">
       <div class="cate-box-inner">
-        <el-link type="default" :underline="false" style="margin-right:20px;">综合</el-link>
-        <el-link type="default" :underline="false" style="margin-right:20px;">我的关注</el-link>
-        <el-link type="primary" :underline="false" style="margin-right:20px;">前端开发</el-link>
-        <el-link type="default" :underline="false" style="margin-right:20px;">后端开发</el-link>
-        <el-link type="default" :underline="false" style="margin-right:20px;">服务部署</el-link>
-        <el-link type="default" :underline="false" style="margin-right:20px;">开发工具</el-link>
-        <el-link type="default" :underline="false" style="margin-right:20px;">地理信息</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">不限</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">北京</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">上海</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">广州</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">深圳</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">杭州</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">武汉</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">成都</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">青岛</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">济南</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">苏州</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">南京</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">长沙</el-link>
+         <el-link type="default" :underline="false" style="margin-right:12px;">
+          更多城市<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
+        </el-link>
+      </div>
+    </div>
+    <!-- 工作招聘 -->
+     <div class="cate-box" v-if="pageName == 'job'">
+      <div class="cate-box-inner" >
+        <el-link type="default" :underline="false" style="margin-right:12px;">综合</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">前端开发</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">后端开发</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">
+          全部分类<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
+        </el-link>
       </div>
     </div>
   </div>
@@ -158,7 +207,7 @@ export default {
 }
 .site-header .inner{
   /* width:1050px; */
-  max-width:1200px;
+  max-width:1160px;
   padding:0px 0px;
   height:60px;
   margin:0px auto;
