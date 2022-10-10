@@ -47,9 +47,13 @@
           <el-link :type="pageName == 'job' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">工作招聘</el-link>
         </div>
 
-        <div class="menu-children">
-          <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
+         <div class="menu-children">
+          <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">任务兼职</el-link>
         </div>
+
+        <!-- <div class="menu-children">
+          <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
+        </div> -->
       </div>
      <!-- 用户中心 -->
       <div class="user-center">

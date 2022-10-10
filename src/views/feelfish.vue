@@ -261,15 +261,17 @@ export default {
     float:left;
 }
 .club-container .news-container .artilce-filter{
-  line-height:40px;
+  line-height:50px;
   width:830px;
-  height:40px;
+  height:50px;
   background:#fff;
   border-bottom:1px solid #f1f3f5;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .club-container .news-container .filter-menu{
-  height:38px;
+  height:48px;
   margin:0px 12px;
   float:left;
   border-bottom:2px solid #fff;
@@ -283,9 +285,14 @@ export default {
 .club-container .news{
     width:806px;
     background:#fff;
-    border-radius: 3px;
+    border-radius: 4px;
     padding:12px;
-    margin-bottom:10px;
+    margin-bottom:15px;
+}
+
+.club-container .news:first-child{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 .club-container .news .user-info{

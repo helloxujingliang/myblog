@@ -4,9 +4,9 @@
             
             <div class="calendar-container">
                 <div class="year-month">
-                    <i class="el-icon-caret-left" style="font-size:18px;float:left;margin-left:70px;margin-top:10px;"></i>
-                    2022年10月
-                    <i class="el-icon-caret-right" style="font-size:18px;float:right;margin-right:70px;margin-top:10px;"></i>
+                    <i class="el-icon-caret-left" style="font-size:18px;float:left;margin-left:70px;margin-top:10px;cursor:pointer;" @click="changeMonth('last')"></i>
+                    {{currentYear}}年{{currentMonth}}月
+                    <i class="el-icon-caret-right" style="font-size:18px;float:right;margin-right:70px;margin-top:10px;cursor:pointer;" @click="changeMonth('next')"></i>
                 </div>
                 <div class="weekday-contaienr">
                     <div>日</div>
@@ -18,13 +18,13 @@
                     <div>六</div>
                 </div>
                 <div class="day-container">
-                    <div v-for="(item,index) in 42" :key="index">{{item}}</div>
+                    <div v-for="(item,index) in dateContainer" :key="index" :style="{'color':item.currentMonth?'#333':'#aaa'}">{{item.day}}</div>
                 </div>
             </div>
 
             <div class="silder-container">
                 <el-button type="primary" round size="large" style="position:absolute;bottom:35px;right:50px;"> <i class="el-icon-suitcase-1"></i> 活动合作 > ></el-button>
-                <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e862dc7c91c402595a6605b8b711efc~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?" width="100%" alt="">
+                <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec48adc1f419454fbe9407e29483d797~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?" width="100%" alt="">
             </div>
 
         </div>
@@ -102,7 +102,79 @@ export default {
                     image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dabeafad6df48ea9af0efde68d15687~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     url:"",
                 },
-            ]
+            ],
+            currentYear:null,
+            currentMonth:null,
+            dateContainer:null,
+        }
+    },
+    created(){
+        let currentDate = new Date();
+        this.currentYear = currentDate.getFullYear();
+        this.currentMonth = currentDate.getMonth()+1;
+        this.initCalendar(this.currentYear,this.currentMonth);
+    },
+    methods:{
+        initCalendar(year,month){
+            // 获取本月第一天是周几
+            let currentWeekDate = new Date(year,month-1,1);
+            let weekDay = currentWeekDate.getDay();
+            console.log(year+"年"+month+"月 第一天是周："+weekDay);
+
+            // 获取当前月份天数
+            let currentDate = new Date(year,month,0);
+            let currentMonthDayCount = currentDate.getDate();
+            
+            // 获取上个月月份天数
+            let lastMonthDate = new Date(year,month-1,0);
+            let lastMonthDayCount = lastMonthDate.getDate();
+
+            // 初始化日期容器
+            let dateArray = [];
+            let prefix = lastMonthDayCount - weekDay;
+            let suffix = 1;
+            for(let i=0;i<42;i++){
+                let obj = {
+                    day:null,
+                    currentMonth:0
+                }
+                if(i<weekDay){
+                 
+                    obj.day = prefix;
+                    // dateArray[i] = prefix;
+                    dateArray[i] = obj;
+                    prefix++;
+                }else if(i>=weekDay && i < (currentMonthDayCount+weekDay)){
+                     obj.currentMonth = 1,
+                     obj.day = i-weekDay+1
+                    // dateArray[i] = i-weekDay+1
+                    dateArray[i] = obj;
+                }else if(i>=currentMonthDayCount+weekDay){
+                    obj.day = suffix;
+                    // dateArray[i] = suffix;
+                    dateArray[i] = obj;
+                    suffix++;
+                }
+            }
+            this.dateContainer = dateArray;
+
+        },
+        changeMonth(type){
+            if(type=='last'){
+                this.currentMonth--;
+                if(this.currentMonth<=0){
+                this.currentYear--;
+                this.currentMonth = 12;
+                }
+                this.initCalendar(this.currentYear,this.currentMonth);
+            }else if(type == 'next'){
+                this.currentMonth++;
+                if(this.currentMonth>12){
+                this.currentYear++;
+                this.currentMonth = 1;
+                }
+                this.initCalendar(this.currentYear,this.currentMonth);
+            }
         }
     }
 }

@@ -280,9 +280,9 @@ export default {
     text-indent: 12px;
 }
 .parent-cate-name{
-    font-size:12px;
-    color:#666;
-    font-weight:600;
+    font-size:14px;
+    color:#333;
+    font-weight:500;
 }
 .child-cate-name{
     font-size:13px;
