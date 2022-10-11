@@ -200,43 +200,43 @@ export default {
             cursorList:[
                 {
                     title:"HTML开发个人博客系统",
-                    image:"/images/html.png",
+                    image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5291e72867fd4225a432e8b50b9d3931~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/html-1.png",
+                    image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a3855caad5c40dd967c3f01be794f9d~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/html-2.png",
+                    image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dabeafad6df48ea9af0efde68d15687~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/study-1.png",
+                    image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7378a70da0b484ba28c5b760256b573~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/jquery.png",
+                    image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e862dc7c91c402595a6605b8b711efc~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/php.png",
+                    image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1eea56b4afb04349ac752916ecd28cf5~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/css.png",
+                    image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73d23deb51044502ad1f5441ddf274b4~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/css3.png",
+                    image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bc3674409ff443eb93a1629f33c1e06~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/react.png",
+                    image:"https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc576c1d817e4ac18ee57b7ec1437e0c~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 },{
                     title:"HTML开发个人博客系统",
-                    image:"/images/js-1.png",
+                    image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec48adc1f419454fbe9407e29483d797~tplv-k3u1fbpfcp-no-mark:460:460:460:270.awebp?",
                     count:parseInt(Math.random()*100000)
                 }
             ]

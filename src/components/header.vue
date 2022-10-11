@@ -119,15 +119,15 @@
     <!-- 城市 -->
     <div class="cate-box" v-if="pageName == 'activity'">
       <div class="cate-box-inner">
-        <el-link type="default" :underline="false" style="margin-right:12px;">不限</el-link>
+        <el-link type="primary" :underline="false" style="margin-right:12px;">全部活动</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">北京</el-link>
-        <el-link type="primary" :underline="false" style="margin-right:12px;">上海</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">上海</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">广州</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">深圳</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">杭州</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">武汉</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">成都</el-link>
-        <el-link type="primary" :underline="false" style="margin-right:12px;">青岛</el-link>
+        <el-link type="default" :underline="false" style="margin-right:12px;">青岛</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">济南</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">苏州</el-link>
         <el-link type="default" :underline="false" style="margin-right:12px;">南京</el-link>
