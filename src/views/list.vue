@@ -2,7 +2,6 @@
     <div>
       <!-- 文章列表 -->
       <div class="box" v-for="(item,index) in articleList" :key="index" >
-          
           <div class="article-title">
             <span class="article-cate" style="font-size:8px!important;">{{item.cate}}</span>
             <span class="title"  @click="$router.push({path:'/article'})">{{item.title}}</span>
