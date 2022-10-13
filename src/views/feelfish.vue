@@ -129,11 +129,35 @@
                 
                 <el-button type="primary" size="small" style="width:260px"><i class="el-icon-edit"></i> 我要发贴</el-button>
             </div>
+            <!-- 精选摸鱼 -->
+              <div class="record-container">
+                <div class="cate-title">
+                <div class="cate-title-text">
+                    <img src="/images/icon/fish.png" width="20px" style="position:relative;top:5px;" alt="">&nbsp;精选摸鱼
+                </div>
+                </div>
+                <div class="record-list">
+                    <div> 
+                        <div style="font-size:14px;color:#333;"> 
+                            <p style="width:262px;margin-bottom:6px;">【上班摸鱼】今年六月份平薪来大学室友内推的公司，主要就是图不加班，任</p>
+                            <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                        </div>
+                        <div style="font-size:14px;color:#333;"> 
+                            <p style="width:262px;margin-bottom:6px;">有木有同学遇到过用svelte开发一个公共模块（比如菜单）d后另</p>
+                            <p style="font-size:12px;color:#777;margin:0px;"><span>23赞</span>&nbsp;·&nbsp;<span>3评论</span></p>
+                        </div>
+                        <div style="font-size:14px;color:#333;"> 
+                            <p style="width:262px;margin-bottom:6px;">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
+                            <p style="font-size:12px;color:#777;margin:0px;"><span>12赞</span>&nbsp;·&nbsp;<span>0评论</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- 热门话题 -->
             <div class="record-container">
                 <div class="cate-title">
                 <div class="cate-title-text">
-                    # 热门话题
+                   <img src="/images/icon/huati.png" width="20px" style="position:relative;top:5px;" alt="">&nbsp;热门话题
                 </div>
                 </div>
                 <div class="record-list">
@@ -203,19 +227,20 @@ export default {
                     name:"非正式面试",
                 },{
                     name:"怎么看带996",
-                },{
-                    name:"羊了个养",
-                },{
-                    name:"非正式面试",
-                },{
-                    name:"怎么看带996",
-                },{
-                    name:"Hello Wrold !",
-                },{
-                    name:"迷惑BUG欣赏",
-                },{
-                    name:"马上撸代码",
                 },
+                // {
+                //     name:"羊了个养",
+                // },{
+                //     name:"非正式面试",
+                // },{
+                //     name:"怎么看带996",
+                // },{
+                //     name:"Hello Wrold !",
+                // },{
+                //     name:"迷惑BUG欣赏",
+                // },{
+                //     name:"马上撸代码",
+                // },
             ],
         }
     }
@@ -287,7 +312,7 @@ export default {
     background:#fff;
     border-radius: 4px;
     padding:12px;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
 .club-container .news:first-child{
@@ -414,7 +439,7 @@ export default {
 .record-container{
   width:266px;
   padding:12px;
-  min-height:280px;
+  min-height:220px;
   background:#fff;
   margin-bottom:20px;
   position: relative;

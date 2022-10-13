@@ -9,13 +9,19 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    meta:{
+      name:'index',
+      title:"首页",
+      childMenu:true
+    },
     children:[
       {
         path:"/",
         name:"Index",
         meta:{
           name:'index',
-          title:"首页"
+          title:"首页",
+          childMenu:true
         },
         component: ()=>import('../views/Home.vue'),
       },{
@@ -23,7 +29,8 @@ const routes = [
         name:"article",
         component: ()=>import('../views/article.vue'),
         meta:{
-          name:'article'
+          name:'article',
+          childMenu:false
         }
       },{
         path:"feelfish",          //上班摸鱼
@@ -31,7 +38,8 @@ const routes = [
         component: ()=>import('../views/feelfish.vue'),
         meta:{
           name:'feelfish',
-          title:"上班摸鱼"
+          title:"上班摸鱼",
+          childMenu:true
         }
       },{
         path:"cate",
@@ -63,7 +71,8 @@ const routes = [
         component: ()=>import('../views/study.vue'),
         meta:{
           name:'study',
-          title:"课程"
+          title:"课程",
+          childMenu:true
         }
       },{
         path: '/activity',
@@ -71,7 +80,8 @@ const routes = [
         component: ()=>import('../views/activity.vue'),
         meta:{
           name:'activity',
-          title:"活动中心"
+          title:"活动中心",
+          childMenu:true
         }
       },{
         path: '/job',
@@ -79,7 +89,8 @@ const routes = [
         component: ()=>import('../views/job.vue'),
         meta:{
           name:'job',
-          title:"工作招聘"
+          title:"工作招聘",
+          childMenu:true
         }
       },{
         path: '/my',

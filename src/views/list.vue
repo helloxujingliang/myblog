@@ -51,79 +51,78 @@ export default {
           title:"【MapBoxGL】加载GeoJSON点线面数据",
           cate:"MapBox GL",
           photo:"/images/csdn.png",
-          image:"/images/springboot.png",
+          image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b95a35a980c04f77a3a4d2a14f3a7550~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
           cate:"MyBatis",
           photo:"/images/github.png",
-          image:"/images/nginx.png",
+          image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81eead6c42c6472ab21933a227c9c7f4~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
           cate:"SpringBoot",
           photo:"/images/qq.png",
-          image:"/images/docker.png",
+          image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54578e4d7ce8408889133730df69a5f7~tplv-k3u1fbpfcp-no-mark:720:720:720:480.awebp?",
         },{
           title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
           cate:"MySQL",
           photo:"/images/weibo.png",
-          image:"/images/java.png",
+          image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f82cb9accd7408183b62caa9bc23b25~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【MapBoxGL】（零）MapBoxGL功能总结",
           cate:"Java SE",
           photo:"/images/baidu.png",
-          image:"/images/mysql.png",
+          image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6322db5aed2547a18b9cb7c3f1f3eb61~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【Git】创建Git项目上传代码和拉取远程代码",
           cate:"Cesium",
           photo:"/images/csdn.png",
-          image:"/images/mybatisplus.png",
-        },        {
+          image:"https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69354fd5358d4c27b5e26ca00edb716c~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
+        },    {
           title:"【MapBoxGL】加载GeoJSON点线面数据",
           cate:"MapBox GL",
           photo:"/images/csdn.png",
-          image:"/images/springboot.png",
+          image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b95a35a980c04f77a3a4d2a14f3a7550~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
           cate:"MyBatis",
           photo:"/images/github.png",
-          image:"/images/nginx.png",
+          image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81eead6c42c6472ab21933a227c9c7f4~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
           cate:"SpringBoot",
           photo:"/images/qq.png",
-          image:"/images/docker.png",
+          image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54578e4d7ce8408889133730df69a5f7~tplv-k3u1fbpfcp-no-mark:720:720:720:480.awebp?",
         },{
           title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
           cate:"MySQL",
           photo:"/images/weibo.png",
-          image:"/images/java.png",
+          image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f82cb9accd7408183b62caa9bc23b25~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【MapBoxGL】（零）MapBoxGL功能总结",
           cate:"Java SE",
           photo:"/images/baidu.png",
-          image:"/images/mysql.png",
+          image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6322db5aed2547a18b9cb7c3f1f3eb61~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
+        },{
+          title:"【Git】创建Git项目上传代码和拉取远程代码",
+          cate:"Cesium",
+          photo:"/images/csdn.png",
+          image:"https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69354fd5358d4c27b5e26ca00edb716c~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
           title:"【MyBatis】ResultMap和Collection实现嵌套查询一对多查询&&二级菜单查询",
           cate:"MyBatis",
           photo:"/images/github.png",
-          image:"/images/nginx.png",
+          image:"https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81eead6c42c6472ab21933a227c9c7f4~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
         },{
-          title:"SpringBoot+MyBatis+MySQL增删改查（四）（图片上传、删除、时间格式化工具类）、UUID",
-          cate:"SpringBoot",
-          photo:"/images/qq.png",
-          image:"/images/docker.png",
-        }
-        // ,{
-        //   title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
-        //   cate:"MySQL",
-        //   photo:"/images/weibo.png",
-        //   image:"/images/java.png",
-        // },{
-        //   title:"【MapBoxGL】（零）MapBoxGL功能总结",
-        //   cate:"Java SE",
-        //   photo:"/images/baidu.png",
-        //   image:"/images/mysql.png",
-        // },
+          title:"Vue全家桶（三）Vue后端接口访问axios的使用及axios封装",
+          cate:"MySQL",
+          photo:"/images/weibo.png",
+          image:"https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f82cb9accd7408183b62caa9bc23b25~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
+        },{
+          title:"【MapBoxGL】（零）MapBoxGL功能总结",
+          cate:"Java SE",
+          photo:"/images/baidu.png",
+          image:"https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6322db5aed2547a18b9cb7c3f1f3eb61~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
+        },
       ]
     }
   }

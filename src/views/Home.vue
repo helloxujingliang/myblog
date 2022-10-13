@@ -38,6 +38,15 @@
     </div>
     <!-- 首页右侧 -->
     <div  class="record-list-container" >
+      <!-- 签到 -->
+      <div class="sign-in">
+        <p style="color:#666;line-height:30px;text-indent:30px;">
+          <img src="/images/icon/calender.png" width="24px" style="position:relative;top:0px;" />
+          <span style="font-size:18px;margin:0px 22px 0px 10px;">晚上好 !</span>
+          <el-button type="primary" round size="mini">去签到</el-button>
+        </p>
+        <p style="line-height:30px;font-size:14px;text-indent:30px;">~ ~您已经连续签到87天~ ~</p>
+      </div>
       <!-- 账户信息 -->
       <div class="user-container">
         <div class="user-info" @click="$router.push({'path':'/my'})">
@@ -99,7 +108,7 @@
       <div class="record-container">
         <div class="cate-title">
           <div class="cate-title-text">
-            <i class="el-icon-s-data"></i>浏览排行
+            <img src="/images/icon/panghang.png" width="18px" style="position:relative;top:2px;"/>  &nbsp;浏览排行
           </div>
         </div>
         <div class="record-list">
@@ -107,14 +116,13 @@
             <!-- <i style="color:#409eff;">{{index+1}}、</i> -->
             <span>{{item.title}}</span>
           </p>
-          
         </div>
       </div>
       <!-- 开发者排行 -->
       <div class="record-container">
         <div class="cate-title">
           <div class="cate-title-text">
-            <i class="el-icon-user"></i> 创作者排行
+            <img src="/images/icon/jiangbei.png" width="20px" style="position:relative;top:5px;"/> 作者榜
           </div>
         </div>
         <div class="record-list">
@@ -177,28 +185,42 @@
               <p style="font-size:12px;color:#999;">后端开发工程师&nbsp;&nbsp;&nbsp;&nbsp;IP属地：北京市</p>
             </div>
           </div>
+
+          <div style="width:100%;height:30px;padding-top:10px;font-size:14px;line-height:30px;text-align:center;color:#007fff;">
+            完整榜单 <i class="el-icon-arrow-right" style="font-weight:bold;"></i>
+          </div>
         </div>
       </div>
        <!-- 标签 -->
       <div class="record-container">
         <div class="cate-title">
          <div class="cate-title-text">
-            <i class="el-icon-price-tag"></i>文章标签
+            <img src="/images/icon/tag.png" width="20px" style="position:relative;top:5px;"/> 文章标签
           </div>
         </div>
         <div class="record-list">
-          <el-tag type="info" size="mini"  v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-tag>
+          <div style="height:280px;overflow:hidden;">
+            <el-tag type="primary" size="mini"  v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-tag>
+          </div>
+           <div style="width:100%;height:30px;padding-top:10px;font-size:14px;line-height:30px;text-align:center;color:#007fff;border-top:1px solid #f1f3f5;">
+            全部标签 <i class="el-icon-arrow-right" style="font-weight:bold;"></i>
+          </div>
         </div>
       </div>
       <!-- 常用链接 -->
       <div class="record-container">
         <div class="cate-title">
           <div class="cate-title-text">
-            <i class="el-icon-link"></i>常用链接
+            <img src="/images/icon/link.png" width="20px" style="position:relative;top:5px;"/> 常用链接
           </div>
         </div>
         <div class="record-list">
-          <el-link type="default" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-link>
+          <div style="height:260px;">
+            <el-link type="default" v-for="(item,index) in links" :key="index" style="margin:4px 8px;font-size:13px;">{{item.name}}</el-link>
+          </div>
+          <div style="width:100%;height:30px;padding-top:10px;font-size:14px;line-height:30px;text-align:center;color:#007fff;border-top:1px solid #f1f3f5;">
+            全部链接 <i class="el-icon-arrow-right" style="font-weight:bold;"></i>
+          </div>
         </div>
       </div>
       <Footer></Footer>
@@ -218,7 +240,105 @@ export default {
     return {
       breadNavShow:false,
       tags:['Vue 2','MapBox GL','Vue 3','GeoServer','Git','Vue Router','Axios','Element UI','Leaflet',],
-      links:[],
+      links:[
+        {
+          name:"GitHub",
+          url:"https://www.github.com",
+        },{
+          name:"Element-UI",
+          url:"https://www.github.com",
+        },{
+          name:"npm",
+          url:"https://www.github.com",
+        },{
+          name:"Oracle",
+          url:"https://www.github.com",
+        },{
+          name:"CSDN",
+          url:"https://www.github.com",
+        },{
+          name:"Node.js",
+          url:"https://www.github.com",
+        },{
+          name:"Vue",
+          url:"https://www.github.com",
+        },{
+          name:"阿里巴巴矢量图标库",
+          url:"https://www.github.com",
+        },{
+          name:"菜鸟教程",
+          url:"https://www.github.com",
+        },{
+          name:"稀土掘金",
+          url:"https://www.github.com",
+        },{
+          name:"SegmentFault",
+          url:"https://www.github.com",
+        },{
+          name:"SuperMap",
+          url:"https://www.github.com",
+        },{
+          name:"W3School",
+          url:"https://www.github.com",
+        },{
+          name:"PHP中文网",
+          url:"https://www.github.com",
+        },{
+          name:"Linux",
+          url:"https://www.github.com",
+        },{
+          name:"MySQL",
+          url:"https://www.github.com",
+        },{
+          name:"Visual Studio Code",
+          url:"https://www.github.com",
+        },{
+          name:"BootStrap",
+          url:"https://www.github.com",
+        },{
+          name:"React",
+          url:"https://www.github.com",
+        },{
+          name:"Element-UI Plus",
+          url:"https://www.github.com",
+        },{
+          name:"GitHub",
+          url:"https://www.github.com",
+        },{
+          name:"Element-UI",
+          url:"https://www.github.com",
+        },{
+          name:"npm",
+          url:"https://www.github.com",
+        },{
+          name:"Oracle",
+          url:"https://www.github.com",
+        },{
+          name:"CSDN",
+          url:"https://www.github.com",
+        },{
+          name:"Node.js",
+          url:"https://www.github.com",
+        },{
+          name:"GitHub",
+          url:"https://www.github.com",
+        },{
+          name:"Element-UI",
+          url:"https://www.github.com",
+        },{
+          name:"npm",
+          url:"https://www.github.com",
+        },{
+          name:"Oracle",
+          url:"https://www.github.com",
+        },{
+          name:"CSDN",
+          url:"https://www.github.com",
+        },{
+          name:"Node.js",
+          url:"https://www.github.com",
+        },
+      ],
       scrollHeight:0,
       isShowLeft:true,
       articleList:[
@@ -277,7 +397,7 @@ export default {
     }
   },
   created(){
-    this.getLink();
+    // this.getLink();
   },
   mounted(){
     window.addEventListener("scroll",this.handlerScroll);
@@ -371,7 +491,13 @@ export default {
 }
 
 
-
+.sign-in{
+  width:266px;
+  padding:12px;
+  height:100px;
+  background:#fff;
+  margin-bottom:1px;
+}
 .user-container{
   width:266px;
   padding:12px;
@@ -383,7 +509,7 @@ export default {
 .user-info{
   width:266px;
   height:60px;
-  border-bottom:1px solid #f1f3f5;
+  // border-bottom:1px solid #f1f3f5;
 }
 .user-info:hover{
   cursor:pointer;
@@ -461,6 +587,7 @@ export default {
 .record-list{
   margin-top:40px;
   width:266px;
+  text-align: justify;
 }
 
 .record-list .hot-article{

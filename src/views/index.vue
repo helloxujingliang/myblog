@@ -1,13 +1,13 @@
 <template>
 <div>
   <!-- 页面顶部导航搜索栏 -->
-  <Header style="position:fixed;top:0px;left:0px;z-index:999;"></Header>
-  <div style="width:100%;height:106px;margin-bottom:15px;"></div>
-
+  <Header style=""></Header>
   <!-- 首页主题内容 -->
   <div class="body-container">
     <router-view/>
   </div>
+  <!-- 网站底部 -->
+  
 </div>
 </template>
 <script>

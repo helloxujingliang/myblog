@@ -94,22 +94,21 @@
                 </div>
             </div>
             <!-- 相关文章 -->
-        <div class="record-container">
-            <div class="cate-title">
-            <div class="cate-title-text">
-                <i class="el-icon-s-data"></i>相关文章
-            </div>
-            </div>
-            <div class="record-list">
-            <p class="hot-article" v-for="(item,index) in articleList" style="font-size:13px;height:22px;" :key="index">
-                <!-- <i style="color:#409eff;">{{index+1}}、</i> -->
-                <span>{{item.title}}</span>
-            </p>
-            
-            </div>
-        </div>
-        </div>
-        
+          <div class="record-container">
+              <div class="cate-title">
+              <div class="cate-title-text">
+                  <i class="el-icon-s-data"></i>相关文章
+              </div>
+              </div>
+              <div class="record-list">
+              <p class="hot-article" v-for="(item,index) in articleList" style="font-size:13px;height:22px;" :key="index">
+                  <!-- <i style="color:#409eff;">{{index+1}}、</i> -->
+                  <span>{{item.title}}</span>
+              </p>
+              
+              </div>
+          </div>
+        </div>  
     </div>
 </template>
 <script>
@@ -202,6 +201,11 @@ export default {
         }
       ],
             content:`
+
+<h2><strong>（一）图层加载</strong></h2>
+<blockquote style="bcakground:red">
+<p>图层加载</p>
+</blockquote>
             <pre class="language-javascript"><code>     // {select id,title,createtime,createuser,createid,desc, cateId,cateName,parentCateid,parentCateNmae,tags:[{},{}]}
       // article : id,title,desc,content,state,visibility,createtime,createuser,createuserid,updatetime,cateId,delete
       // add update delete list(querylist:cateid,tag,key,page,limit ; default:state == 1,visibility == 1)
@@ -213,10 +217,6 @@ export default {
       // 关联表 ： collect(收藏)
       // 关联表 ： tag(标签)
       // 用户注册 登录 写作 浏览 点赞 收藏 找回密码  </code></pre>
-<h2><strong>（一）图层加载</strong></h2>
-<blockquote style="bcakground:red">
-<p>图层加载</p>
-</blockquote>
 <p>1、添加GeoJson 点（point）、线（line）、面（fill）、图标（symbol）数据</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 天空地监测平台： 镇边界图</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 费县智慧社区：社区边界、楼栋</p>
@@ -316,14 +316,13 @@ export default {
 .article-page{
     width:1140px;
     margin:0px auto;
-    background:red;
 }
 .article-page .article-user-info{
     width:290px;
     float:right;
     min-height:800px;
     position:fixed;
-    top:120px;
+    top:76px;
     right:50%;
     margin-right:-570px;
 }
@@ -367,8 +366,8 @@ export default {
     margin-top:12px;
 }
 .article-title{
-    height:50px;
-    font-size:19px;
+    height:80px;
+    font-size:28px;
     font-weight:bold;
     padding:0px 15px;
 }

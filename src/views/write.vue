@@ -1,6 +1,6 @@
 <template>
   <div class="wirte-container">
-    <div style="witdh:1050px;height:30px;padding:10px;">
+    <div style="witdh:1140px;height:30px;padding:10px;">
           <el-select  size="mini" v-model="form.cateId" placeholder="文章分类" style="float:left;width:160px;margin-left:4px;">
             <el-option-group
               v-for="group in options"
@@ -194,13 +194,13 @@ export default Vue.extend({
 
 <style scoped>
 .wirte-container{
-  width:1050px;
+  width:1140px;
   height: calc( 100vh - 132px);
   background:#fff;
   margin:0px auto;
 }
 .operate-box{
-  width:1050px;
+  width:1140px;
   padding:10px 0px;
   height:30px;
   background:#fff;
