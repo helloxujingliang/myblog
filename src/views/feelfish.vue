@@ -35,6 +35,22 @@
             </ul>
         </div> -->
         <div class="news-container">
+            <div class="write-news">
+                <div class="textarea">
+                    <el-input type="textarea" v-model="newsContent" placeholder="快分享新鲜事！告诉你一个小秘密，发布帖子是添加圈子和话题会被更多人发现" maxlength="1000" show-word-limit></el-input>
+                </div>
+                <div class="other">
+                    <span class="button"><img src="/images/icon/圈子.png" width="18px" style="position:relative;top:5px;" alt=""> 圈子</span>
+                    <span class="button"> <img src="/images/icon/表情.png" width="18px" style="position:relative;top:5px;" alt=""> 表情</span>
+                    <span class="button"><img src="/images/icon/图片.png" width="18px" style="position:relative;top:5px;" alt="">  图片</span>
+                    <span class="button"><img src="/images/icon/链接.png" width="18px" style="position:relative;top:5px;" alt=""> 链接</span>
+                    <span class="button"><img src="/images/icon/话题.png" width="18px" style="position:relative;top:5px;" alt=""> 话题</span>
+                    <el-button type="primary" size="mini" round style="float:right">
+                        <i class="el-icon-s-promotion"></i>
+                        发布
+                    </el-button>
+                </div>
+            </div>
             <div class="artilce-filter">
                 <div class="filter-menu" style="border-color:#409eef;">
                 <el-link type="primary" style="font-size:12px;" :underline="false">最新发布</el-link>
@@ -88,6 +104,60 @@
                         </el-col>
                     </el-row>
                 </div>  
+                <div class="comment" v-show="index%3 == 1">
+                    <div class="comment-parent">
+                        <div class="comment-user-info">
+                            <div class="comment-user-photo">
+                                <img src="/images/github.png" width="40px" alt="">
+                            </div>
+                            <div class="comment-user-name">
+                                <p class="comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
+                                <p class="comment-content">不扫码不可以参加么？</p>
+                                <div>
+                                    <div class="comment-child">
+                                        <div class="child-comment-user-info">
+                                            <div class="child-comment-user-photo">
+                                                <img src="/images/qq.png" width="40px" alt="">
+                                            </div>
+                                            <div class="child-comment-user-name">
+                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
+                                                <p class="child-comment-content">年六月份平薪来大学室友内推的公司，主要就是图不加班，任</p>
+                                            </div>
+                                        </div>
+                                        <div class="child-comment-user-info">
+                                            <div class="child-comment-user-photo">
+                                                <img src="/images/csdn.png" width="40px" alt="">
+                                            </div>
+                                            <div class="child-comment-user-name">
+                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
+                                                <p class="child-comment-content">不扫码不可以参加么？</p>
+                                            </div>
+                                        </div>
+                                        <div class="child-comment-user-info">
+                                            <div class="child-comment-user-photo">
+                                                <img src="/images/baidu.png" width="40px" alt="">
+                                            </div>
+                                            <div class="child-comment-user-name">
+                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
+                                                <p class="child-comment-content">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
+                                            </div>
+                                        </div>
+                                        <div class="child-comment-user-info">
+                                            <div class="child-comment-user-photo">
+                                                <img src="/images/weibo.png" width="40px" alt="">
+                                            </div>
+                                            <div class="child-comment-user-name">
+                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
+                                                <p class="child-comment-content">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
         <div class="right-container">
@@ -181,6 +251,7 @@ export default {
     name:"Club",
     data(){
         return {
+            newsContent:null,
             newsList:[
                 {
                     photo:"/images/csdn.png",
@@ -285,6 +356,44 @@ export default {
     width:830px;
     float:left;
 }
+.club-container .write-news{
+    width:800px;
+    height: 168px;
+    background:#fff;
+    margin-bottom:15px;
+    border-radius:5px;
+    padding:15px;
+}
+.club-container .write-news .textarea{
+    width:800px;
+    height:120px;
+    background:#f1f3f5;
+    border-radius: 5px;
+    
+}
+.club-container .write-news  .other{
+    width:800px;
+    height:20px;
+    padding-top:15px;
+}
+.club-container .write-news  .other .button{
+    margin-right:18px;
+    font-size:14px;
+    color:#666;
+    padding:3px 6px;
+    border-radius: 5px;
+}
+.club-container .write-news  .other .button:hover{
+    background:#f1f3f5;
+    cursor:pointer;
+}
+::v-deep .el-textarea__inner{
+    background:#f1f3f5;
+    border:none;
+    font-size:15px;
+    font-family: "微软雅黑";
+    height:120px;
+}
 .club-container .news-container .artilce-filter{
   line-height:50px;
   width:830px;
@@ -371,6 +480,92 @@ export default {
     height:24px;
 }
 
+.club-container .news .comment{
+    width:100%;
+    height:400px;
+    background:#fff;
+    padding-top:15px;
+}
+.comment-parent{
+    width:100%;
+    height:80px;
+}
+.comment-parent .comment-user-info{
+    width:100%;
+    height:80px;
+}
+.comment-parent .comment-user-info .comment-user-photo{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    float:left;
+    margin-top:5px;
+    margin-left:40px;
+    overflow: hidden;
+}
+.comment-parent .comment-user-info .comment-user-photo img{
+    width:30px;
+    height:30px;
+}
+.comment-parent .comment-user-info .comment-user-name{
+    float:left;
+    height:80px;
+    margin-left:15px;
+    font-size:14px;
+    line-height:20px;
+}
+.comment-parent .comment-user-info .comment-user-name .comment-info{
+    line-height:30px;
+}
+.comment-parent .comment-user-info .comment-user-name .comment-content{
+    font-size:14px;
+    margin-top:0px;
+}
+.comment-parent .comment-user-info .comment-user-name p{
+    margin:0px;
+    line-height:20px;
+}
+.comment-child{
+    width:690px;
+
+    background:#f9fafb;
+    padding:12px;
+    margin-top:12px;
+}
+.comment-child .child-comment-user-info{
+    width:100%;
+    height:80px;
+}
+.comment-child .child-comment-user-info .child-comment-user-photo{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    float:left;
+    margin-top:5px;
+    overflow: hidden;
+}
+.comment-child .child-comment-user-info .child-comment-user-photo img{
+    width:30px;
+    height:30px;
+}
+.comment-child .child-comment-user-info .child-comment-user-name{
+    float:left;
+    height:80px;
+    margin-left:15px;
+    font-size:14px;
+    line-height:20px;
+}
+.comment-child .child-comment-user-info .child-comment-user-name .child-comment-info{
+    line-height:30px;
+}
+.comment-child .child-comment-user-info .child-comment-user-name .child-comment-content{
+    font-size:14px;
+    margin-top:0px;
+}
+.comment-child .child-comment-user-info .child-comment-user-name p{
+    margin:0px;
+    line-height:20px;
+}
 .club-container .right-container{
     position:fixed;
     top:122px;
