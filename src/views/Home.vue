@@ -494,7 +494,7 @@ export default {
 .sign-in{
   width:266px;
   padding:12px;
-  height:100px;
+  height:80px;
   background:#fff;
   margin-bottom:1px;
 }
