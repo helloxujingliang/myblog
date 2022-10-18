@@ -105,9 +105,9 @@
         </div>
         <div class="cate-box" v-if="pageName == 'feelfish' && showChildMenu">
           <div class="cate-box-inner" >
-            <el-link type="default" :underline="false" style="margin-right:12px;">综合</el-link>
+            <el-link type="primary" :underline="false" style="margin-right:12px;">综合</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">上班摸鱼</el-link>
-            <el-link type="primary" :underline="false" style="margin-right:12px;">吐槽一下</el-link>
+            <el-link type="default" :underline="false" style="margin-right:12px;">吐槽一下</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">今日问答</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">技术人生</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">打工人日常</el-link>

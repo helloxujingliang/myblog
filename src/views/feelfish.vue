@@ -68,7 +68,7 @@
                     </div>
                     <div class="user-name">
                         <p class="username">{{item.username}}</p>
-                        <p class="time">前端开发工程师 · 发布于{{item.time}} <el-tag type="primary" size="mini">@上班摸鱼</el-tag></p>
+                        <p class="time">{{item.work}} · 发布于{{item.time}} <el-tag type="primary" size="mini">@{{item.classname}}</el-tag></p>
                     </div>
                 </div>
                 <div class="content">
@@ -90,65 +90,40 @@
 
                 <div class="operate">
                     <el-row>
-                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
+                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
                             <img src="/images/icon/fenxiang.png" alt="" width="18px" style="position:relative;top:3px;">
                             分享
                         </el-col>
-                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
-                            <img src="/images/icon/pinglun-b.png" alt="" width="18px" style="position:relative;top:3px;">
-                            评论（{{index}}）
+                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;cursor:pointer;" >
+                            <img @click="changeCommentVisible(index)" src="/images/icon/回复.png" alt="" width="18px" style="position:relative;top:2px;">
+                            评论（{{item.commentcount}}）
                         </el-col>
-                        <el-col :span="8" style="font-size:12px;line-height:30px;text-align:center;color:#777;">
-                            <img src="/images/icon/good.png" alt="" width="18px" style="position:relative;top:3px;">
-                            点赞（1{{index}}）
+                        <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
+                            <img src="/images/icon/点赞.png" alt="" width="18px" style="position:relative;top:3px;">
+                            点赞（1{{item.good}}）
                         </el-col>
                     </el-row>
                 </div>  
-                <div class="comment" v-show="index%3 == 1">
+                <div class="comment" v-if="item.showComment">
                     <div class="comment-parent">
-                        <div class="comment-user-info">
+                        <div class="comment-user-info" v-for="(it,idx) in item.comments" :key="idx">
                             <div class="comment-user-photo">
-                                <img src="/images/github.png" width="40px" alt="">
+                                <img :src="it.photo" width="40px" alt="">
                             </div>
                             <div class="comment-user-name">
-                                <p class="comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
-                                <p class="comment-content">不扫码不可以参加么？</p>
+                                <p class="comment-info">{{it.commentusername}} <span style="font-size:12px;color:#777;margin:0px 12px;">{{it.work}}</span>  <span style="font-size:12px;color:#777;">{{it.time}}</span></p>
+                                <p class="comment-content">{{it.comment}}</p>
+                                <p class="comment-operate"><span style="margin-right:12px;"><img src="/images/icon/点赞.png" alt="" width="18px" style="position:relative;top:3px;">点赞</span>  <span><img src="/images/icon/回复.png" alt="" width="18px" style="position:relative;top:2px;">回复</span></p>
                                 <div>
-                                    <div class="comment-child">
-                                        <div class="child-comment-user-info">
+                                    <div class="comment-child" v-show="it.replyList.length>0">
+                                        <div class="child-comment-user-info" v-for="(reply,i) in it.replyList" :key="i">
                                             <div class="child-comment-user-photo">
-                                                <img src="/images/qq.png" width="40px" alt="">
+                                                <img :src="reply.photo" width="40px" alt="">
                                             </div>
                                             <div class="child-comment-user-name">
-                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
-                                                <p class="child-comment-content">年六月份平薪来大学室友内推的公司，主要就是图不加班，任</p>
-                                            </div>
-                                        </div>
-                                        <div class="child-comment-user-info">
-                                            <div class="child-comment-user-photo">
-                                                <img src="/images/csdn.png" width="40px" alt="">
-                                            </div>
-                                            <div class="child-comment-user-name">
-                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
-                                                <p class="child-comment-content">不扫码不可以参加么？</p>
-                                            </div>
-                                        </div>
-                                        <div class="child-comment-user-info">
-                                            <div class="child-comment-user-photo">
-                                                <img src="/images/baidu.png" width="40px" alt="">
-                                            </div>
-                                            <div class="child-comment-user-name">
-                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
-                                                <p class="child-comment-content">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
-                                            </div>
-                                        </div>
-                                        <div class="child-comment-user-info">
-                                            <div class="child-comment-user-photo">
-                                                <img src="/images/weibo.png" width="40px" alt="">
-                                            </div>
-                                            <div class="child-comment-user-name">
-                                                <p class="child-comment-info">JavaCat技术团队 <span style="font-size:12px;color:#777;margin:0px 12px;">Web前端开发工程师</span>  <span style="font-size:12px;color:#777;">24分钟前</span></p>
-                                                <p class="child-comment-content">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
+                                                <p class="child-comment-info">{{reply.replyusername}} <span style="font-size:12px;color:#777;margin:0px 12px;">{{reply.work}}</span>  <span style="font-size:12px;color:#777;">{{reply.time}}</span></p>
+                                                <p class="child-comment-content">{{reply.reply}}</p>
+                                                <p class="comment-operate"><span style="margin-right:12px;"><img src="/images/icon/点赞.png" alt="" width="18px" style="position:relative;top:3px;">点赞</span>  <span><img src="/images/icon/回复.png" alt="" width="18px" style="position:relative;top:2px;">回复</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,7 +131,9 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="morecomment" >
+                        <el-link type="default" :underline="false">查看全部34条评论<i class="el-icon-arrow-right"></i></el-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,36 +231,317 @@ export default {
             newsContent:null,
             newsList:[
                 {
+                    showComment:false,
+                    photo:"/images/baidu.png",
+                    username:"百年孤独Html",
+                    work:"前端开发工程师",
+                    time:"12分钟前",
+                    classid:1,
+                    classname:"上班摸鱼",
+                    good:"109",
+                    commentcount:23,
+                    images:[
+                        
+                    ],
+                    content:"今年六月份平薪来大学室友内推的公司，主要就是图不加班，任务少；今天来了说我们因为天天准点下班被公司其他研发部门眼红看不爽，被投诉，现在执行了末尾淘汰制(看平时下班时间---现在意思就是强制加班，任务饱和度)，我已经在准备简历了",
+                    tags:[
+                        {
+                            id:1,
+                            name:"上班摸鱼"
+                        }, {
+                            id:1,
+                            name:"吐槽大会"
+                        }
+                    ],
+                    comments:[
+                       {
+                            commentusername:"Sun YaNan",
+                            photo:"/images/photo/sunyanan.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },{
+                            commentusername:"Liu Hui",
+                            photo:"/images/photo/liuhui.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"Cesium框架添加的Entity实体如何贴在S3M倾斜摄影上",
+                            replyList:[
+                                {
+                                    replyusername:"Tian FuWei",
+                                    photo:"/images/photo/tianfuwei.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                },{
+                                    replyusername:"百年孤独Html",
+                                    photo:"/images/photo/pangchaoli.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:44",
+                                    reply:"设置一下classHisgiht : Cesium.hieght()试试"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:50",
+                                    reply:"可以，有效果"
+                                },
+                            ]
+                        },{
+                            commentusername:"Shi WenBin",
+                            photo:"/images/photo/shiwenbin.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[
+                                {
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Shi WenBin",
+                                    photo:"/images/photo/shiwenbin.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                }
+                            ]
+                        }, {
+                            commentusername:"Pang ChaoLi",
+                            photo:"/images/photo/pangchaoli.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },
+                    ],
+
+                },  {
+                    showComment:false,
                     photo:"/images/csdn.png",
                     username:"CSDN技术团队",
+                    work:"前端开发工程师",
                     time:"12分钟前",
-                    content:"今年六月份平薪来大学室友内推的公司，主要就是图不加班，任务少；今天来了说我们因为天天准点下班被公司其他研发部门眼红看不爽，被投诉，现在执行了末尾淘汰制(看平时下班时间---现在意思就是强制加班，任务饱和度)，我已经在准备简历了"
-                }, {
-                    photo:"/images/qq.png",
-                    username:"腾讯QQ",
-                    time:"12分钟前",
+                    classid:1,
+                    classname:"上班摸鱼",
+                    good:"109",
+                    commentcount:23,
+                    images:[
+                        
+                    ],
                     content:"有木有同学遇到过用svelte开发一个公共模块（比如菜单），build后另一个项目引入（该项目import了lodash），svelte的模块正常运行但是无法渲染，去掉lodash或者按需引入lodash才能正常渲染svelte模块",
-                }, {
-                    photo:"/images/baidu.png",
-                    username:"百度",
+                    tags:[
+                        {
+                            id:1,
+                            name:"上班摸鱼"
+                        }, {
+                            id:1,
+                            name:"吐槽大会"
+                        }
+                    ],
+                    comments:[
+                       {
+                            commentusername:"Sun YaNan",
+                            photo:"/images/photo/sunyanan.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },{
+                            commentusername:"Liu Hui",
+                            photo:"/images/photo/liuhui.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"Cesium框架添加的Entity实体如何贴在S3M倾斜摄影上",
+                            replyList:[
+                                {
+                                    replyusername:"Tian FuWei",
+                                    photo:"/images/photo/tianfuwei.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                },{
+                                    replyusername:"百年孤独Html",
+                                    photo:"/images/photo/pangchaoli.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:44",
+                                    reply:"设置一下classHisgiht : Cesium.hieght()试试"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:50",
+                                    reply:"可以，有效果"
+                                },
+                            ]
+                        },{
+                            commentusername:"Shi WenBin",
+                            photo:"/images/photo/shiwenbin.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[
+                                {
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Shi WenBin",
+                                    photo:"/images/photo/shiwenbin.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                }
+                            ]
+                        }, {
+                            commentusername:"Pang ChaoLi",
+                            photo:"/images/photo/pangchaoli.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },
+                    ],
+
+                },  {
+                    showComment:true,
+                    photo:"/images/qq.png",
+                    username:"JavaCat技术团队",
+                    work:"全干攻城狮",
                     time:"12分钟前",
+                    classid:1,
+                    classname:"上班摸鱼",
+                    good:"109",
+                    commentcount:23,
+                    images:[
+                        
+                    ],
                     content:"XDM，今年找工作这么难吗？我好多朋友找工作找好长时间都找不到。技术能力还可以，但是就是面试完之后没有消息了。有找工作的吗？大家都是什么情况~ ~ ~",
-                }, {
-                    photo:"/images/weibo.png",
-                    username:"微博技术团队",
-                    time:"12分钟前",
-                    content:"昨天晚上看密室大逃脱大神版最新一期，哇，郭文韬解最后那个算术题题时候那邪魅一笑真是太迷人了，学霸的迷人之处真的让人无法自拔呀",
-                }, {
-                    photo:"/images/github.png",
-                    username:"GitHub代码仓库",
-                    time:"12分钟前",
-                    content:"想做一个炒基，炒股，交流的项目，有没有人愿意聊聊的啊，把自己的一些东西分享出来，或者搬搬砖也可以，目的呢就是集结广大程序猿且热爱的股市的xdm，开源一个项目",
-                }, {
-                    photo:"/images/gitee.png",
-                    username:"Gitee技术团队",
-                    time:"12分钟前",
-                    content:"杭州,三年,大专,10k,是不是有点少了~ ~ ~",
-                },
+                    tags:[
+                        {
+                            id:1,
+                            name:"上班摸鱼"
+                        }, {
+                            id:1,
+                            name:"吐槽大会"
+                        }
+                    ],
+                    comments:[
+                       {
+                            commentusername:"Sun YaNan",
+                            photo:"/images/photo/sunyanan.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },{
+                            commentusername:"Liu Hui",
+                            photo:"/images/photo/liuhui.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"Cesium框架添加的Entity实体如何贴在S3M倾斜摄影上",
+                            replyList:[
+                                {
+                                    replyusername:"Tian FuWei",
+                                    photo:"/images/photo/tianfuwei.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                },{
+                                    replyusername:"百年孤独Html",
+                                    photo:"/images/photo/pangchaoli.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:44",
+                                    reply:"设置一下classHisgiht : Cesium.hieght()试试"
+                                },{
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:50",
+                                    reply:"可以，有效果"
+                                },
+                            ]
+                        },{
+                            commentusername:"Shi WenBin",
+                            photo:"/images/photo/shiwenbin.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[
+                                {
+                                    replyusername:"Liu Hui",
+                                    photo:"/images/photo/liuhui.png",
+                                    work:"Web前端开发",
+                                    time:"2022-10-18 14:40",
+                                    reply:"可以在entity属性上添加clamToS3M:true属性"
+                                },{
+                                    replyusername:"Shi WenBin",
+                                    photo:"/images/photo/shiwenbin.png",
+                                    work:"前端开发工程师",
+                                    time:"2022-10-18 14:42",
+                                    reply:"设置了 没有效果。。。"
+                                }
+                            ]
+                        }, {
+                            commentusername:"Pang ChaoLi",
+                            photo:"/images/photo/pangchaoli.png",
+                            work:"前端开发工程师",
+                            time:"2022-10-18 14:32",
+                            comment:"polygon实体如何贴在倾斜摄影模型上",
+                            replyList:[]
+                        },
+                    ],
+
+                }, 
+                //  {
+                //     photo:"/images/qq.png",
+                //     username:"腾讯QQ",
+                //     time:"12分钟前",
+                //     content:"",
+                // }, {
+                //     photo:"/images/baidu.png",
+                //     username:"百度",
+                //     time:"12分钟前",
+                //     content:"",
+                // }, {
+                //     photo:"/images/weibo.png",
+                //     username:"微博技术团队",
+                //     time:"12分钟前",
+                //     content:"昨天晚上看密室大逃脱大神版最新一期，哇，郭文韬解最后那个算术题题时候那邪魅一笑真是太迷人了，学霸的迷人之处真的让人无法自拔呀",
+                // }, {
+                //     photo:"/images/github.png",
+                //     username:"GitHub代码仓库",
+                //     time:"12分钟前",
+                //     content:"想做一个炒基，炒股，交流的项目，有没有人愿意聊聊的啊，把自己的一些东西分享出来，或者搬搬砖也可以，目的呢就是集结广大程序猿且热爱的股市的xdm，开源一个项目",
+                // }, {
+                //     photo:"/images/gitee.png",
+                //     username:"Gitee技术团队",
+                //     time:"12分钟前",
+                //     content:"杭州,三年,大专,10k,是不是有点少了~ ~ ~",
+                // },
             ],
             huatiList:[
                 {
@@ -313,6 +571,12 @@ export default {
                 //     name:"马上撸代码",
                 // },
             ],
+        
+        }
+    },
+    methods:{
+        changeCommentVisible(index){
+            this.newsList[index].showComment = !this.newsList[index].showComment
         }
     }
 }
@@ -393,6 +657,7 @@ export default {
     font-size:15px;
     font-family: "微软雅黑";
     height:120px;
+    max-height:120px;
 }
 .club-container .news-container .artilce-filter{
   line-height:50px;
@@ -421,6 +686,7 @@ export default {
     background:#fff;
     border-radius: 4px;
     padding:12px;
+    padding-bottom:0px;
     margin-bottom:12px;
 }
 
@@ -432,20 +698,20 @@ export default {
 .club-container .news .user-info{
     width:100%;
     height:50px;
+
 }
 
 .club-container .news .user-info .photo{
-    width:34px;
-    height:34px;
+    width:40px;
+    height:40px;
     border-radius: 50%;
     overflow: hidden;
     float:left;
-    margin-top:3px;
 }
 
 .club-container .news .user-info .photo img{
-    width:34px;
-    height:34px;
+    width:40px;
+    height:40px;
 }
 .club-container .news .user-info .user-name{
     float:left;
@@ -477,22 +743,55 @@ export default {
 
 .club-container .news .operate{
     width:100%;
-    height:24px;
+    height:40px;
+    /* background:red; */
 }
 
 .club-container .news .comment{
-    width:100%;
-    height:400px;
+    width:760px;
     background:#fff;
+    padding-left:30px;
     padding-top:15px;
+    border-top:1px solid #f1f3f5;
+    /* margin-top:15px; */
+}
+.club-container .news .morecomment{
+    width:100%;
+    text-align: center;
+    height:40px;
+    line-height:40px;
+}
+.club-container .news .comment::after{  
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .comment-parent{
     width:100%;
-    height:80px;
+}
+.comment-parent::after{  
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .comment-parent .comment-user-info{
     width:100%;
-    height:80px;
+    padding-bottom:15px;
+    padding:15px 0px;
+    border-bottom:1px solid #f1f3f5;
+    /* height:400px; */
+}
+
+.comment-parent .comment-user-info::after{  
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .comment-parent .comment-user-info .comment-user-photo{
     width:30px;
@@ -500,7 +799,7 @@ export default {
     border-radius: 50%;
     float:left;
     margin-top:5px;
-    margin-left:40px;
+    /* margin-left:40px; */
     overflow: hidden;
 }
 .comment-parent .comment-user-info .comment-user-photo img{
@@ -509,10 +808,16 @@ export default {
 }
 .comment-parent .comment-user-info .comment-user-name{
     float:left;
-    height:80px;
     margin-left:15px;
     font-size:14px;
     line-height:20px;
+}
+.comment-parent .comment-user-info .comment-user-name::after{
+content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .comment-parent .comment-user-info .comment-user-name .comment-info{
     line-height:30px;
@@ -521,20 +826,39 @@ export default {
     font-size:14px;
     margin-top:0px;
 }
+.comment-operate{
+    font-size:12px;
+    color:#777;
+}
 .comment-parent .comment-user-info .comment-user-name p{
     margin:0px;
     line-height:20px;
 }
 .comment-child{
     width:690px;
-
-    background:#f9fafb;
+    background:#fafafa;
     padding:12px;
     margin-top:12px;
+    border-radius: 8px;
+}
+.comment-child::after{
+    content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
+
 }
 .comment-child .child-comment-user-info{
     width:100%;
-    height:80px;
+}
+.comment-child .child-comment-user-info::after{
+    content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
+
 }
 .comment-child .child-comment-user-info .child-comment-user-photo{
     width:30px;
