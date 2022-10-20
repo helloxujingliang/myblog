@@ -6,7 +6,11 @@
             </div>
             <div class="topic-box" v-for="(item,index) in topicList" :key="index">
                 <div class="topic-box-info">
-                    <p class="topic-name"><img src="/images/icon/huati.png" style="position:relative;top:3px;left:-3px;" alt="" width="18px">{{item.title}}</p>
+                    <p class="topic-name">
+                        <img src="/images/icon/huati.png" style="position:relative;top:3px;left:-3px;" alt="" width="18px">
+                        {{item.title}}
+                        <span style="padding:0px 2px;font-size:8px;color:#fff;background:#409eff;border-radius:3px;margin-left:0px;">荐</span>
+                    </p>
                     <p class="topic-desc">{{item.desc}}</p>
                     <p class="topic-count">{{item.count}}条精彩内容</p>
                 </div>

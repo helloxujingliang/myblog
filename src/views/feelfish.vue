@@ -223,7 +223,7 @@
                     </p>
                 </div>
                 <div class="more-list">
-                    <el-link type="default" :underline="false">查看更多<i class="el-icon-arrow-right"></i></el-link>
+                    <el-link type="default" :underline="false" @click="$router.push({path:'/topic'})">查看全部话题<i class="el-icon-arrow-right"></i></el-link>
                 </div>
             </div>
             
