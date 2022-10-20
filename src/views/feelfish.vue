@@ -1,39 +1,5 @@
 <template>
-    <div class="club-container">
-        <!-- <div class="cate-container">
-            <span style="background:#4093ff;color:#fff;">综合</span>
-            <span>上班摸鱼</span>
-            <span>吐槽一下</span>
-            <span>今日问答</span>
-            <span>招聘广场</span>
-            <span>技术人生</span>
-            <span>打工人日常</span>
-        </div> -->
-
-        <!-- <div class="menu-container">
-            <ul>
-                <li><i class="el-icon-time"></i>&nbsp;最新发布</li>
-                <li><i class="el-icon-time"></i>&nbsp;热门帖子</li>
-                <li>
-                    <i class="el-icon-picture-outline-round"></i>&nbsp;谈论圈子
-                        <p class="quanzi">上班摸鱼</p>
-                        <p class="quanzi">吐槽一下</p>
-                        <p class="quanzi">技术人生</p>
-                        <p class="quanzi">今日新鲜事</p>
-                        <p class="quanzi">今日问答</p>
-                        <p class="quanzi">打工人日常</p>
-                        <p class="quanzi">沙雕表情包</p>
-                        <p class="quanzi">搞笑段子</p>
-                        <p class="quanzi">招聘广场</p>
-                        <p class="quanzi">技术交流</p>
-                        <p class="quanzi">树洞一下</p>
-                        <p class="quanzi">舌尖上的</p>
-                        <p class="quanzi">今天学到了</p>
-                </li>
-                
-                
-            </ul>
-        </div> -->
+    <div class="club-container">   
         <div class="news-container">
             <div class="write-news">
                 <div class="textarea">
@@ -62,6 +28,7 @@
             </div>
 
             <div class="news" v-for="(item,index) in newsList" :key="index">
+                <!-- 用户信息 -->
                 <div class="user-info">
                     <div class="photo">
                         <img :src="item.photo" alt="">
@@ -71,6 +38,7 @@
                         <p class="time">{{item.work}} · 发布于{{item.time}} <el-tag type="primary" size="mini">@{{item.classname}}</el-tag></p>
                     </div>
                 </div>
+                <!-- 内容 -->
                 <div class="content">
                     <div class="text-content">
                         {{item.content}}
@@ -87,23 +55,30 @@
                     </div>
 
                 </div>
-
+                <!-- 操作 -->
                 <div class="operate">
                     <el-row>
                         <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
-                            <img src="/images/icon/fenxiang.png" alt="" width="18px" style="position:relative;top:3px;">
+                           <span>
+                             <img src="/images/icon/fenxiang.png" alt="" width="18px" style="position:relative;top:3px;">
                             分享
+                           </span>
                         </el-col>
                         <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;cursor:pointer;" >
-                            <img @click="changeCommentVisible(index)" src="/images/icon/回复.png" alt="" width="18px" style="position:relative;top:2px;">
-                            评论（{{item.commentcount}}）
+                            <span  @click="changeCommentVisible(index)" >
+                                <img src="/images/icon/回复.png" alt="" width="18px" style="position:relative;top:2px;">
+                                评论（{{item.commentcount}}）
+                            </span>
                         </el-col>
                         <el-col :span="8" style="font-size:12px;line-height:40px;text-align:center;color:#777;">
-                            <img src="/images/icon/点赞.png" alt="" width="18px" style="position:relative;top:3px;">
-                            点赞（1{{item.good}}）
+                            <span>
+                                <img src="/images/icon/点赞.png" alt="" width="18px" style="position:relative;top:3px;">
+                                点赞（1{{item.good}}）
+                            </span>
                         </el-col>
                     </el-row>
                 </div>  
+                <!-- 评论 -->
                 <div class="comment" v-if="item.showComment">
                     <div class="comment-parent">
                         <div class="comment-user-info" v-for="(it,idx) in item.comments" :key="idx">
@@ -174,7 +149,7 @@
                 <div style="margin-top:5px;text-align:center;">
                 </div>
                 
-                <el-button type="primary" size="small" style="width:260px"><i class="el-icon-edit"></i> 我要发贴</el-button>
+                <el-button type="primary" size="small" style="width:239px;margin:12px 0px;"><i class="el-icon-edit"></i> 我要发贴</el-button>
             </div>
             <!-- 精选摸鱼 -->
               <div class="record-container">
@@ -185,17 +160,50 @@
                 </div>
                 <div class="record-list">
                     <div> 
-                        <div style="font-size:14px;color:#333;"> 
-                            <p style="width:262px;margin-bottom:6px;">【上班摸鱼】今年六月份平薪来大学室友内推的公司，主要就是图不加班，任</p>
-                            <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                        <div style="font-size:14px;color:#333;height:80px;"> 
+                           <div class="record-news-info">
+                                <p style="margin-bottom:8px;margin-top:8px;">今年六月份平薪来大学室友内推的公司</p>
+                                <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                           </div>
+                           <div  class="record-news-image">
+                                <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b8551243988498092bd253da7817dd9~tplv-k3u1fbpfcp-zoom-mark-crop-v2:128:128:0:0.awebp?" alt="">
+                           </div>
                         </div>
-                        <div style="font-size:14px;color:#333;"> 
-                            <p style="width:262px;margin-bottom:6px;">有木有同学遇到过用svelte开发一个公共模块（比如菜单）d后另</p>
-                            <p style="font-size:12px;color:#777;margin:0px;"><span>23赞</span>&nbsp;·&nbsp;<span>3评论</span></p>
+                        <div style="font-size:14px;color:#333;height:80px;"> 
+                           <div class="record-news-info">
+                                <p style="margin-bottom:8px;margin-top:8px;">XDM，今年找工作这么难吗？我好多朋友找工作找</p>
+                                <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                           </div>
+                           <div  class="record-news-image">
+                                <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54c5bda89428417f8009279464776b1f~tplv-k3u1fbpfcp-zoom-mark-crop-v2:128:128:0:0.awebp?" alt="">
+                           </div>
                         </div>
-                        <div style="font-size:14px;color:#333;"> 
-                            <p style="width:262px;margin-bottom:6px;">XDM，今年找工作这么难吗？我好多朋友找工作找好长时间不到。</p>
-                            <p style="font-size:12px;color:#777;margin:0px;"><span>12赞</span>&nbsp;·&nbsp;<span>0评论</span></p>
+                        <div style="font-size:14px;color:#333;height:80px;"> 
+                           <div class="record-news-info">
+                                <p style="margin-bottom:8px;margin-top:8px;">【上班摸鱼】今年六月份平薪来大学室友内推的公司</p>
+                                <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                           </div>
+                           <div  class="record-news-image">
+                                <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0d25e4d6b3945fbb21659ed4062d8db~tplv-k3u1fbpfcp-zoom-mark-crop-v2:128:128:0:0.awebp?" alt="">
+                           </div>
+                        </div>
+                        <div style="font-size:14px;color:#333;height:80px;"> 
+                           <div class="record-news-info">
+                                <p style="margin-bottom:8px;margin-top:8px;">今年六月份平薪来大学室友内推的公司</p>
+                                <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                           </div>
+                           <div  class="record-news-image">
+                                <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b8551243988498092bd253da7817dd9~tplv-k3u1fbpfcp-zoom-mark-crop-v2:128:128:0:0.awebp?" alt="">
+                           </div>
+                        </div>
+                        <div style="font-size:14px;color:#333;height:80px;"> 
+                           <div class="record-news-info">
+                                <p style="margin-bottom:8px;margin-top:8px;">XDM，今年找工作这么难吗？我好多朋友找工作找</p>
+                                <p style="font-size:12px;color:#777;margin:0px;"><span>43赞</span>&nbsp;·&nbsp;<span>12评论</span></p>
+                           </div>
+                           <div  class="record-news-image">
+                                <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54c5bda89428417f8009279464776b1f~tplv-k3u1fbpfcp-zoom-mark-crop-v2:128:128:0:0.awebp?" alt="">
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -215,7 +223,7 @@
                     </p>
                 </div>
                 <div class="more-list">
-                    查看更多 &nbsp;>&nbsp;
+                    <el-link type="default" :underline="false">查看更多<i class="el-icon-arrow-right"></i></el-link>
                 </div>
             </div>
             
@@ -557,19 +565,19 @@ export default {
                 },{
                     name:"怎么看带996",
                 },
-                // {
-                //     name:"羊了个养",
-                // },{
-                //     name:"非正式面试",
-                // },{
-                //     name:"怎么看带996",
-                // },{
-                //     name:"Hello Wrold !",
-                // },{
-                //     name:"迷惑BUG欣赏",
-                // },{
-                //     name:"马上撸代码",
-                // },
+                {
+                    name:"羊了个养",
+                },{
+                    name:"非正式面试",
+                },{
+                    name:"怎么看带996",
+                },{
+                    name:"Hello Wrold !",
+                },{
+                    name:"迷惑BUG欣赏",
+                },{
+                    name:"马上撸代码",
+                },
             ],
         
         }
@@ -583,60 +591,39 @@ export default {
 </script>
 <style scoped>
 .club-container{
-    width:1140px;
+    width:1024px;
     margin:0px auto;
 }
 
-.club-container .menu-container{
-    float:left;
-    width:180px;
-    background:#fff;
-}
-.club-container .menu-container ul{
-    padding:0px;
-    list-style: none;
-}
-.club-container .menu-container li{
-    width:160px;
-    margin:0px 10px;
-    min-height:36px;
-    font-size:14px;
-    text-indent:12px;
-    line-height:36px;
-    color:#333;
-}
-
-.club-container .menu-container li p{
-    margin:0px;
-    text-align: center;
-}
-
-.club-container .menu-container li:first-child{
-    background:#eaf2ff!important;
-    color:#1e80ff;
+.club-container::after{
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 
 .club-container .news-container{
-    width:830px;
+    width:740px;
     float:left;
 }
 .club-container .write-news{
-    width:800px;
+    width:700px;
     height: 168px;
     background:#fff;
     margin-bottom:15px;
     border-radius:5px;
-    padding:15px;
+    padding:20px;
 }
 .club-container .write-news .textarea{
-    width:800px;
+    width:700px;
     height:120px;
     background:#f1f3f5;
     border-radius: 5px;
     
 }
-.club-container .write-news  .other{
-    width:800px;
+.club-container .write-news .other{
+    width:710px;
     height:20px;
     padding-top:15px;
 }
@@ -659,9 +646,10 @@ export default {
     height:120px;
     max-height:120px;
 }
+
 .club-container .news-container .artilce-filter{
   line-height:50px;
-  width:830px;
+  width:740px;
   height:50px;
   background:#fff;
   border-bottom:1px solid #f1f3f5;
@@ -675,19 +663,19 @@ export default {
   float:left;
   border-bottom:2px solid #fff;
 }
+
 .club-container .news-container .filter-menu:hover{
   border-color:#409eff;
 }
 
 
-
 .club-container .news{
-    width:806px;
+    width:710px;
     background:#fff;
     border-radius: 4px;
-    padding:12px;
+    padding:15px;
     padding-bottom:0px;
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 .club-container .news:first-child{
@@ -698,7 +686,6 @@ export default {
 .club-container .news .user-info{
     width:100%;
     height:50px;
-
 }
 
 .club-container .news .user-info .photo{
@@ -748,9 +735,8 @@ export default {
 }
 
 .club-container .news .comment{
-    width:760px;
+    width:710px;
     background:#fff;
-    padding-left:30px;
     padding-top:15px;
     border-top:1px solid #f1f3f5;
     /* margin-top:15px; */
@@ -835,7 +821,7 @@ content:"";
     line-height:20px;
 }
 .comment-child{
-    width:690px;
+    width:640px;
     background:#fafafa;
     padding:12px;
     margin-top:12px;
@@ -891,22 +877,23 @@ content:"";
     line-height:20px;
 }
 .club-container .right-container{
-    position:fixed;
+    /* position:fixed;
     top:122px;
     right:50%;
-    margin-right:-570px;
-    width:290px;
+    margin-right:-570px; */
+    width:269px;
     float:right;
     /* background:#fff; */
 }
 
 .user-container{
-  width:266px;
-  padding:12px;
-  height:160px;
+  width:239px;
+  padding:15px;
+  height:168px;
   background:#fff;
   padding-bottom:24px;
   margin-bottom:15px;
+  border-radius: 4px;
 }
 
 .user-container p{
@@ -914,7 +901,7 @@ content:"";
     line-height:20px;
 }
 .user-info{
-  width:266px;
+  width:239px;
   height:60px;
   /* border-bottom:1px solid #f1f3f5; */
 }
@@ -946,7 +933,7 @@ content:"";
   padding-top:0px;
 }
 .user-count .row{
-  width:88.5px;
+  width:79.6px;
   text-align: center;
   float:left;
   height:34px;
@@ -956,8 +943,8 @@ content:"";
 }
 
 .record-container{
-  width:266px;
-  padding:12px;
+  width:239px;
+  padding:15px;
   min-height:220px;
   background:#fff;
   margin-bottom:20px;
@@ -986,6 +973,25 @@ content:"";
   margin-top:50px;
   width:241px;
 }
+.record-list .record-news-info{
+    width:177px;
+    height:80px;
+    float:left;
+    
+}
+
+.record-list .record-news-image{
+    width:64px;
+    height:80px;
+    float:right;
+}
+.record-list .record-news-image img{
+    width:64px;
+    height:64px;
+    margin-top:8px;
+    border-radius: 4px;
+}
+
 .more-list{
     height:30px;
     border-top:1px solid #f1f1f1;
@@ -995,7 +1001,7 @@ content:"";
     color:#666;
 }
 .record-list .hot-article{
-  width:241px;
+  width:239px;
   color:#666;
   height:30px;
   overflow:hidden;

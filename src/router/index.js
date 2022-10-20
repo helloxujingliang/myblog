@@ -42,6 +42,15 @@ const routes = [
           childMenu:true
         }
       },{
+        path:"topic",          //上班摸鱼
+        name:"topic",
+        component: ()=>import('../views/topic.vue'),
+        meta:{
+          name:'topic',
+          title:"话题",
+          childMenu:false
+        }
+      },{
         path:"cate",
         name:"cate",
         component: ()=>import('../views/cate.vue'),

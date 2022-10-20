@@ -105,14 +105,14 @@
         </div>
         <div class="cate-box" v-if="pageName == 'feelfish' && showChildMenu">
           <div class="cate-box-inner" >
-            <el-link type="primary" :underline="false" style="margin-right:12px;">综合</el-link>
+            <el-link type="primary" :underline="false" style="margin-right:12px;" >综合</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">上班摸鱼</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">吐槽一下</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">今日问答</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">技术人生</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">打工人日常</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">搬砖日常</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">
+            <el-link type="default" :underline="false" style="margin-right:12px;" @click="$router.push({path:'/topic'})">
               全部圈子<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
             </el-link>
           </div>
@@ -220,7 +220,7 @@ export default {
   border-top:1px solid #f1f3f5;
 }
 .site-header .cate-box .cate-box-inner{
-  width:1140px;
+  width:1024px;
   margin:0px auto;
   height:45px;
   line-height: 40px;
