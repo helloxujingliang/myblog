@@ -112,7 +112,7 @@
             <el-link type="default" :underline="false" style="margin-right:12px;">技术人生</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">打工人日常</el-link>
             <el-link type="default" :underline="false" style="margin-right:12px;">搬砖日常</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;" @click="$router.push({path:'/topic'})">
+            <el-link type="default" :underline="false" style="margin-right:12px;" @click="$router.push({path:'/circle'})">
               全部圈子<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
             </el-link>
           </div>

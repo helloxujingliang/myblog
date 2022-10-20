@@ -42,6 +42,15 @@ const routes = [
           childMenu:true
         }
       },{
+        path:"circle",          //上班摸鱼
+        name:"circle",
+        component: ()=>import('../views/circle.vue'),
+        meta:{
+          name:'circle',
+          title:"圈子",
+          childMenu:false
+        }
+      },{
         path:"topic",          //上班摸鱼
         name:"topic",
         component: ()=>import('../views/topic.vue'),
