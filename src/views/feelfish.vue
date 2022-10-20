@@ -587,6 +587,60 @@ export default {
             this.newsList[index].showComment = !this.newsList[index].showComment
         }
     }
+
+    /*
+    feelfishList = [
+        {
+        username:"XuJingLiang",
+        photo:"/images/baidu.png",
+        time:"2022-10-18 08:32",
+        catename:"上班摸鱼",
+        cateid:"34g5hwh5854qh85hq8g8q5gh845gjf",
+        commentcount:13,
+        good:43,
+        topic:[
+            {
+            name:"技术日常",
+            id:"343afh02fc45u22q8g8q5gh"
+            }
+        ],
+        commentList:[],
+        }
+    ];
+    commentList = [
+        {
+        comment:"如何在将Entity实体添加到S3M加载的倾斜摄影模型之上",
+        username:"xujingliang",
+        photo:"/images/baidu.png",
+        time:"2022-10-18 15:23",
+        good:"12",
+        replayList:[
+            {
+                replay:"可以在entity属性中设置clamToS3M:true",
+                replayusername:"LiuHui",
+                photo:"/images/csdn.png",
+                replayToUsername:"XuJingLiang"
+                time:"2022-10-18 15:32",
+                good:1
+            },{
+                replay:"配置了 不起作用",
+                replayusername:"XuJingLiang",
+                photo:"/images/gitee.png",
+                replayToUsername:"LiuHui"
+                time:"2022-10-18 15:35",
+                good:0
+            },{
+                replay:"可以试试 classificationType: Cesium.ClassificationType.S3M_TILE",
+                replayusername:"TianFuWei",
+                photo:"/images/qq.png",
+                replayToUsername:"XuJingLiang"
+                time:"2022-10-18 16:02",
+                good:0
+            }
+        ]
+        }
+    ];
+    */
 }
 </script>
 <style scoped>
@@ -643,6 +697,7 @@ export default {
     border:none;
     font-size:15px;
     font-family: "微软雅黑";
+    min-height: 120px;
     height:120px;
     max-height:120px;
 }
