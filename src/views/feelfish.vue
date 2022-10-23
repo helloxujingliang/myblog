@@ -640,6 +640,37 @@ export default {
         ]
         }
     ];
+
+    用户注册 -> 用户登录 -> 完善用户信息(默认有信息) -> 用户中心页面
+
+    圈子数据查询
+    {
+        name:"上班摸鱼",
+        image:"",
+        desc:"",
+        peopleCount:1038,
+        newsCount:2844947
+    }
+    
+    话题数据查询  
+    {
+        name:"羊了个羊",
+        image:"",
+        desc:"",
+        newsCount:834,
+        browserCount:4332,
+    }
+    
+    摸鱼数据查询  
+    
+    用户摸鱼数据查询
+    {
+        username:"Liu Hui",
+        image:"",
+        
+    }
+
+    
     */
 }
 </script>
