@@ -55,8 +55,27 @@ const routes = [
         name:"topic",
         component: ()=>import('../views/topic.vue'),
         meta:{
-          name:'topic',
-          title:"话题",
+          name:'circle',
+          title:"圈子",
+          childMenu:false
+        }
+      },{
+        path:"circledetail",          //上班摸鱼
+        name:"circledetail",
+        component: ()=>import('../views/circleTopicDetail.vue'),
+        meta:{
+          name:'circledetail',
+          title:"圈子详情",
+          childMenu:false
+        }
+      },
+      {
+        path:"usercenter",          //上班摸鱼
+        name:"usercenter",
+        component: ()=>import('../views/usercenter.vue'),
+        meta:{
+          name:'usercenter',
+          title:"个人主页",
           childMenu:false
         }
       },{

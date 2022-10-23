@@ -50,7 +50,7 @@
         <div class="silder-box-container">
             <div class="silder-box" v-for="(item,index) in silderList" :key="index">
                 <div>
-                    <img :src="item.image" width="216px" />
+                    <img :src="item.image" width="244.7px" />
                 </div>
                 <div class="activity-info">
                     <p class="activity-name">{{item.title}}</p>
@@ -259,7 +259,7 @@ export default {
 </script>
 <style scoped>
 .activity-container{
-    width:1140px;
+    width:1024px;
     margin:15px auto;
 }
 .top-container{
@@ -267,7 +267,7 @@ export default {
     width:1140px;
 }
 .silder-container{
-    width:678px;
+    width:562px;
     float:left;
     height:270px;
     margin-left: 15px;
@@ -335,8 +335,8 @@ export default {
     margin-top:35px;
 }
 .silder-box{
-    width:216px;
-    height:260px;
+    width:244.7px;
+    height:280px;
     float:left;
     margin-right:15px;
     margin-bottom:15px;
@@ -353,7 +353,7 @@ export default {
     z-index:2;
     top:-3px;
 }
-.silder-box:nth-child(5n){
+.silder-box:nth-child(4n){
     margin-right:0px;
 }
 .el-carousel__item h3 {
@@ -374,7 +374,7 @@ export default {
   }
 
   .activity-info{
-    width:192px;
+    width:220.75px;
     padding:12px;
   }
   .activity-info .activity-name{
