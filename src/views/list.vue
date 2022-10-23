@@ -2,31 +2,38 @@
     <div>
       <!-- 文章列表 -->
       <div class="box" v-for="(item,index) in articleList" :key="index" >
+          <div class="article-time">
+            <!-- <span class="article-cate" style="font-size:8px!important;float:left;">{{item.cate}}</span> -->
+
+              <div class="author-photo">
+                  <img :src="item.photo" alt="" width="20px;">
+              </div>
+              <span style="font-size:13px;">XuJingLiang</span>
+            <span style="margin:0px 8px;">|</span>
+            <span style="font-size:13px;">发布于7天前</span>
+            <span style="margin:0px 8px;">|</span>
+            <span style="ont-size:13px;">{{item.cate}}</span>
+            
+          </div>
           <div class="article-title">
-            <span class="article-cate" style="font-size:8px!important;">{{item.cate}}</span>
             <span class="title"  @click="$router.push({path:'/article'})">{{item.title}}</span>
           </div>
           <div>
             <div class="left">
               <p class="article-desc">使用MapBox GL加载GeoJson点(circle)、线(line)、面(fill)、图标(symbol)、3D(fill-exceti)……</p>
               <div class="article-info">
-                <div style="float:left;">
-                  <div class="author-photo">
-                      <img :src="item.photo" alt="" width="30px;">
-                  </div>
-                  <span style="color:#333;margin-right:12px;font-size:13px;font-weight:400;">XuJingLiang</span>
-                </div>
-                <span style="margin-right: 22px;font-size:13px;"><i class="el-icon-time"></i>&nbsp;2022-009-10 12:33&nbsp;</span>
-                <span style="margin-right: 22px;font-size:13px;"><i class="el-icon-view"></i>&nbsp;448&nbsp;</span>
-                <span style="margin-right: 22px;font-size:13px;"><i class="el-icon-thumb"></i>&nbsp;123&nbsp;</span>
-                <span style="font-size:12px;float:right;margin-left:24px;">
-                  <el-link style="font-size:13px;margin-right:6px;" type="default" :underline="false"> #Vue2</el-link>
-                  <el-link style="font-size:13px;margin-right:6px;"  type="default" :underline="false"> #MapBox GL </el-link>
+                <span style="margin-right: 22px;font-size:13px;"><img src="/images/icon/list-liulan.png" width="19px" style="position:relative;top:4px;left:-2px;" alt=""/>&nbsp;123</span>
+                <span style="margin-right: 22px;font-size:13px;"><img src="/images/icon/list-comment.png" width="16px" style="position:relative;top:2px;left:-2px;" alt=""/>&nbsp;448</span>
+                <span style="margin-right: 22px;font-size:13px;"><img src="/images/icon/list-good.png" width="17px" style="position:relative;top:2px;left:-2px;" alt=""/>&nbsp;123</span>
+                <span style="margin-right: 22px;font-size:13px;">
+                  <img src="/images/icon/list-tag.png" width="16px" style="position:relative;top:3px;left:-2px;" alt=""/>
+                 Vue&nbsp;<span style="font-weight:bold;">·</span>&nbsp;Mapboxgl
                 </span>
               </div>
+            
             </div>
             <div class="right">
-              <img :src="item.image" alt="">
+              <img :src="item.image" alt="" >
             </div>
           </div>
       </div>
@@ -129,24 +136,30 @@ export default {
 </script>
 <style scoped>
 .box{
- width:810px;
- height:120px;
- padding:10px;
+ width:700px;
+ padding:20px;
  background:#fff;
  border-bottom:1px solid #f1f1f1;
  transition: all 0.3s;
  position:relative;
+ font-family: '微软雅黑';
+}
+.box::after{
+  content:"";
+  display: block;
+  clear:both;
+  height:0;
+  visibility: hidden;
 }
 .box .left{
-  width:650px;
-  height:88px;
+  width:580px;
   float:left;
-  padding-right:10px;
+  
 }
 
 .box .right{
-  width:140px;
-  height:88px;
+  width:120px;
+  height:80px;
   margin-top:0px;
   float:left;
   border-radius: 2px;
@@ -154,9 +167,12 @@ export default {
   overflow: hidden;
 }
 .box .right img{
-  width:140px;
-  height:88px;
-
+  width:120px;
+  height:80px;
+  transition: all 0.3s;
+}
+.box .right img:hover{
+  transform:scale(1.2);
 }
 .box p{
   margin:0px;
@@ -179,23 +195,29 @@ export default {
   color:#333;
   line-height:30px;
   font-weight: bold;
-  font-size:14px;
+  font-size:16px;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
 }
 .box .article-title .title:hover{
   color:#409eff;
-  text-decoration:underline;
+  /* text-decoration:underline; */
 }
 .box .article-desc{
   width:100%;
   height:40px;
-  margin:5px 0px;
+  margin:4px 0px;
   font-size:13px;
   color:#999;
   line-height:40px;
   
+}
+.box .article-count{
+  width:100%;
+  height:30px;
+  line-height:30px;
+  color:#999;
 }
 
 .box:hover{
@@ -204,11 +226,10 @@ export default {
 }
 
 .box .article-info{
-  width:630px;
   height:30px;
+  width:100%;
   font-size:14px;
   color:#777;
-  float:left;
   line-height:30px;
 }
 .pagenation{
@@ -217,14 +238,21 @@ export default {
   margin-top:12px;
   text-align: center;
 }
+.article-time{
+  width:100%;
+  height:30px;
+  font-size:13px;
+  color:#999;
+  line-height:20px;
+}
 .author-photo{
-  width:28px;
-  height:28px;
-  border:1px solid #bbb;
+  width:20px;
+  height:20px;
   border-radius:50%;
   float:left;
   margin-right:6px;
   overflow: hidden;
+  position:relative;
 }
 
 </style>

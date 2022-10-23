@@ -49,7 +49,7 @@
             </div>
 
             <div class="menu-children">
-              <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">任务兼职</el-link>
+              <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
             </div>
 
             <!-- <div class="menu-children">
@@ -57,18 +57,70 @@
             </div> -->
           </div>
         <!-- 用户中心 -->
-          <div class="user-center">
-            <img src="/images/site-icon.jpg" width="30px" alt="">
-          </div>
+            <el-popover
+                placement="bottom"
+                title=""
+                width="260"
+                trigger="hover"
+                content="">
+              <div class="user-center-popup">
+                <div style="width:100%;height:60px;">
+                  <div style="width:40px;height:40px;float:left;">
+                    <img src="/images/photo/liuhui.png" width="40px" alt="">
+                  </div>
+                  <div style="width:120px;height:30px;float:left;margin-left:15px;">
+                    <p style="margin:0px;">吃饭睡觉打代码</p>
+                    <p style="margin:6px 0px;font-size:12px;color:#999;">IP属地：山东省</p>
+                  </div>
+                </div>
+                <div style="width:244px;padding:8px;height:40px;background:#ecf3ff;border-radius:4px;">
+                  <p style="margin:0px;height:30px;">
+                    <span style="float:left;color:#409eff;font-size:13px;font-weight:bold;">等级:5</span>
+                    <span style="float:right;color:#409eff;font-size:12px;">854/1000></span>
+                  </p>
+                  <el-progress :percentage="75" :show-text="false"></el-progress>
+                </div>
+                <div style="width:260px;height:200px;margin-top:15px;">
+                  <div class="user-center-popup-btn">
+                    <img src="/images/icon/usercenter.png"   alt="">
+                    我的主页
+                  </div>
+                   <div class="user-center-popup-btn">
+                    <img src="/images/icon/liwu.png"  alt="">
+                    成长福利
+                  </div>
+                   <div class="user-center-popup-btn">
+                    <img src="/images/icon/setting.png"  alt="">
+                    个人设置
+                  </div>
+                   <div class="user-center-popup-btn">
+                    <img src="/images/icon/logout.png"  alt="">
+                    退出登录
+                  </div>
+                </div>
+              </div>
+
+            <div class="user-center" slot="reference">
+              <img src="/images/photo/liuhui.png" width="30px" alt="">
+            </div>
+
+            <!-- <div class="search" >
+              <el-input size="mini" style="width:220px;height:20px;position:relative;top:0px;text-align:left;" placeholder="请输入关键词进行搜索"></el-input>
+              <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
+            </div> -->
+          </el-popover>
+
+         
           <!-- 消息中心 -->
           <div class="notice-center">
             <el-badge :value="3" class="item" size="mini">
-              <i class="el-icon-message-solid" style="font-size:20px;"></i>
+              <!-- <i class="el-icon-message-solid" style="font-size:20px;"></i> -->
+              <img src="/images/icon/notice.png" width="18px" alt="">
             </el-badge>
           </div>
           <!-- 文章写作 -->
           <div class="register-and-login">
-            <el-button type="primary" size="mini" icon="el-icon-edit" @click="$router.push({path:'/write'})">创作文章</el-button>
+            <el-button type="primary" size="mini" icon="el-icon-edit" round @click="$router.push({path:'/write'})">创作文章</el-button>
           </div>
           <!-- 搜索 -->
           <el-popover
@@ -82,10 +134,10 @@
                 <div><span style="width:30px;padding:4px 8px;background:#f60;color:#fff;margin-right:6px;border-radius:4px;">2</span>SpringBoot Token验证登录</div>
                 <div><span style="width:30px;padding:4px 8px;background:#faa90e;color:#fff;margin-right:6px;border-radius:4px;">3</span>SuperMap for Cesium数据加载</div>
             </div>
-          <div class="search" slot="reference">
-            <el-input size="mini" style="width:220px;height:20px;position:relative;top:0px;text-align:left;" placeholder="请输入关键词进行搜索"></el-input>
-            <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
-          </div>
+            <div class="search" slot="reference">
+              <el-input size="mini" style="width:220px;height:20px;position:relative;top:0px;text-align:left;" placeholder="请输入关键词进行搜索"></el-input>
+              <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
+            </div>
           </el-popover>
         </div>
         <!-- 文章大分类 -->
@@ -228,7 +280,7 @@ export default {
 }
 .site-header .inner{
   /* width:1050px; */
-  max-width:1160px;
+  max-width:1300px;
   padding:0px 0px;
   height:60px;
   margin:0px auto;
@@ -348,5 +400,27 @@ export default {
 
 .hot-search div:hover{
   background:#f1f2f3;
+}
+
+.user-center-popup{
+  width:200px;
+  height:200px;
+
+}
+
+.user-center-popup-btn{
+  width:110px;height:40px;float:left;line-height:40px;color:#999;margin:0px 10px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+
+}
+.user-center-popup-btn:hover{
+  background:#f1f3f5;
+}
+.user-center-popup-btn img{
+  width:15px;
+  position:relative;
+  top:2px;
 }
 </style>

@@ -427,7 +427,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .body-container{
-  width:1140px;
+  width:1024px;
   margin:0px auto;
   padding-bottom:30px;
 }
@@ -439,7 +439,7 @@ export default {
   visibility: hidden;
 }
 .cate-container{
-  width:1140px;
+  width:1024anqi ;
   padding-bottom:10px;
 }
 .cate-container::after{
@@ -466,15 +466,14 @@ export default {
   cursor:pointer;
 }
 .article-list-container{
-  width:830px;
+  width:740px;
   padding:0px;
   border-radius: 0px;
   float:left;
   background:#fff;
-
 }
 .record-list-container{
-  width:290px;
+  width:269px;
   float:right;
   height:800px;
 }
@@ -492,22 +491,22 @@ export default {
 
 
 .sign-in{
-  width:266px;
-  padding:12px;
+  width:239px;
+  padding:15px;
   height:80px;
   background:#fff;
   margin-bottom:1px;
 }
 .user-container{
-  width:266px;
-  padding:12px;
+  width:239px;
+  padding:15px;
   height:160px;
   background:#fff;
   margin-bottom:20px;
     border-radius:0px;
 }
 .user-info{
-  width:266px;
+  width:239px;
   height:60px;
   // border-bottom:1px solid #f1f3f5;
 }
@@ -525,7 +524,7 @@ export default {
   box-shadow: 0 0 4px rgba(0,0,0, 0.1);
 }
 .user-container .username{
-  width:200px;
+  width:188px;
   height:40px;
   margin-left:10px;
   font-size:14px;
@@ -539,7 +538,7 @@ export default {
   padding-top:0px;
 }
 .user-count .row{
-  width:88px;
+  width:79px;
   text-align: center;
   float:left;
   height:34px;
@@ -557,8 +556,8 @@ export default {
   margin:6px 3px;
 }
 .record-container{
-  width:266px;
-  padding:12px;
+  width:239px;
+  padding:15px;
   min-height:280px;
   background:#fff;
   margin-bottom:20px;
@@ -586,12 +585,12 @@ export default {
 }
 .record-list{
   margin-top:40px;
-  width:266px;
+  width:239px;
   text-align: justify;
 }
 
 .record-list .hot-article{
-  width:266px;
+  width:239px;
   color:#666;
   height:30px;
   overflow:hidden;
@@ -617,7 +616,7 @@ export default {
 }
 .record-list .user-info .username{
   margin:0px;
-  width:200px;
+  width:188px;
   height:40px;
   margin-left:10px;
   font-size:14px;
@@ -646,7 +645,7 @@ export default {
 
 .artilce-filter{
   line-height:40px;
-  width:830px;
+  width:740px;
   height:42px;
   background:#fff;
   border-bottom:1px solid #f1f3f5;

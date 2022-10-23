@@ -50,7 +50,7 @@
         <div class="silder-box-container">
             <div class="silder-box" v-for="(item,index) in silderList" :key="index">
                 <div>
-                    <img :src="item.image" width="244.7px" />
+                    <img :src="item.image" width="241px" />
                 </div>
                 <div class="activity-info">
                     <p class="activity-name">{{item.title}}</p>
@@ -335,11 +335,11 @@ export default {
     margin-top:35px;
 }
 .silder-box{
-    width:244.7px;
+    width:241px;
     height:280px;
     float:left;
-    margin-right:15px;
-    margin-bottom:15px;
+    margin-right:20px;
+    margin-bottom:20px;
     background:#fcfcfc;
     position:relative;
     z-index:1;
