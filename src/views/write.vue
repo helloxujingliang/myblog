@@ -1,28 +1,17 @@
 <template>
   <div class="wirte-container">
-    <div style="witdh:1140px;height:30px;padding:10px;">
-          <el-select  size="mini" v-model="form.cateId" placeholder="文章分类" style="float:left;width:160px;margin-left:4px;">
-            <el-option-group
-              v-for="group in options"
-              :key="group.label"
-              :label="group.label">
-              <el-option
-                v-for="item in group.options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-option-group>
-          </el-select>
-          <el-input type="text" size="mini" v-model="form.title" placeholder="文章标题……" style="float:left;width:700px;margin-left:12px;"></el-input>
-          <span style="font-size:12px;line-height:30px;margin:12px;color:#777;">6/30字&nbsp;(标题5~30字)</span>
-    </div>
-     <Toolbar
-            style="border-bottom: 1px solid #eee;border-top:1px solid #eee;"
+    <Toolbar
+            style="border-bottom: 1px solid #eee;border-top:1px solid #eee;position:fixed;top:60px;width:1024px;left:50%;margin-left:-512px;z-index:999;"
             :editor="editor"
             :defaultConfig="toolbarConfig"
             :mode="mode"
       />
+
+    <div style="witdh:904px;height:30px;border-bottom:1px solid #eee;padding:20px 0px;">
+          <el-input type="text" size="mini" v-model="form.title" placeholder="文章标题……" style="float:left;width:780px;"></el-input>
+          <span style="font-size:12px;line-height:30px;margin:12px;color:#777;">6/30字&nbsp;(标题5~30字)</span>
+    </div>
+     
       <Editor
           style="height: calc( 100% - 130px); overflow-y: hidden;border-bottom: 1px solid #eee;"
           v-model="form.content"
@@ -30,31 +19,69 @@
           :mode="mode"
           @onCreated="onCreated"
       />
-      <div class="operate-box">
-        <div style="float:left;">
-          <el-select v-model="form.tags" size="mini" multiple placeholder="请选择" style="float:left;width:500px;margin-left:12px;">
-            <el-option
-              v-for="item in options2"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
+      <div class="article-info-container">
+        <el-form ref="form" :model="form" label-width="100px" size="mini">
+          <el-form-item label="封面图片：">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+              :on-success="handleAvatarSuccess"
+              style="float:left;"
+              :before-upload="beforeAvatarUpload">
+              <img v-if="imageUrl" :src="imageUrl" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+            <el-input type="textarea"  v-model="form.title" placeholder="文章摘要……" style="float:left;width:600px;margin-left:20px;height:108px;"></el-input>
+          </el-form-item>
 
-          <!-- <el-link style="font-size:12px;margin-right:16px;" type="default" :underline="false"> <strong style="color:#666;">#</strong>Vue2</el-link>
-          <el-link style="font-size:12px;margin-right:16px;"  type="default" :underline="false"> <strong style="color:#666;">#</strong>MapBox GL </el-link> -->
-        </div>
-        <div style="float:right;margin:0px 12px;color:#777;">
-            <!-- <span style="font-size:12px;">文章状态</span> -->
-             &nbsp;
-              <el-radio-group v-model="form.state" style="margin-top:6px;">
-                <el-radio :label="3">全部可见</el-radio>
-                <el-radio :label="6">仅自己可见</el-radio>
-              </el-radio-group>
-            &nbsp;&nbsp;&nbsp;&nbsp;
+          <el-form-item label="文章专栏：">
+            <el-select  size="mini" v-model="form.cateId" placeholder="文章分类" >
+              <el-option-group
+                v-for="group in options"
+                :key="group.label"
+                :label="group.label">
+                <el-option
+                  v-for="item in group.options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-option-group>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="文章标签：">
+            <el-select v-model="form.tags" size="mini" multiple placeholder="请选择" style="">
+              <el-option
+                v-for="item in options2"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="发布形式：">
+            <el-radio-group v-model="form.resource" size="mini">
+              <el-radio  label="仅自己可见"></el-radio>
+              <el-radio  label="粉丝可见"></el-radio>
+              <el-radio  label="全部可见"></el-radio>
+            </el-radio-group>
+          </el-form-item>
+
+          <el-form-item label="内容等级：">
+            <el-radio-group v-model="form.level" size="mini">
+              <el-radio  label="初级"></el-radio>
+              <el-radio  label="中级"></el-radio>
+              <el-radio  label="高级"></el-radio>
+            </el-radio-group>
+          </el-form-item>
+
+        </el-form>
+      </div>
+      <div class="operate-box">
+        <div style="float:right;color:#777;">
           <el-button type="default" size="small" round>保存文章</el-button>
           <el-button type="primary" size="small" round>发布文章</el-button>
-          
         </div>
       </div>
   </div>
@@ -68,6 +95,7 @@ export default Vue.extend({
     components: { Editor, Toolbar },
     data() {
         return {
+          imageUrl:null,
           form:{
             cateId:null,
             title:"【MapBox GL】加载GeoJson cricle、line、fill、symbol图层",
@@ -194,19 +222,21 @@ export default Vue.extend({
 
 <style scoped>
 .wirte-container{
-  width:1140px;
-  height: calc( 100vh - 132px);
+  width:944px;
+  padding:20px 40px;
+  min-height: calc( 100vh - 132px);
   background:#fff;
   margin:0px auto;
+  margin-top:83px;
 }
 .operate-box{
-  width:1140px;
-  padding:10px 0px;
+  width:944px;
+  padding:0px 20px;
   height:30px;
   background:#fff;
 }
 ::v-deep .el-input__inner{
-  background:#f9f9f9;
+  /* background:#f9f9f9; */
   border-radius:12px;
   /* border:0px;
   border-bottom:1px solid #f1f1f1; */
@@ -220,4 +250,38 @@ export default Vue.extend({
 ::v-deep .el-radio__label{
   font-size:12px;
 }
+
+.article-info-container {
+  width:984px;
+  padding:20px 0px;
+  height:360px;
+  background:#ffffff;
+  margin-top:30px;
+}
+/* 上传图片样式 */
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 108px;
+    line-height: 108px;
+    text-align: center;
+    border:1px dashed #ccc;
+    border-radius:8px;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
 </style>

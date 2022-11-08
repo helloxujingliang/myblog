@@ -23,11 +23,15 @@ export default {
 }
 </script>
 <style lang="scss">
-
+*{
+  margin:0px;
+  padding:0px;
+}
 html,body{
   padding:0px;
   margin:0px;
   background:#f1f3f5;
+  font-family:"-apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial!important"
 }
 
 html{
@@ -80,5 +84,7 @@ html{
   -webkit-box-shadow:inset 0 0 6px rgba(255,255,255,0.3);
   background-color:rgba(255,255,255,0.3);
 }
+
+
 
 </style>

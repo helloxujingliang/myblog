@@ -1,7 +1,8 @@
 <template>
 <div>
   <!-- 页面顶部导航搜索栏 -->
-  <Header style=""></Header>
+  <Header style="" v-if="breadNavShow"></Header>
+  <HeaderAbout style="" v-if="!breadNavShow"></HeaderAbout>
   <!-- 首页主题内容 -->
   <div class="body-container">
     <router-view/>
@@ -12,25 +13,28 @@
 </template>
 <script>
 import Header from '@/components/header.vue'
+import HeaderAbout from '@/components/headerabout.vue'
 import BreadNav from '@/components/breadnav.vue';
 import Footer from '@/components/footer.vue'
 export default {
   name:"Index",
   components:{
     Header,
+    HeaderAbout,
     BreadNav,
     Footer
   },
   data(){
     return {
-      breadNavShow:false,
+
+      breadNavShow:true,
       tags:['Vue 2','MapBox GL','Vue 3','GeoServer','Git','Vue Router','Axios','Element UI','Leaflet',],
       link:["Vue2","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium","Element UI","MapBox GL","GitHub","阿里巴巴矢量图标库","npm","Vue Router","Axios","Vue3","CSDN","Cesium"],
     }
   },
    watch:{
     $route:function(e){
-      if(e.meta.name == "index" || e.meta.name == "my" || e.meta.name == "write"){
+      if(e.meta.name == "about"){
         this.breadNavShow = false;
       }else{
          this.breadNavShow = true;
@@ -38,9 +42,14 @@ export default {
     }
   },
   created(){
-
+    if(this.$route.meta.name == "about"){
+      this.breadNavShow = false;
+    }else{
+      this.breadNavShow = true;
+    }
   },
   mounted(){
+    
   },
   methods:{
     
@@ -65,16 +74,12 @@ export default {
   border-radius: 5px;
   float:left;
   background:#fff;
-
 }
 .record-list-container{
   width:290px;
   float:right;
   height:800px;
 }
-
-
-
 .user-container{
   width:266px;
   padding:12px;

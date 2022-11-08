@@ -1,6 +1,6 @@
 <template>
-    <div class="site-header-container" :style="{'height':showChildMenu?'106px':'60px'}">
-      <div class="site-header" :style="{'height':showChildMenu?'106px':'60px'}">
+    <div class="site-header-container" :style="{'height':showChildMenu?'60px':'60px'}">
+      <div class="site-header" :style="{'height':showChildMenu?'60px':'60px'}">
         <div class="inner">
           <div class="logo-info" @click="$router.push({path:'/'})">
             <div class="logo" >
@@ -43,14 +43,14 @@
             <!-- <div class="menu-children">
               <el-link :type="pageName == 'link' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/link'})"></el-link>
             </div> -->
-            <div class="menu-children">
+            <!-- <div class="menu-children">
               <span style="padding:2px 2px;line-height:8px;background:#ee502f;color:#fff;font-size:8px;position:absolute;right:-20px;top:8px;border-radius:7px;">new</span>
               <el-link :type="pageName == 'job' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">工作招聘</el-link>
-            </div>
+            </div> -->
 
-            <div class="menu-children">
-              <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
-            </div>
+            <!-- <div class="menu-children">
+              <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/about'})">关于我们</el-link>
+            </div> -->
 
             <!-- <div class="menu-children">
               <el-link :type="pageName == 'about' ? 'primary' : 'default'" :underline="false" @click="$router.push({path:'/job'})">关于我们</el-link>
@@ -64,9 +64,9 @@
                 trigger="hover"
                 content="">
               <div class="user-center-popup">
-                <div style="width:100%;height:60px;">
-                  <div style="width:40px;height:40px;float:left;">
-                    <img src="/images/photo/liuhui.png" width="40px" alt="">
+                <div class="user-photo" style="width:100%;height:60px;" @click="$router.push({path:'/datacenter'})">
+                  <div style="width:30px;height:30px;float:left;">
+                    <img src="/images/photo/liuhui.png" width="30px" alt="">
                   </div>
                   <div style="width:120px;height:30px;float:left;margin-left:15px;">
                     <p style="margin:0px;">吃饭睡觉打代码</p>
@@ -75,13 +75,13 @@
                 </div>
                 <div style="width:244px;padding:8px;height:40px;background:#ecf3ff;border-radius:4px;">
                   <p style="margin:0px;height:30px;">
-                    <span style="float:left;color:#409eff;font-size:13px;font-weight:bold;">等级:5</span>
-                    <span style="float:right;color:#409eff;font-size:12px;">854/1000></span>
+                    <span style="float:left;color:#1e80ff;font-size:13px;font-weight:bold;">等级:5</span>
+                    <span style="float:right;color:#1e80ff;font-size:12px;">854/1000></span>
                   </p>
                   <el-progress :percentage="75" :show-text="false"></el-progress>
                 </div>
                 <div style="width:260px;height:200px;margin-top:15px;">
-                  <div class="user-center-popup-btn">
+                  <div class="user-center-popup-btn" @click="$router.push({path:'/usercenter'})">
                     <img src="/images/icon/usercenter.png"   alt="">
                     我的主页
                   </div>
@@ -133,73 +133,15 @@
                 <div><span style="width:30px;padding:4px 8px;background:#fe2d46;color:#fff;margin-right:6px;border-radius:4px;">1</span>MapBoxGL数据过滤</div>
                 <div><span style="width:30px;padding:4px 8px;background:#f60;color:#fff;margin-right:6px;border-radius:4px;">2</span>SpringBoot Token验证登录</div>
                 <div><span style="width:30px;padding:4px 8px;background:#faa90e;color:#fff;margin-right:6px;border-radius:4px;">3</span>SuperMap for Cesium数据加载</div>
+                <div><span style="width:30px;padding:4px 8px;background:#dedede;color:#fff;margin-right:6px;border-radius:4px;">4</span>SuperMap for Cesium数据加载</div>
+                <div><span style="width:30px;padding:4px 8px;background:#dedede;color:#fff;margin-right:6px;border-radius:4px;">5</span>SuperMap for Cesium数据加载</div>
+                <div><span style="width:30px;padding:4px 8px;background:#dedede;color:#fff;margin-right:6px;border-radius:4px;">6</span>SuperMap for Cesium数据加载</div>
             </div>
             <div class="search" slot="reference">
-              <el-input size="mini" style="width:220px;height:20px;position:relative;top:0px;text-align:left;" placeholder="请输入关键词进行搜索"></el-input>
+              <el-input size="mini" style="width:180px;height:20px;position:relative;top:0px;text-align:left;" placeholder="请输入关键词进行搜索"></el-input>
               <el-button type="primary" size="mini" icon="el-icon-search">搜索</el-button>
             </div>
           </el-popover>
-        </div>
-        <!-- 文章大分类 -->
-        <div class="cate-box" v-if="pageName == 'index' || pageName == 'study' && showChildMenu">
-          <div class="cate-box-inner" >
-            <el-link type="primary" :underline="false" style="margin-right:12px;">全部文章</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">我的关注</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">前端开发</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">后端开发</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">服务部署</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">开发工具</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">地理信息</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">
-              全部分类<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
-            </el-link>
-          </div>
-        </div>
-        <div class="cate-box" v-if="pageName == 'feelfish' && showChildMenu">
-          <div class="cate-box-inner" >
-            <el-link type="primary" :underline="false" style="margin-right:12px;" >综合</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">上班摸鱼</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">吐槽一下</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">今日问答</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">技术人生</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">打工人日常</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">搬砖日常</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;" @click="$router.push({path:'/circle'})">
-              全部圈子<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
-            </el-link>
-          </div>
-        </div>
-        <!-- 城市 -->
-        <div class="cate-box" v-if="pageName == 'activity' && showChildMenu">
-          <div class="cate-box-inner">
-            <el-link type="primary" :underline="false" style="margin-right:12px;">全部活动</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">北京</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">上海</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">广州</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">深圳</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">杭州</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">武汉</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">成都</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">青岛</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">济南</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">苏州</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">南京</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">长沙</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">
-              更多城市<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
-            </el-link>
-          </div>
-        </div>
-        <!-- 工作招聘 -->
-        <div class="cate-box" v-if="pageName == 'job' && showChildMenu">
-          <div class="cate-box-inner" >
-            <el-link type="default" :underline="false" style="margin-right:12px;">综合</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">前端开发</el-link>
-            <el-link type="primary" :underline="false" style="margin-right:12px;">后端开发</el-link>
-            <el-link type="default" :underline="false" style="margin-right:12px;">
-              全部分类<i class="el-icon-caret-right" style="position:relative;left:-4px;"></i>
-            </el-link>
-          </div>
         </div>
       </div>
     </div>
@@ -256,15 +198,19 @@ export default {
 </script>
 <style scoped>
 .site-header-container{
-  width:100%;height:106px;margin-bottom:15px;
+  width:100%;
+  height:60px;
+  /* margin-bottom:15px; */
 }
 .site-header{
   width:100%;
-  height:106px;
+  height:60px;
   background:#ffffff;
-  margin-bottom:15px;
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:999;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  position:fixed;top:0px;left:0px;z-index:999;
 }
 .site-header .cate-box{
   width:100%;
@@ -276,11 +222,10 @@ export default {
   margin:0px auto;
   height:45px;
   line-height: 40px;
-  text-indent: 6px;
 }
 .site-header .inner{
-  /* width:1050px; */
-  max-width:1300px;
+  width:1050px;
+  /* max-width:1440px; */
   padding:0px 0px;
   height:60px;
   margin:0px auto;
@@ -329,7 +274,7 @@ export default {
   transition:all 0.3s;
 }
 .menu-children:hover{
-  border-color:#409eff;
+  border-color:#1e80ff;
 }
 .site-header .search{
   float:right;
@@ -370,7 +315,7 @@ export default {
 }
 
 ::v-deep .search .el-input__inner{
-  border:1px solid #409eff;
+  border:1px solid #1e80ff;
   border-radius: 0px;
   border-top-left-radius:16px;
   border-bottom-left-radius:16px;
@@ -408,8 +353,11 @@ export default {
 
 }
 
+.user-center-popup .user-photo{
+  cursor:pointer;
+}
 .user-center-popup-btn{
-  width:110px;height:40px;float:left;line-height:40px;color:#999;margin:0px 10px;
+  width:110px;height:40px;float:left;line-height:40px;color:#666;margin:0px 10px;
   text-align: center;
   border-radius: 3px;
   cursor: pointer;
@@ -422,5 +370,20 @@ export default {
   width:15px;
   position:relative;
   top:2px;
+}
+
+::v-deep .el-link--primary{
+  color:#1e80ff!important;
+}
+::v-deep .el-link--primary:hover{
+  color:#1e80ff!important;
+}
+::v-deep .el-link.el-link--default{
+  color:#71777c;
+}
+
+::v-deep .el-button--primary{
+  background:#1e80ff!important;
+  border-color:#1e80ff!important;
 }
 </style>

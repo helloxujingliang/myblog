@@ -7,13 +7,7 @@
             <div class="user-info">
                 <p class="user-name" >吃饭睡觉打代码
                     <img src="@/assets/images/level.png" width="48px" alt="">
-
-                    <span style="float:right;">
-                        <img src="/images/csdn.png" alt="" width="18px" style="margin:0px 8px;">
-                        <img src="/images/github.png" alt="" width="18px" style="margin:0px 8px;">
-                        <img src="/images/gitee.png" alt="" width="18px" style="margin:0px 8px;">
-                        <img src="/images/weibo.png" alt="" width="18px" style="margin:0px 8px;">
-                    </span>
+                    <i class="el-icon-share" style="float:right;"></i>
                 </p>
                 <p style="font-size:14px;color:#777;">
                     <span><span style="font-size:16px;font-weight:bold;">7,438</span> 总访问量</span>
@@ -36,11 +30,29 @@
                      <el-button type="primary" plain round size="small" style="float:right;">编辑个人资料</el-button>
                     
                 </p>
-                
             </div>
         </div>
         <div class="data-container">
-            <div class="menu"></div>
+            <div class="artilce-filter">
+                <div class="filter-menu" style="border-color:#409eef;">
+                <el-link type="primary" style="font-size:16px;" :underline="false">动态</el-link>
+                </div>
+                <div class="filter-menu">
+                <el-link type="default" style="font-size:16px;" :underline="false">帖子</el-link>
+                </div>
+                <div class="filter-menu">
+                <el-link type="default" style="font-size:16px;" :underline="false">文章</el-link>
+                </div>
+                <div class="filter-menu">
+                <el-link type="default" style="font-size:16px;" :underline="false">收藏</el-link>
+                </div>
+                <div class="filter-menu">
+                <el-link type="default" style="font-size:16px;" :underline="false">消息</el-link>
+                </div>
+                <div class="filter-menu">
+                <el-link type="default" style="font-size:16px;" :underline="false">关注</el-link>
+                </div>
+            </div>
             <div class="data-list">
                 <div class="box" v-for="(item,index) in 15" :key="index" >
                     <p class="article-title" @click="$router.push({path:'/article'})">【MapBox GL】加载加载GeoJson图层</p>
@@ -79,7 +91,7 @@ export default {
 }
 .container .user-card{
     width:1024px;
-    height:180px;
+    height:160px;
     background:#fff;
     margin-top:30px;
 }
@@ -105,10 +117,9 @@ export default {
 
 }
 .container .user-card .user-info .user-name{
-    font-size:22px;
-    color:#666;
+    font-size:16px;
+    color:#333;
     margin:0px;
-    font-weight:bold;
 }
 
 .container .user-card .user-info .user-work{
@@ -123,12 +134,16 @@ export default {
 }
  .data-container{
     width:1024px;
-    margin-top:20px;
+   
  }
  .data-list{
     width:984px;
     padding:20px;
     background:#fff;
+ }
+ .box{
+    padding:10px 0px;
+    border-bottom:1px solid #f1f3f5;
  }
  .box p{
   margin:0px;
@@ -160,4 +175,22 @@ export default {
   font-size:13px;
   color:#999;
 }
+
+.artilce-filter{
+  line-height:40px;
+  width:1024px;
+  height:42px;
+  background:#fff;
+  border-bottom:1px solid #f1f3f5;
+}
+.filter-menu{
+  height:40px;
+  margin:0px 24px;
+  float:left;
+  border-bottom:2px solid #fff;
+}
+.filter-menu:hover{
+  border-color:#409eff;
+}
+
 </style>
